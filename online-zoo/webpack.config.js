@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -20,14 +21,14 @@ module.exports = {
     hot: true,
   },
   entry: {
-    index: ['@babel/polyfill', path.resolve(__dirname, 'src','main', 'index.js')],
-    donate: ['@babel/polyfill', path.resolve(__dirname, 'src','donate', 'donate.js')],
+    index: ['@babel/polyfill', path.resolve(__dirname, 'src', 'main', 'index.js')],
+    donate: ['@babel/polyfill', path.resolve(__dirname, 'src', 'donate', 'donate.js')],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
     clean: true,
     filename: '[name].[contenthash].js',
-    assetModuleFilename: 'assets/[name][ext]'
+    assetModuleFilename: 'assets/[name][ext]',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -72,8 +73,8 @@ module.exports = {
         test: /\.woff2?$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'fonts/[name][ext]'
-        }
+          filename: 'fonts/[name][ext]',
+        },
       },
       {
         test: /\.(jpe?g|png|webp|gif|svg)$/i,
@@ -89,16 +90,16 @@ module.exports = {
               },
               pngquant: {
                 quality: [0.65, 0.90],
-                speed: 4
+                speed: 4,
               },
               gifsicle: {
                 interlaced: false,
               },
               webp: {
-                quality: 75
+                quality: 75,
               },
-            }
-          }
+            },
+          },
         ],
         type: 'asset/resource',
       },
