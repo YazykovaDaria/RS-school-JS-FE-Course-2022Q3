@@ -1,3 +1,16 @@
+@import '../styles/colors';
+@import '../styles/fonts';
+
 body {
-  background-color: rgb(80, 153, 51);
+  font-family: 'Roboto';
+  font-weight: 700;
+  background: $pink-grad;
+}
+
+p {
+  font-weight: 400;
+}
+
+span {
+  font-weight: 100;
 }
