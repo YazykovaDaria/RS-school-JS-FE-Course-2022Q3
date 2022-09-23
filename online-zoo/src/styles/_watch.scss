@@ -1,0 +1,55 @@
+.watch {
+  padding-bottom: 6.25rem;
+  //картинка съезжает при адаптиве - подумать
+  background-image: url('../assets/img/Giant Panda.jpg');
+  background-repeat: no-repeat;
+  background-position: center -80px;
+  background-size: cover;
+
+}
+
+.watch-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1600px;
+  padding-right: 14.3rem;
+  padding-top: 5rem;
+}
+
+.watch-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 60px;
+}
+
+.watch-circle {
+  position: absolute;
+  right: 6.1rem;
+top: -4.63rem;
+  z-index: 1;
+  width: 29.06rem;
+  height: 29.06rem;
+  background: $orange-grad;
+  border-radius: 50%;
+}
+
+.watch-title {
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
+
+  .title {
+    font-weight: 700;
+    font-size: 106.496px;
+    line-height: 75%;
+    text-align: center;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  .yellow {
+    color: $yellow;
+  }
+}

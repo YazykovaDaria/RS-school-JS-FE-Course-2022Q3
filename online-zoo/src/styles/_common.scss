@@ -11,6 +11,12 @@ a {
   text-decoration: none;
 }
 
+button {
+  padding: 0;
+border: none;
+background: none;
+}
+
 .hidden {
   display: none;
 }
@@ -31,9 +37,10 @@ a {
   color: $white;
   font-weight: 500;
   line-height: 140%;
+  transition: 0.3s;
 
   &:hover {
-    background: $orange;
+    background: $orange-grad;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -71,4 +78,28 @@ background: $orange;
 //разобраться с бамбуком!
     transform: matrix(-0.9, 0.52, 0.4, 0.88, 0, 0);
     }
+    }
+
+    .btn {
+      width: 298px;
+      height: 54px;
+      background: $orange-grad;
+      border-radius: 25px;
+      font-weight: 500;
+font-size: 16px;
+line-height: 140%;
+text-align: center;
+text-transform: uppercase;
+color: $white;
+transition: 0.5s;
+
+&:hover {
+  background: $orange;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+&:active {
+  background: $gren;
+}
     }
