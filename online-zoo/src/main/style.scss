@@ -1,16 +1,4 @@
 @import '../styles/colors';
 @import '../styles/fonts';
-
-body {
-  font-family: 'Roboto';
-  font-weight: 700;
-  background: $pink-grad;
-}
-
-p {
-  font-weight: 400;
-}
-
-span {
-  font-weight: 100;
-}
+@import '../styles/common';
+@import '../styles/header';

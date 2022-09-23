@@ -1,0 +1,37 @@
+.header {
+  background-color: $black;
+}
+
+.nav {
+max-width: 1600px;
+display: flex;
+justify-content: space-between;
+padding: 1rem 13.75rem;
+padding-bottom: 14px;
+margin: 0 auto;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 23px;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  gap: 3.625rem;
+}
+
+.nal-item {
+  .active {
+    background: $orange;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+.design {
+  padding-top: 16px;
+}

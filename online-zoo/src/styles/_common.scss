@@ -1,0 +1,74 @@
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Roboto';
+  font-weight: 400;
+}
+
+.link {
+  color: $white;
+  font-weight: 500;
+  line-height: 140%;
+
+  &:hover {
+    background: $orange;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+}
+
+a.logo-link {
+  display: block
+}
+
+    .logo {
+    position: relative;
+    width: 72.49px;
+    height: 44.91px;
+    padding: 3.5px 4.7px;
+    margin: 0;
+    font-size: 19px;
+    line-height: 120%;
+    text-align: center;
+    color: $white;
+    border: 1.18841px solid $white;
+    border-radius: 2px;
+
+    &:hover {
+background: $orange;
+    }
+    .logo-img {
+    position: absolute;
+    width: 7.03px;
+    height: 20.98px;
+    left: 13.23px;
+    top: 24.64px;
+//разобраться с бамбуком!
+    transform: matrix(-0.9, 0.52, 0.4, 0.88, 0, 0);
+    }
+    }
