@@ -1,0 +1,141 @@
+.pets {
+  padding-top: 6.625rem;
+  padding-bottom: 6.25rem;
+  overflow: hidden;
+  background-color: $gray-light;
+  background-image: url('../assets/img/palm_foto.png'), url('../assets/img/strelitzia.png');
+  background-repeat: no-repeat, no-repeat;
+  background-position: bottom left, bottom right;
+}
+
+.pets-container {
+  display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 80px;
+}
+
+.carousel-container {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 20px;
+}
+
+.control {
+width: 62px;
+height: 62px;
+display: flex;
+justify-content: center;
+align-items: center;
+background: $orange-grad;
+border-radius: 50%;
+transition: 0.3s;
+
+&:hover {
+  background: $gren;
+  cursor: pointer;
+  transition: 0.3s;
+}
+}
+
+.ctrl-img {
+width: 16px;
+height: 8px;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 171px;
+}
+
+.carousel-item {
+display: flex;
+gap: 30px;
+overflow: hidden;
+}
+
+.carousel-card {
+  display: flex;
+  flex-direction: column;
+  border: solid 2px $orange;
+  border-radius: 5px;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: 0.3s;
+
+      // .carousel-img {
+      //   border-radius: 10px;
+      //   transform: scale(1.1);
+      //   transition: 0.3s;
+      // }
+
+      .card-describtion {
+        height: 70px;
+        background-color: $gray-smok;
+        transition-property: background-color, height;
+transition-duration: 0.5s, 0.5s;
+transition-delay: 0s, 0.5s;
+transition-timing-function: ease;
+        //transition: 0.5s;
+      }
+  }
+
+}
+
+.carousel-img {
+width: 362px;
+height: 360px;
+}
+
+
+.card-describtion {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding-left: 16px;
+padding-top: 8px;
+padding-bottom: 14px;
+}
+
+
+.card-content {
+
+  .subtitle {
+    font-weight: 500;
+    line-height: 140%;
+    font-size: 16px;
+    text-transform: uppercase;
+    color: $black;
+  }
+
+  .place {
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 120%;
+    color: $black;
+  }
+}
+
+.banana-icon {
+width: 33px;
+height: 37px;
+margin-right: 13px;
+}
+
+.meat-icon {
+  width: 48px;
+  height: 38px;
+  margin-right: 8px;
+}
