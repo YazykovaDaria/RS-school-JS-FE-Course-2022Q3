@@ -62,7 +62,7 @@ height: 8px;
 .carousel-item {
 display: flex;
 gap: 30px;
-overflow: hidden;
+//overflow: hidden;
 }
 
 .carousel-card {
@@ -72,27 +72,32 @@ overflow: hidden;
   border-radius: 5px;
 
     &:hover {
+      border: none;
+
+      .carousel-img {
+        border-radius: 10px;
         transform: scale(1.1);
         transition: 0.3s;
-
-      // .carousel-img {
-      //   border-radius: 10px;
-      //   transform: scale(1.1);
-      //   transition: 0.3s;
-      // }
+      }
 
       .card-describtion {
-        height: 70px;
+        //height: 70px;
+        position: relative;
         background-color: $gray-smok;
-        transition-property: background-color, height;
-transition-duration: 0.5s, 0.5s;
-transition-delay: 0s, 0.5s;
-transition-timing-function: ease;
-        //transition: 0.5s;
+        animation-name: describtion;
+        animation-duration: 1s;
       }
   }
-
 }
+
+@keyframes describtion{
+  0%{
+    top: 0;
+  }
+  100%{
+    top: -20px;
+  }
+  }
 
 .carousel-img {
 width: 362px;
