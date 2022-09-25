@@ -1,0 +1,112 @@
+.pick {
+  padding-top: 4rem;
+  padding-bottom: 6.25rem;
+  background: $oran-grad;
+}
+.pick-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3.75rem;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding-top: 2.562rem;
+  padding-bottom: 3.687rem;
+  background: $white-rg;
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+}
+
+.pick-content {
+
+  .title {
+    margin: 0;
+    text-align: center;
+    color: #FE9013;
+  }
+}
+
+.content-description {
+  margin-left: 6.187rem;
+
+  .subtitle {
+    margin: 30px 0 40px 0;
+    font-size: 24px;
+    line-height: 120%;
+  }
+
+  .description-bold {
+    font-weight: 500;
+    line-height: 130%;
+    }
+
+    .description {
+      margin-top: 10px;
+      line-height: 130%;
+    }
+
+    .link {
+      border-bottom: solid 2px #FE9013;
+      color: $black;
+      font-weight: 400;
+    }
+}
+
+.pick-cards-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.cards-title {
+  margin: 0;
+  font-weight: 400;
+  font-size: 36px;
+line-height: 130%;
+}
+
+.pick-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  position: relative;
+  max-width: 168px;
+}
+
+.pick-card {
+display: flex;
+flex-direction: column;
+gap: 30px;
+
+.description {
+  margin: 0;
+  }
+}
+
+.pick-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+width: 168px;
+height: 168px;
+background-color: $white;
+border: solid 1px #FE9013;
+border-radius: 5px;
+}
+
+.pick-arrow {
+  width: 168px;
+  height: 168px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+.img {
+  width: 69px;
+height: 35.08px;
+}
+}
