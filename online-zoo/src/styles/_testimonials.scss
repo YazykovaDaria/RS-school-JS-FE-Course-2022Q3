@@ -1,0 +1,112 @@
+.testimonials {
+  padding: 8.75rem 0 11.25rem 0;
+  background-color: $gray-light;
+  background-image: url('../assets/img/leavM.png');
+  background-repeat: no-repeat;
+  background-position: bottom right;
+}
+
+.testim-container {
+max-width: 1160px;
+margin: 0 auto;
+
+.btn {
+  border-radius: 5px;
+}
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+
+  .title {
+    margin: 0;
+    margin-bottom: 47px;
+    font-size: 36px;
+    font-weight: 400;
+  line-height: 130%;
+  text-align: center;
+  }
+}
+
+.testim-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.card-border {
+  background: $pink-grad;
+  padding: 3px;
+  border-radius: 20px;
+}
+
+.testim-card {
+display: flex;
+flex-direction: column;
+gap: 10px;
+max-width: 267px;
+height: 390px;
+overflow: hidden;
+background: #F1F3F2;
+border-radius: 20px;
+padding: 0 0.937rem 0 1rem;
+}
+
+.card-header {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.avatar {
+  width: 37px;
+height: 37px;
+}
+
+.card-title-name {
+font-size: 16px;
+line-height: 120%;
+color: #000000;
+}
+
+.card-title-info {
+  font-weight: 300;
+font-size: 15px;
+line-height: 120%;
+color: #BDBDBD;
+}
+
+.card-title-date {
+  &::before {
+    content: '•';
+  }
+}
+
+.card-contents {
+font-weight: 300;
+font-size: 15px;
+line-height: 120%;
+color: #767474;
+}
+
+.range {
+  display: flex;
+  justify-content: center;
+}
+
+input[type=range] {
+  margin: 14px 0 31px 0;
+appearance: none;
+width: 37.437rem;
+height: 8px;
+background-image: linear-gradient($orange, #F5F7F6);
+background-size: 19% 100%;
+background-repeat: no-repeat;
+border: solid 1px $orange;
+border-radius: 5px;
+
+&::-webkit-slider-thumb {
+appearance: none;
+}
+}
