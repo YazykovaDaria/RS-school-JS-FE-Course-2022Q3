@@ -1,0 +1,268 @@
+h2 {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  margin: 0;
+}
+
+// p {
+//   margin: 0;
+// }
+
+.pick {
+  padding-top: 40px;
+  padding-bottom: 11.25rem;
+background: $oran-grad;
+font-weight: 400;
+color: $white;
+}
+.pick-container {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.pick-info {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.info-title {
+  margin-bottom: 8px;
+  font-size: 36px;
+  font-weight: 300;
+line-height: 130%;
+}
+
+.info-description {
+  font-weight: 500;
+font-size: 16px;
+line-height: 140%;
+}
+
+.pick-title {
+  font-size: 36px;
+line-height: 130%;
+color: #FE9013;
+}
+
+.pick-card {
+  margin-top: 60px;
+  padding: 40px 5.75rem 46px 5.75rem;
+  background: $white-rg;
+  backdrop-filter: blur(2px);
+border-radius: 20px;
+color: $black;
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card-title {
+  font-size: 48px;
+line-height: 120%;
+text-align: center;
+color: #FE9013;
+}
+
+.card-subtitle {
+  font-size: 24px;
+  line-height: 120%;
+  color: $black;
+}
+
+.card-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+gap: 2rem;
+padding-top: 60px;
+
+  .img-icon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .img-animal {
+    width: 284px;
+    height: 246px;
+    //margin-left: 14px;
+  }
+}
+
+.count-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 11px;
+  height: 246px;
+}
+
+.count-img {
+  width: 82px;
+height: 58px;
+}
+
+.count-title {
+  font-size: 16px;
+line-height: 140%;
+text-align: center;
+}
+
+.card-progress {
+  margin-top: 48px;
+  // display: flex;
+  // flex-direction: column;
+}
+.progres-title {
+  margin-bottom: 14px;
+}
+
+.progres-images {
+  background-image: url('../assets/icons/blackLine.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 27px;
+
+  .point-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 900px;
+    margin: 0 auto;
+      background-image: url('../assets/icons/lineSm.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 95% 2px;
+  }
+
+  .progres-point {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+width: 40px;
+height: 40px;
+
+&.active {
+  background-image: url('../assets/icons/roller_icon.svg');
+  background-size: 40px 40px;
+  background-position: center;
+}
+
+&:hover {
+  background-image: url('../assets/icons/roller_icon.svg');
+  background-size: 40px 40px;
+  background-position: center;
+  transition: 0.3s;
+}
+
+    .point {
+      width: 10px;
+      height: 10px;
+      background-color: $yellow;
+      border-radius: 50%;
+
+    }
+  }
+}
+
+.progres-price {
+  display: flex;
+  justify-content: space-between;
+  max-width: 940px;
+  margin-top: 6px;
+}
+
+.prise-item {
+  font-weight: 500;
+font-size: 26px;
+line-height: 140%;
+text-transform: uppercase;
+color: #333B41;
+
+&.active {
+  color: #FE9013;
+}
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  margin-top: 31px;
+}
+
+input[type="number"] {
+  //-moz-appearance: textfield;
+  width: 260px;
+  height: 48px;
+  margin: 50px 0 25px 0;
+  padding-left: 9px;
+  //padding-right: 17px;
+  background: inherit;
+  background-image: url('../assets/icons/Vector.svg');
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: 10px 20px;
+  border: solid 2px #929699;
+  border-radius: 2px;
+
+  &::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+}
+
+.card-radio {
+display: flex;
+//max-width: 218px;
+justify-content: space-between;
+gap: 50px;
+margin-bottom: 32px;
+
+input[type="radio"] {
+  //visibility: hidden;
+  display: none;
+
+  &:checked+label::before {
+    background-color: $orange;
+  }
+}
+
+  .custom-checkbox {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid $orange;
+      border-radius: 50%;
+      margin-right: 10px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+  }
+}
+
+// .card-share {
+//   margin: 30px 0 62px 0;
+// }
