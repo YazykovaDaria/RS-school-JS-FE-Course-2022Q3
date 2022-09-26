@@ -3,24 +3,34 @@
 @import '../styles/common';
 @import '../styles/header';
 
-
-
-// li {
-//   margin: 0;
-// }
+.nav-container {
+  gap: 63px;
+  align-items: center;
+}
 
 .panda {
-width: 100%;
 height: 385px;
+width: 100%;
+background-color: $black;
 
-// img {
-// width: 100%;
-// height: 382px;
-// }
-background-image: url('../assets/img/panda_don.png');
-background-repeat: no-repeat;
-background-size: contain;
+img {
+  display: block;
+  margin: 0 auto;
+  width: 1600px;
+height: 100%;
+}
+// height: 385px;
+
+// background-image: url('../assets/img/panda_don.png');
+// background-repeat: no-repeat;
+ //background-size: cover;
 }
 
 @import '../styles/pick-donate';
 @import '../styles/footer';
+
+
+.footer-container .btn {
+  margin-top: 35px;
+  margin-bottom: 45px;
+}

@@ -80,12 +80,14 @@ color: #FE9013;
   display: flex;
   justify-content: center;
   align-items: center;
-gap: 2rem;
+//gap: 2rem;
 padding-top: 60px;
 
   .img-icon {
     width: 14px;
     height: 14px;
+    margin-left: 11px;
+    margin-right: 64px;
   }
 
   .img-animal {
@@ -107,6 +109,7 @@ padding-top: 60px;
 .count-img {
   width: 82px;
 height: 58px;
+margin-top: 55px;
 }
 
 .count-title {
@@ -212,7 +215,7 @@ input[type="number"] {
   background: inherit;
   background-image: url('../assets/icons/Vector.svg');
   background-repeat: no-repeat;
-  background-position: center right;
+  background-position: 250px center;
   background-size: 10px 20px;
   border: solid 2px #929699;
   border-radius: 2px;

@@ -2,4 +2,4 @@ import './donate.html';
 import 'normalize.css';
 import './donate.scss';
 
-console.log('hello donate');
+console.log('привет)\n если ты знаешь как растянуть картинку панды без потери пропорций \nи сделать так чтобы кнопки не мигали при ховере\nнапиши пожалуйчта в фидбеке;)');
