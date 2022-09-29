@@ -1,13 +1,12 @@
 .header {
-  background-color: $black;
+  background-color: #111115;
 }
 
 .nav {
 max-width: 1600px;
 display: flex;
 justify-content: space-between;
-padding: 1rem 13.75rem;
-padding-bottom: 14px;
+padding: 14px 13.75rem;
 margin: 0 auto;
 }
 
@@ -25,6 +24,7 @@ margin: 0 auto;
 
 .nal-item {
   .active {
+    pointer-events: none;
     background: $orange;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -34,4 +34,14 @@ margin: 0 auto;
 
 .design {
   padding-top: 16px;
+}
+
+@media (max-width: 1000px) {
+  .nav {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .nav-list {
+    gap: 48px;
+  }
 }
