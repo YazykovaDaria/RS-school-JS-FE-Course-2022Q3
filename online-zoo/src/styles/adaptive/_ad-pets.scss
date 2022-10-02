@@ -1,0 +1,91 @@
+@media (max-width: 1000px) {
+
+  .pets {
+    padding-top: 4.5rem;
+    padding-bottom: 135px;
+    background-image: url('../assets/img/palm_small.png'), url('../assets/img/strelitzia.png');
+    background-size: 180px 200px, 241px 180px;
+  }
+
+  .carousel {
+    gap: 12px;
+  }
+
+.mobil {
+  display: flex;
+}
+
+.desctop {
+  display: none;
+}
+
+  .carousel-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 171px;
+  }
+
+  .carousel-img {
+    height: 294px;
+    width: 294px;
+    }
+
+    .ctrl-desctop {
+      display: none;
+    }
+}
+
+@media (max-width: 640px) {
+  .pets {
+    padding-top: 0;
+    padding-bottom: 100px;
+    background-image: url('../assets/img/palm_foto.png'), url('../assets/img/strelitzia.png');
+    background-size: 140px 200px, 170px 140px;
+  }
+
+  .pets-container {
+    gap: 60px;
+  }
+
+  .carousel {
+
+    .carousel-item {
+position: relative;
+left: 160px;
+    }
+
+}
+
+  .carousel-img {
+    height: 285px;
+    width: 285px;
+}
+.card-content {
+  .subtitle {
+font-size: 12px;
+  }
+  .place {
+    font-size: 11px;
+  }
+}
+.card-describtion {
+  padding-left: 12px;
+  padding-top: 6px;
+  padding-bottom: 10px;
+}
+
+.banana-icon {
+  width: 25px;
+  height: 28px;
+  }
+
+  .meat-icon {
+    width: 37px;
+    height: 29px;
+  }
+
+  .carousel-controls {
+gap: 30px;
+  }
+}

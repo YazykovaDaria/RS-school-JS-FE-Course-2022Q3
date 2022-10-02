@@ -16,19 +16,14 @@ main {
 .panda {
 height: 385px;
 width: 100%;
-background-color: $black;
-
-img {
-  display: block;
-  margin: 0 auto;
-  width: 1600px;
-height: 100%;
+background: url('../assets/img/Giant Panda.jpg') no-repeat center ;
+  background-size: cover;
 }
-// height: 386px;
 
-// background-image: url('../assets/img/panda_don.png');
-// background-repeat: no-repeat;
-//  background-size: cover;
+@media (max-width: 1000px) {
+.panda {
+  background: url('../assets/img/panda_don.png')
+}
 }
 
 @import '../styles/pick-donate';

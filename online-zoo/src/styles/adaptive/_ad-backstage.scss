@@ -1,0 +1,65 @@
+@media (max-width: 1000px) {
+
+  .backstage {
+    padding-top: 109px;
+    background-image: none;
+  }
+
+  .back-container {
+padding: 0 30px;
+    gap: 31px;
+    margin: 0 auto;
+
+.title {
+  line-height: 100%;
+}
+}
+
+  .section-img {
+
+        img {
+          width: 455px;
+          height: 408px;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+
+  .backstage {
+    padding-top: 60px;
+    padding-bottom: 78px;
+    background-image: url('../assets/img/flower_foto1.png');
+    // background-repeat: no-repeat;
+    // background-position: right;
+    background-size: 125px 100% ;
+  }
+
+  .back-container {
+    justify-content: flex-start;
+    padding: 0;
+    padding-left: 20px;
+  }
+
+  .section-img {
+display: none;
+}
+
+.section-content {
+gap: 30px;
+align-items: stretch;
+}
+
+.back-content {
+  max-width: 495px;
+  gap: 20px;
+}
+
+.back-title {
+  max-width: 454px;
+
+  .title {
+    line-height: 120%;
+  }
+}
+}

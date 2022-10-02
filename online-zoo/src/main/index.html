@@ -16,6 +16,7 @@
     <img class="logo-img" src="../assets/icons/bamboo.svg" alt="bomboo">
     </h1>
 </a>
+
     <ul class="nav-list">
 <li class="nal-item"><a href="./index.html" class="nav-link link active">About</a></li>
 <li class="nal-item"><a href="#pick" class="nav-link link">Map</a></li>
@@ -23,15 +24,24 @@
 <li class="nal-item"><a href="./donate.html" class="nav-link link">Donate</a></li>
 <li class="nal-item"><a href="#footer" class="nav-link link">Contact us</a></li>
     </ul>
+
   </div>
     <div class="design">
       <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks?node-id=0%3A1" class="link">Designed by ©</a>
     </div>
+
+    <div class="menu-burger">
+      <div class="burger-lines">
+          <span class="burger-line"></span>
+      </div>
+    </div>
+
    </nav>
   </header>
   <main>
     <section class="watch">
       <div class="watch-wrapper">
+        <div class="watch-half"></div>
 <div class="watch-container">
   <div class="watch-circle"></div>
   <div class="watch-title">
@@ -67,7 +77,7 @@
       <div class="pets-container">
 <div class="carousel-container">
 
-<div class="control" id="ctrl-lefr-d">
+<div class="control ctrl-desctop" id="ctrl-lefr-d">
 <img class="ctrl-img" src="../assets/icons/left.svg" alt="arrow left">
 </div>
 
@@ -96,7 +106,18 @@
   </div>
 </div>
 
-<div class="carousel-card">
+<div class="carousel-card mobil">
+  <img class="carousel-img" src="../assets/img/cheetahs.jpg" alt="cheetahs">
+  <div class="card-describtion">
+<div class="card-content">
+<div class="subtitle">cheetahs</div>
+<div class="place">Native to Africa</div>
+</div>
+<img class="meat-icon" src="../assets/icons/meet-fish_icon.svg" alt="meet fish icon">
+  </div>
+</div>
+
+<div class="carousel-card desctop">
   <img class="carousel-img" src="../assets/img/gorilla.jpg" alt="Gorillas">
   <div class="card-describtion">
 <div class="card-content">
@@ -108,7 +129,7 @@
 </div>
 
 </div>
-<div class="carousel-controls hidden">
+<div class="carousel-controls">
   <div class="control" id="ctrl-lefr-m">
     <img class="ctrl-img" src="../assets/icons/left.svg" alt="arrow left">
     </div>
@@ -116,9 +137,20 @@
       <img class="ctrl-img" src="../assets/icons/right.svg" alt="arrow right">
 </div>
 </div>
-<div class="carousel-item">
 
+<div class="carousel-item">
   <div class="carousel-card">
+    <img class="carousel-img" src="../assets/img/gorilla.jpg" alt="Gorillas">
+    <div class="card-describtion">
+  <div class="card-content">
+  <div class="subtitle">Gorillas</div>
+  <div class="place">Native to Congo</div>
+  </div>
+  <img class="banana-icon" src="../assets/icons/banana-bamboo_icon.svg" alt="banana bamboo icon">
+    </div>
+  </div>
+
+  <div class="carousel-card desctop">
     <img class="carousel-img" src="../assets/img/sloth.jpg" alt="Two-toed Sloth">
     <div class="card-describtion">
   <div class="card-content">
@@ -129,12 +161,23 @@
     </div>
   </div>
 
-  <div class="carousel-card">
+  <div class="carousel-card desctop">
     <img class="carousel-img" src="../assets/img/cheetahs.jpg" alt="cheetahs">
     <div class="card-describtion">
   <div class="card-content">
   <div class="subtitle">cheetahs</div>
   <div class="place">Native to Africa</div>
+  </div>
+  <img class="meat-icon" src="../assets/icons/meet-fish_icon.svg" alt="meet fish icon">
+    </div>
+  </div>
+
+  <div class="carousel-card mobil">
+    <img class="carousel-img" src="../assets/img/alligator.jpg" alt="alligator">
+    <div class="card-describtion">
+  <div class="card-content">
+  <div class="subtitle">Alligators</div>
+  <div class="place">Native to Southeastern U. S.</div>
   </div>
   <img class="meat-icon" src="../assets/icons/meet-fish_icon.svg" alt="meet fish icon">
     </div>
@@ -153,7 +196,7 @@
 
 </div>
 </div>
-<div class="control" id="ctrl-right-d">
+<div class="control ctrl-desctop" id="ctrl-right-d">
   <img class="ctrl-img" src="../assets/icons/right.svg" alt="arrow right">
 </div>
 </div>
@@ -189,6 +232,10 @@
       <img src="../assets/icons/arrow.svg" alt="arrow" class="img">
     </div>
 
+    <div class="green-arrow first">
+      <img src="../assets/icons/arrowGreen.svg" alt="arrow">
+    </div>
+
     <div class="pick-card">
       <div class="pick-img">
         <img src="../assets/icons/zoo.svg" alt="zoo icon">
@@ -199,6 +246,10 @@
 <div class="pick-arrow">
       <img src="../assets/icons/arrow.svg" alt="arrow" class="img">
     </div>
+
+    <div class="green-arrow second">
+    <img src="../assets/icons/arrowGreen.svg" alt="arrow">
+  </div>
 
       <div class="pick-card">
         <div class="pick-img">
@@ -276,7 +327,7 @@
 </div>
 </div>
 
-<div class="card-border">
+<div class="card-border desctop">
   <div class="testim-card">
 <div class="card-header">
 <img class="avatar" src="../assets/icons/mila.svg" alt="avatar">
@@ -315,6 +366,8 @@
 <p class="title">Subscribe to our news</p>
 <form action="#" class="footer-form">
 <input type="email" class="footer-input" placeholder="Enter your email" required>
+
+
 
 <button type="button" class="email-btn default">Submit</button>
 </form>
@@ -365,6 +418,33 @@
           <li class="design-item">©RSSchool & ©Yem Digital 2021</li>
         </ul>
 </div>
+
+<ul class="mobile-links">
+
+  <li class="mobile-item">
+    <a class="link-icon" href="https://ru-ru.facebook.com/">
+      <div class="link-container"><img src="../assets/svg/face.svg" alt="instagram icon"></div>
+    </a>
+  </li>
+
+  <li class="mobile-item">
+    <a class="link-icon" href="https://twitter.com/?lang=ru">
+      <div class="link-container"><img src="../assets/svg/twi.svg" alt="instagram icon"></div>
+    </a>
+</li>
+
+<li class="mobile-item">
+  <a class="link-icon" href="https://www.instagram.com/">
+    <div class="link-container"><img src="../assets/svg/inst.svg" alt="instagram icon"></div>
+  </a>
+</li>
+
+  <li class="mobile-item">
+    <a class="link-icon" href="https://www.youtube.com/">
+      <div class="link-container"><img src="../assets/svg/youtybe.svg" alt="instagram icon"></div>
+    </a>
+</li>
+    </ul>
 </div>
   </footer>
 </body>

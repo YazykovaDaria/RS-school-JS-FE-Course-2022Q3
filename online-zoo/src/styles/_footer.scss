@@ -24,6 +24,10 @@
   justify-content: space-between;
 }
 
+.mobile-links {
+  display: none;
+}
+
 .footer-subscribe {
 
   .title {
@@ -136,3 +140,5 @@ background-color: rgba(196, 196, 196, 0.5);
   line-height: 130%;
   color: $white;
 }
+
+@import './adaptive/ad-footer';

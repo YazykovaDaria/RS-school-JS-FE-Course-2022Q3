@@ -81,6 +81,8 @@ color: #BDBDBD;
 }
 
 .card-contents {
+  height: 309px;
+  overflow: hidden;
 font-weight: 300;
 font-size: 15px;
 line-height: 120%;
@@ -107,3 +109,5 @@ border-radius: 5px;
 appearance: none;
 }
 }
+
+@import './adaptive/_ad-testimonails';

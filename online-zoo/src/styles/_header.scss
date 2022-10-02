@@ -1,5 +1,6 @@
 .header {
   background-color: #111115;
+  z-index: 2;
 }
 
 .nav {
@@ -36,12 +37,8 @@ margin: 0 auto;
   padding-top: 16px;
 }
 
-@media (max-width: 1000px) {
-  .nav {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-  .nav-list {
-    gap: 48px;
-  }
+.menu-burger {
+  display: none
 }
+
+@import './adaptive/ad-header';

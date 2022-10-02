@@ -1,0 +1,86 @@
+@media (max-width: 1000px) {
+  .pick {
+    padding-top: 30px;
+    padding-bottom: 50px;
+  }
+  .pick-container {
+    margin: 0 30px;
+    padding-top: 30px;
+    padding-bottom: 50px;
+    gap: 40px;
+
+    .btn {
+      margin-top: 30px;
+    }
+  }
+
+  .content-description {
+    margin-left: 49px;
+    margin-right: 39px;
+
+    .subtitle {
+      margin: 20px 0;
+    }
+  }
+}
+
+@media (max-width: 640px) {
+
+  .pick {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .pick-container {
+    margin: 0;
+    padding-top: 10px;
+    padding-bottom: 60px;
+    gap: 30px;
+
+.btn {
+      margin-top: 10px;
+  }
+    .title {
+      font-size: 42px;
+    }
+
+    .subtitle {
+      font-size: 22px;
+    }
+  }
+
+  .content-description {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+.pick-cards-container {
+  gap: 15px;
+}
+
+  .pick-cards {
+    position: relative;
+    gap: 42px;
+
+    .green-arrow {
+      display: block;
+      width: 63.12px;
+height: 69.66px;
+  position: absolute;
+  top: -15px;
+  }
+
+  .first {
+    left: -75px;
+  }
+
+  .second {
+    right: -25px;
+  }
+
+  }
+
+  .pick-arrow {
+    display: none;
+  }
+}

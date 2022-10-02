@@ -1,6 +1,5 @@
 .watch {
   padding-bottom: 6.25rem;
-  //картинка съезжает при адаптиве - подумать
   background-image: url('../assets/img/Giant Panda.jpg');
   background-repeat: no-repeat;
   background-position: center -80px;
@@ -14,6 +13,10 @@
   max-width: 1600px;
   padding-right: 14.3rem;
   padding-top: 5rem;
+}
+
+.watch-half {
+  width: 50%;
 }
 
 .watch-container {
@@ -53,3 +56,5 @@ top: -4.63rem;
     color: $yellow;
   }
 }
+
+@import './adaptive/ad-watch';

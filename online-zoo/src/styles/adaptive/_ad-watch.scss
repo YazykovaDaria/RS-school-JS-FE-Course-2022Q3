@@ -1,0 +1,62 @@
+@media (max-width: 1000px) {
+  .watch {
+    padding-bottom: 47px;
+    background-image: url('../assets/img/panda-short.jpg');
+    background-position: bottom;
+  }
+
+  .watch-half {
+    display: none;
+  }
+  .watch-wrapper {
+    padding-right: 85px;
+    padding-top: 42px;
+}
+  .watch-container {
+    gap: 40px;
+  }
+
+  .watch-circle {
+    width: 367px;
+    height: 367px;
+    top: -3.7rem;
+  }
+
+  .watch-title .title {
+    font-size: 85px;
+    line-height: 75%;
+  }
+}
+
+@media (max-width: 640px) {
+.watch {
+  padding-bottom: 93px;
+}
+
+  .watch-title {
+
+    margin-left: 80%;
+
+    .title {
+      font-size: 54px;
+      line-height: 75%;
+    }
+  }
+
+  .watch-circle {
+    width: 237.6px;
+  height: 237.6px;
+  top: -18%;
+  left: 60%;
+  }
+
+.watch-container {
+  width: 100%;
+  gap: 0;
+  .btn {
+    position: absolute;
+    bottom: -53px;
+    right: 43%;
+  }
+}
+}

@@ -53,10 +53,7 @@ height: 8px;
 }
 
 .carousel-controls {
-  //display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 171px;
+  display: none
 }
 
 .carousel-item {
@@ -104,6 +101,9 @@ width: 362px;
 height: 360px;
 }
 
+.mobil {
+  display: none;
+}
 
 .card-describtion {
 display: flex;
@@ -143,3 +143,5 @@ margin-right: 13px;
   height: 38px;
   margin-right: 8px;
 }
+
+@import './adaptive/ad-pets';

@@ -17,12 +17,9 @@
 }
 .section-img {
   width: 38.06rem;
-  //609px;
 height: 25.187rem;
-//403px;
 }
-.img {
-}
+
 .section-content {
   display: flex;
   flex-direction: column;
@@ -55,3 +52,5 @@ height: 25.187rem;
 line-height: 120%;
 color: $black;
 }
+
+@import './adaptive/ad-backstage';
