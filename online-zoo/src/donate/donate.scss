@@ -48,6 +48,11 @@ padding-left: 30px;
 }
   }
 
+  @media (max-width: 770px) {
+    .panda {
+      margin-top: 34px;
+    }
+  }
   @media (max-width: 640px) {
     .panda {
       height: 335px;
