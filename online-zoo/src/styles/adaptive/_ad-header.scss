@@ -11,7 +11,12 @@
 }
 
 @media (max-width: 770px) {
-
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+}
   .nav {
     padding: 0 20px 0 20px;
     align-items: center;
