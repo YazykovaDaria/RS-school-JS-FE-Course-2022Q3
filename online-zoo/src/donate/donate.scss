@@ -66,3 +66,29 @@ padding-left: 30px;
     margin-right: 0;
 }
   }
+
+  @media (max-width: 638px) {
+    .footer-container {
+      .mobile-logo {
+        margin-left: 96px;
+      }
+
+.btn {
+        margin: 86px auto 30px auto;
+      }
+.mobile-links{
+  left: 63px;
+}
+}
+}
+
+  @media (max-width: 500px) {
+    .panda {
+      height: 185px;
+    }
+    #footer {
+      padding-left: 0;
+  }
+
+
+  }
