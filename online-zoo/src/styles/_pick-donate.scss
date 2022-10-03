@@ -281,19 +281,4 @@ input[type="radio"] {
   }
 }
 
-
-@media (max-width: 1000px) {
-  .pick-container {
-    max-width: 940px;
-  }
-  .info-title {
-    margin-bottom: 30px;
-  }
-  .pick-card {
-    margin-top: 40px;
-    padding: 20px 3rem 46px 3rem;
-  }
-  .card-text {
-    gap: 10px;
-  }
-}
+@import './adaptive/ad-pick-donate';

@@ -14,17 +14,12 @@ main {
 }
 
 .panda {
-height: 385px;
+height: 390px;
 width: 100%;
 background: url('../assets/img/Giant Panda.jpg') no-repeat center ;
   background-size: cover;
 }
 
-@media (max-width: 1000px) {
-.panda {
-  background: url('../assets/img/panda_don.png')
-}
-}
 
 @import '../styles/pick-donate';
 @import '../styles/footer';
@@ -34,3 +29,40 @@ background: url('../assets/img/Giant Panda.jpg') no-repeat center ;
   margin-top: 35px;
   margin-bottom: 45px;
 }
+
+@media (max-width: 1000px) {
+  .panda {
+    background: url('../assets/img/panda_don.png')
+  }
+  .nav .nav-list {
+    padding-left: 0;
+  }
+  #footer {
+padding-left: 30px;
+  }
+  .footer-head {
+    margin-right: 40px;
+}
+.design-list {
+  margin-right: 10px;
+}
+  }
+
+  @media (max-width: 640px) {
+    .panda {
+      height: 335px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+    }
+    #footer {
+      padding-left: 20px;
+    }
+    .footer-container .btn {
+      margin-top: 32px;
+      margin-bottom: 65px;
+  }
+  .design-list {
+    margin-right: 0;
+}
+  }
