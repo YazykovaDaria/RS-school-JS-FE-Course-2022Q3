@@ -1,4 +1,9 @@
-@media (max-width: 1000px) {
+// @media (max-width: 1200px) {
+
+// }
+
+
+@media (max-width: 1200px) {
   .watch {
     padding-bottom: 47px;
     background-image: url('../assets/img/panda-short.jpg');
@@ -28,7 +33,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 770px) {
 .watch {
   padding-bottom: 93px;
 }
@@ -58,5 +63,33 @@
     bottom: -53px;
     right: 43%;
   }
+}
+}
+
+@media (max-width: 638px) {
+
+.watch {
+  padding-bottom: 39px;
+  background-image: url('../assets/img/Giant Panda.jpg');
+}
+
+  .watch-container {
+
+    .btn {
+  display: none;
+    }
+  }
+  .watch-circle {
+    width: 119px;
+    height: 119px;
+    top: -20%;
+    left: 69%;
+  }
+
+  .watch-title {
+    margin-left: 110%;
+    .title {
+      font-size: 28px;
+    }
 }
 }

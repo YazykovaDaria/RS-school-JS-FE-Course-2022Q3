@@ -24,7 +24,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 980px) {
 
   .pick {
     padding-top: 20px;
@@ -77,10 +77,63 @@ height: 69.66px;
   .second {
     right: -25px;
   }
-
   }
 
   .pick-arrow {
     display: none;
+  }
+}
+
+@media (max-width: 638px) {
+
+  .pick-container {
+gap: 20px;
+padding-top: 20px;
+padding-bottom: 35px;
+margin: 0 10px;
+
+    .title {
+      font-size: 24px;
+  }
+
+  .subtitle {
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 18px;
+    text-align: center;
+  }
+  }
+
+  .cards-title {
+    font-size: 24px;
+}
+
+.content-description {
+  .description-bold, .description {
+    display: none;
+  }
+}
+
+  .pick-cards {
+    flex-direction: column;
+    gap: 40px;
+
+    .green-arrow {
+      transform: rotate(90deg);
+  }
+
+  .first {
+    left: 130px;
+    top: 410px;
+  }
+
+  .second {
+    right: -29px;
+    top: 160px;
+  }
+  }
+
+  .pick-card {
+    gap: 10px;
   }
 }

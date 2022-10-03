@@ -54,7 +54,6 @@
 position: relative;
 left: 160px;
     }
-
 }
 
   .carousel-img {
@@ -88,4 +87,38 @@ font-size: 12px;
   .carousel-controls {
 gap: 30px;
   }
+}
+
+@media (max-width: 638px) {
+
+.pets {
+  padding-bottom: 62px;
+  background-image: url('../assets/img/palm_small.png'), url('../assets/img/strelitzia 2.png');
+  background-size: 70px 70px, 74px 61px;
+  background-position: -10px bottom, bottom right;
+}
+
+
+  .pets-container {
+    gap: 10px;
+  }
+
+  .carousel-controls {
+    display: none;
+      }
+
+      .carousel {
+
+        .carousel-item {
+    position: relative;
+    flex-direction: column;
+    left: 0;
+    gap: 20px;
+
+    .carousel-card:first-child {
+      display: none;
+    }
+        }
+    }
+
 }

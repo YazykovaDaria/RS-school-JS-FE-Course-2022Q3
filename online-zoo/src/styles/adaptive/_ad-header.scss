@@ -1,4 +1,4 @@
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .nav {
     padding-left: 30px;
     padding-right: 30px;
@@ -10,7 +10,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 770px) {
 
   .nav {
     padding: 0 20px 0 20px;
@@ -84,5 +84,15 @@ left: 0;
   .nav-list {
 position: absolute;
 top: 400px;
+  }
+}
+
+@media (max-width: 638px) {
+
+  .nav {
+    padding: 0 10px 0 10px;
+  }
+  .menu-burger {
+    right: 10px;
   }
 }
