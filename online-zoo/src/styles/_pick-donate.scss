@@ -54,7 +54,7 @@ color: #FE9013;
 
 .pick-card {
   margin-top: 60px;
-  padding: 40px 5.75rem 46px 5.75rem;
+  padding: 40px 5.75rem 65px 5.75rem;
   background: $white-rg;
   backdrop-filter: blur(2px);
 border-radius: 20px;
@@ -122,280 +122,102 @@ img {
 }
 
 .container {
-  width: 1160px;
+  max-width: 1160px;
   margin: 0 auto;
 
   fieldset {
     border: none;
     padding: 0;
     margin: 0;
-
-    // legend {
-    //   //margin-left: 96px;
-    // }
   }
 }
 
 .range-holder {
   background: #404950;
-    border-radius: 2px;
-    max-width: 976px;
-    height: 27px;
-    //margin: auto;
-    margin-top: 20px;
+  border-radius: 2px;
+  max-width: 976px;
+  height: 27px;
+  margin-top: 20px;
+}
+.range-holder hr {
+  position: relative;
+  top: 13px;
+  margin: auto;
+  border: #72828E 1px solid;
+  margin-right: 32px;
+  margin-left: 32px;
+}
 
-    hr {
-      max-width: 915px;
-      position: relative;
-      top: 13px;
-      margin: auto;
-      border: #72828E 1px solid;
-    }
+input.reset-radios {
+  display: none;
 }
 
 .choose-amount {
   display: flex;
   margin: auto;
-  max-width: 920px;
   height: 27px;
   justify-content: space-between;
   padding-top: 2px;
-
-  .input-label-holder {
-    display: flex;
-      position: relative;
-      flex-direction: column;
-      align-items: center;
-
-      input[type=radio] {
-        display: none;
-    }
-
-    label {
-      position: relative;
-      margin-bottom: 20px;
-      cursor: pointer;
-  }
-
-  input[type=radio] + label::before {
-    content: "";
-    position: absolute;
-    display: block;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    top: -10px;
-    left: -10px;
-    cursor: pointer;
-    background-image: '../assets/icons/roller_icon.svg';
 }
-
-  }
+.choose-amount .input-label-holder {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
 }
-
-
-.checked {
+.choose-amount .input-label-holder label {
+  position: relative;
+  margin-bottom: 20px;
+  cursor: pointer;
+  padding-right: 25px;
+  padding-left: 25px;
 }
-.sum-value {
+.choose-amount .input-label-holder .checked {
+  display: none;
+  position: absolute;
+  bottom: -11px;
+  right: 10px;
+  transition: all 200ms ease-out;
 }
-.reset-radios {
+.choose-amount .input-label-holder input[type=radio] {
+  display: none;
 }
-.num-input {
+.choose-amount .input-label-holder input[type=radio] + label::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  top: -10px;
+  left: -10px;
+  cursor: pointer;
 }
-.term {
+.choose-amount .input-label-holder input[type=radio]:checked + label img.checked {
+  display: inline;
 }
-.feed-btn {
+.choose-amount .input-label-holder input[type=radio]:checked ~ p {
+  color: $orange;
 }
-.btn {
+.choose-amount .input-label-holder p {
+  position: absolute;
+  top: 35px;
+  margin: 0;
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 140%;
 }
-.btn-look {
+.choose-amount #d500, .choose-amount #d250, .choose-amount #d100, .choose-amount #d50, .choose-amount #d25 {
+  left: -5px;
 }
-
-// .form-container {
-//     width: 1160px;
-//     margin: 0 auto;
-
-//     fieldset {
-//     border: none;
-//     padding: 0;
-//     margin: 0;
-//     }
-
-//     .range-container {
-//       background: #404950;
-//     border-radius: 2px;
-//     max-width: 976px;
-//     height: 27px;
-//     margin: auto;
-//     margin-top: 20px;
-
-//     hr {
-//       max-width: 915px;
-//       position: relative;
-//       top: 13px;
-//       margin: auto;
-//       border: #72828E 1px solid;
-//     }
-//     }
-
-//     .range-choice {
-//       display: flex;
-//     margin: auto;
-//     max-width: 920px;
-//     height: 27px;
-//     justify-content: space-between;
-//     padding-top: 2px;
-
-//     .choice-item {
-//       display: flex;
-//       position: relative;
-//       flex-direction: column;
-//       align-items: center;
-
-//       label {
-//         position: relative;
-//         margin-bottom: 20px;
-//         cursor: pointer;
-
-//         &::before {
-//           content: "";
-//           position: absolute;
-//           display: block;
-//           width: 40px;
-//           height: 40px;
-//           border-radius: 50%;
-//           top: -10px;
-//           left: -10px;
-//           cursor: pointer;
-//         }
-//       }
-//     }
-//     }
-//     input[type=radio] {
-//       display: none;
-//   }
-//   }
-
-
-
-@media (max-width: 1000px) {
-  .pick-container {
-    max-width: 940px;
-  }
-  .info-title {
-    margin-bottom: 30px;
-  }
-  .pick-card {
-    margin-top: 40px;
-    padding: 20px 3rem 46px 3rem;
-  }
-  .card-text {
-    gap: 10px;
-  }
-}
-
-// .count-card {
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 11px;
-//   height: 246px;
-// }
-
-// .count-img {
-//   width: 82px;
-// height: 58px;
-// margin-top: 55px;
-// }
-
-// .count-title {
-//   font-size: 16px;
-// line-height: 140%;
-// text-align: center;
-// }
-
-// .card-progress {
-//   margin-top: 48px;
-//   // display: flex;
-//   // flex-direction: column;
-// }
-// .progres-title {
-//   margin-bottom: 14px;
-// }
-
-// .progres-images {
-//   background-image: url('../assets/icons/blackLine.svg');
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: 100% 27px;
-
-//   .point-line {
-//     display: flex;
-//     justify-content: space-between;
-//     align-items: center;
-//     max-width: 900px;
-//     margin: 0 auto;
-//       background-image: url('../assets/icons/lineSm.svg');
-//   background-repeat: no-repeat;
-//   background-position: center;
-//   background-size: 95% 2px;
-//   }
-
-//   .progres-point {
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-// width: 40px;
-// height: 40px;
-
-// &.active {
-//   background-image: url('../assets/icons/roller_icon.svg');
-//   background-size: 40px 40px;
-//   background-position: center;
-// }
-
-// &:hover {
-//   background-image: url('../assets/icons/roller_icon.svg');
-//   background-size: 40px 40px;
-//   background-position: center;
-//   transition: 0.3s;
-// }
-
-//     .point {
-//       width: 10px;
-//       height: 10px;
-//       background-color: $yellow;
-//       border-radius: 50%;
-
-//     }
-//   }
-// }
-
-// .progres-price {
-//   display: flex;
-//   justify-content: space-between;
-//   max-width: 940px;
-//   margin-top: 6px;
-// }
-
-// .prise-item {
-//   font-weight: 500;
-// font-size: 26px;
-// line-height: 140%;
-// text-transform: uppercase;
-// color: #333B41;
-
-// &.active {
-//   color: #FE9013;
-// }
-// }
 
 .card-footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin: 50px auto 0 auto;
+  max-width: 302px;
 }
 
 p {
@@ -403,12 +225,10 @@ p {
 }
 
 input[type="number"] {
-  //-moz-appearance: textfield;
   width: 260px;
   height: 48px;
   margin: 50px 0 25px 0;
   padding-left: 9px;
-  //padding-right: 17px;
   background: inherit;
   background-image: url('../assets/icons/Vector.svg');
   background-repeat: no-repeat;
@@ -427,13 +247,11 @@ input[type="number"] {
 
 .card-radio {
 display: flex;
-//max-width: 218px;
 justify-content: space-between;
 gap: 50px;
 margin-bottom: 32px;
 
 input[type="radio"] {
-  //visibility: hidden;
   display: none;
 
   &:checked+label::before {
@@ -463,6 +281,19 @@ input[type="radio"] {
   }
 }
 
-// .card-share {
-//   margin: 30px 0 62px 0;
-// }
+
+@media (max-width: 1000px) {
+  .pick-container {
+    max-width: 940px;
+  }
+  .info-title {
+    margin-bottom: 30px;
+  }
+  .pick-card {
+    margin-top: 40px;
+    padding: 20px 3rem 46px 3rem;
+  }
+  .card-text {
+    gap: 10px;
+  }
+}
