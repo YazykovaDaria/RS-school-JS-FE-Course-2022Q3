@@ -16,12 +16,21 @@
   }
 
   .testim-cards {
-justify-content: center;
+    margin-top: 30px;
+
+    .card-border {
+      width: 288px;
+      height: 388px;
+
+      &:nth-child(1) {
+        margin-left: 0;
+    }
+    }
+
   }
 
   .testim-card {
-    width: 18.31rem;
-    height: 391px;
+    padding: 12px 15px 16px 14px;
   }
 
 input[type=range] {
@@ -50,21 +59,24 @@ input[type=range] {
 }
 
   .testim-cards {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+    flex-wrap: wrap;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    .card-border {
+      width: 99%;
+      height: 103px;
+      margin: 7.5px 0;
+    }
+
+    .card-content {
+        height: 36px;
+    }
   }
 
-  // .card-border {
-  //   width: 37.5rem;
-  //   height: 105px;
-  // }
 
   .testim-card {
-    //width: 37.5rem;
-   max-width: 37.5rem;
-    height: 105px;
+    padding: 12px 15px 8px 14px;
   }
 
 .range {
@@ -76,7 +88,7 @@ input[type=range] {
 
   .testimonials {
 padding-top: 30px;
-padding-bottom: 63px;
+padding-bottom: 58px;
 background-position: 270px bottom;
     background-size: 50px 65px;
 
@@ -88,24 +100,30 @@ background-position: 270px bottom;
 
   .testim-container {
     .btn {
-      //width: 240px;
-      margin: 35px 0 0 40px;
+      margin: 15px 0 0 40px;
     }
   }
 
-  // .card-border {
-  //   //margin: 0 10px;
-  //   // width: 259px;
-  //   // height: 100px;
-  // }
+
 
   .testim-cards {
-    align-items: flex-start;
+    margin-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+
+      .card-border {
+        margin: 9px 0;
+  }
+
+  .card-content {
+    margin-top: 8px;
+    margin-left: 6px;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: -0.1px;
+  }
   }
   .testim-card {
-    //width: 37.5rem;
-    margin: 0 10px;
-    width: 259px;
-    height: 100px;
+    padding: 9px 15px 8px 10px;
   }
 }
