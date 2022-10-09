@@ -49,4 +49,118 @@ export const animals = [
   },
 ];
 
-export const testimonials = [];
+export const testimonials = [
+  {
+    id: '1',
+    avatar: 'assets/user_icon.svg',
+    userName: 'Michael John',
+    userLocal: 'Local Austria',
+    postDate: 'Today',
+    content: `The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.
+    The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.`,
+  },
+  {
+    id: '2',
+    avatar: 'assets/user_icon.svg',
+    userName: 'Lisa Inner',
+    userLocal: 'Local England',
+    postDate: 'Yesterday',
+    content: `Illo distinctio neque aut dolores at nam voluptas minima, pariatur tempore repellat beatae libero commodi nesciunt doloremque debitis, cum eligendi! Ex deleniti corrupti consequatur error? Consequatur fugiat doloribus perspiciatis distinctio.
+    Ratione, eum mollitia doloremque iure labore similique vel illum fugiat repudiandae ullam, ipsam incidunt odit necessitatibus aspernatur obcaecati recusandae quaerat facere numquam, velit aperiam harum animi! Id soluta necessitatibus asperiores!
+    Quae sunt nesciunt voluptates atque sequi modi eveniet, quod dolorum nemo ratione sit totam, dicta molestias quis ad autem accusantium ipsam dolor culpa praesentium. Vel magnam nisi earum vitae optio!
+
+    `,
+  },
+  {
+    id: '3',
+    avatar: 'assets/freder.svg',
+    userName: 'Ric Rock',
+    userLocal: 'Local Austria',
+    postDate: 'Tomorrow)',
+    content: `Nulla officia ea unde quidem non neque amet mollitia, at nobis enim vitae adipisci delectus sapiente ut quo.
+    Quibusdam asperiores eveniet iure, reprehenderit eum quos in repellat mollitia voluptate sint. Excepturi, placeat. Sit, mollitia velit. Pariatur, explicabo debitis sequi autem ea voluptas, illum corporis, reiciendis vero laboriosam quaerat?
+    Ab ratione officia quasi dicta laboriosam rem voluptatum ut fugit temporibus vel praesentium eius tempore minima quidem blanditiis perferendis, laudantium neque nostrum. Expedita sunt libero, voluptas qui nam atque sint!`,
+  },
+  {
+    id: '4',
+    avatar: 'assets/face.svg',
+    userName: 'Niki Moki',
+    userLocal: 'Local Japan',
+    postDate: 'Today',
+    content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis laborum unde excepturi repellendus quas iusto hic, veniam dolore esse error pariatur id nam aperiam quia voluptatem voluptates quo impedit quisquam.
+    Provident id eum voluptatum, dolore possimus facilis error aperiam illum aliquid eligendi eius aspernatur suscipit enim eaque veniam explicabo facere! Similique voluptatibus molestiae tempora eligendi quaerat asperiores libero harum ea.
+    Quibusdam voluptatum suscipit nisi quos deserunt aspernatur asperiores odit architecto ducimus debitis!`,
+  },
+  {
+    id: '5',
+    avatar: 'assets/user_icon.svg',
+    userName: 'Mira Ota',
+    userLocal: 'Local Austria',
+    postDate: 'Prew week',
+    content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem laborum necessitatibus, cupiditate omnis doloremque repellendus totam eius. Magnam, eum! Eaque doloremque ipsa quia, ratione consectetur voluptas. Maxime, sequi optio!Lorem
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis laborum unde excepturi repellendus quas iusto hic, veniam dolore esse error pariatur id nam aperiam quia voluptatem voluptates quo impedit quisquam.`,
+  },
+  {
+    id: '6',
+    avatar: 'assets/twi.svg',
+    userName: 'Michael On',
+    userLocal: 'Local Austria',
+    postDate: 'Prew week',
+    content: `Provident id eum voluptatum, dolore possimus facilis error aperiam illum aliquid eligendi eius aspernatur suscipit enim eaque veniam explicabo facere! Similique voluptatibus molestiae tempora eligendi quaerat asperiores libero harum ea.
+    Quibusdam voluptatum suscipit nisi quos deserunt aspernatur asperiores odit architecto ducimus debitis! Nulla officia ea unde quidem non neque amet mollitia, at nobis enim vitae adipisci delectus sapiente ut quo.`,
+  },
+  {
+    id: '7',
+    avatar: 'assets/user_icon.svg',
+    userName: 'Nina Onsa',
+    userLocal: 'Local Argentina',
+    postDate: 'Today',
+    content: `The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.
+    The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.`,
+  },
+  {
+    id: '8',
+    avatar: 'assets/face.svg',
+    userName: 'Kei Hakamura',
+    userLocal: 'Local Japan',
+    postDate: 'Today',
+    content: `TProvident id eum voluptatum, dolore possimus facilis error aperiam illum aliquid eligendi eius aspernatur suscipit enim eaque veniam explicabo facere! Similique voluptatibus molestiae tempora eligendi quaerat asperiores libero harum ea.
+    Quibusdam voluptatum suscipit nisi quos deserunt aspernatur asperiores odit architecto ducimus debitis! Nulla officia ea unde quidem non neque amet mollitia, at nobis enim vitae adipisci delectus sapiente ut quo.`,
+  },
+  {
+    id: '9',
+    avatar: 'assetsuser_icon.svg',
+    userName: 'Mira John',
+    userLocal: 'Local Austria',
+    postDate: 'Today',
+    content: `Provident id eum voluptatum, dolore possimus facilis error aperiam illum aliquid eligendi eius aspernatur suscipit enim eaque veniam explicabo facere! Similique voluptatibus molestiae tempora eligendi quaerat asperiores libero harum ea.
+    Quibusdam voluptatum suscipit nisi quos deserunt aspernatur asperiores odit architecto ducimus debitis! Nulla officia ea unde quidem non neque amet mollitia, at nobis enim vitae adipisci delectus sapiente ut quo.`,
+  },
+  {
+    id: '10',
+    avatar: 'assets/oscar.svg',
+    userName: 'Oskar None',
+    userLocal: 'Local Austria',
+    postDate: 'Today',
+    content: `The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.
+    The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.`,
+  },
+  {
+    id: '11',
+    avatar: 'assets/mila.svg',
+    userName: 'Mila John',
+    userLocal: 'Local Austria',
+    postDate: 'Today',
+    content: `Provident id eum voluptatum, dolore possimus facilis error aperiam illum aliquid eligendi eius aspernatur suscipit enim eaque veniam explicabo facere! Similique voluptatibus molestiae tempora eligendi quaerat asperiores libero harum ea.
+    Quibusdam voluptatum suscipit nisi quos deserunt aspernatur asperiores odit architecto ducimus debitis! Nulla officia ea unde quidem non neque amet mollitia, at nobis enim vitae adipisci delectus sapiente ut quo.`,
+  },
+  {
+    id: '12',
+    avatar: 'assets/freder.svg',
+    userName: 'Frederica Oli',
+    userLocal: 'Local Austria',
+    postDate: 'Today',
+    content: `The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.
+    The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.The best online zoo I’ve met. My son delighted very much ljves to watch gouillas. Online zoo is one jf the ways to instill a love for animals.`,
+  },
+];
