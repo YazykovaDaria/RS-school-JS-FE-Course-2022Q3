@@ -1,91 +1,94 @@
+import {animals} from './data';
+//console.log(animals);
 
-const buttonLeft = document.querySelector('.button-arrow-left');
-const buttonRight = document.querySelector('.button-arrow-right');
-const carousel = document.querySelector('.carousel');
-const itemLeft = document.querySelector('#carousel-left');
-const itemRight = document.querySelector('#carousel-right');
-const itemActive = document.querySelector('#carousel-active');
+const buttonsLeft = document.querySelectorAll('.control.ctrl-left');
+const buttonsRight = document.querySelectorAll('.control.ctrl-right');
+const carousels = document.querySelectorAll('.carousel-set');
 
-const createCardTemplate = () => {
-  const card1 = document.createElement('div');
-  card1.classList.add('pets-info');
-  card1.innerText = Math.floor(Math.random() * 8);
-  return card1;
-}
+//на обратном листании ещё остаётся косяк с повторами +не все картинки отображаются((
 
-function getRandomArr() {
-  let randomArr = [];
+function getRandomArr(min = 0, max = 11) {
+  const randomArr = [];
 
-  for (let i = 0; randomArr.length < 3; i++) {
-    let a = Math.floor(Math.random() * 8);
-    if (!(randomArr.includes(a, 0))) {
-      randomArr.unshift(a);
+  for (let i = 0; randomArr.length < 3; i += 1) {
+    const num = Math.floor(Math.random() * (max - min) + min);
+    if (!(randomArr.includes(num, 0))) {
+      randomArr.unshift(num);
     }
   }
   return randomArr;
 }
 
-function createCardTemplate2(i) {
+function createCardTemplate(i) {
   const card = document.createElement('div');
-  card.classList.add('pets-info');
-  card.setAttribute('id', pets[i]['id']);
-  const imgPet = `<img class="pets" src="${pets[i]['img']}" alt="${pets[i]['type']}">`;
-  const namePet = `<h3 class="pets-name">${pets[i]['name']}</h3>`;
-  const buttonPet = `<a href="../pets/index.html" class="btn-pets btn">Learn more</a>`;
-  card.insertAdjacentHTML('beforeend', imgPet);
-  card.insertAdjacentHTML('beforeend', namePet);
-  card.insertAdjacentHTML('beforeend', buttonPet);
+  card.classList.add('carousel-card');
+  const cardContent = `<img class="carousel-img" src="${animals[i].img}" alt="${animals[i].name}">
+  <div class="card-describtion">
+  <div class="card-content">
+  <div class="subtitle">${animals[i].name}</div>
+  <div class="place">${animals[i].place}</div>
+  </div>
+  <img class="banana-icon" src="${animals[i].icon}" alt="banana bamboo icon">
+  </div>`;
+  card.innerHTML = cardContent;
   return card;
 }
 
-const moveRight = () => {
-  carousel.classList.add('move-right');
-  carousel.removeEventListener('click', moveRight);
-  carousel.removeEventListener('click', moveLeft);
-
+function moveRight() {
+  carousels.forEach((carousel) => {
+    carousel.classList.add('move-right');
+    carousel.removeEventListener('click', moveRight);
+    carousel.removeEventListener('click', moveLeft);
+  });
 }
 
-const moveLeft = () => {
-  carousel.classList.add('move-left');
-  carousel.removeEventListener('click', moveRight);
-  carousel.removeEventListener('click', moveLeft);
-
+function moveLeft() {
+  carousels.forEach((carousel) => {
+    carousel.classList.add('move-left');
+    carousel.removeEventListener('click', moveRight);
+    carousel.removeEventListener('click', moveLeft);
+  });
 }
 
-buttonLeft.addEventListener('click', moveLeft);
-buttonRight.addEventListener('click', moveRight);
-document.querySelector('.button-arrow-left-too').addEventListener('click', moveLeft);
+const goCarousel = () => {
+  buttonsLeft.forEach((button) => button.addEventListener('click', moveLeft));
 
-carousel.addEventListener('animationend', animationEvent => {
-  if (animationEvent.animationName === 'move-left-carousel') {
-    carousel.classList.remove('move-left');
-    const RightItem = itemRight.innerHTML;
-    document.querySelector('#carousel-active').innerHTML = RightItem;
-    itemRight.innerHTML = "";
-    let randomArr = getRandomArr();
-    for (let i = 0; i < 3; i++) {
-      let a = randomArr[i];
-      const card = createCardTemplate2(a);
-      itemRight.appendChild(card);
-    }
+  buttonsRight.forEach((button) => button.addEventListener('click', moveRight));
+
+  carousels.forEach((carousel) => {
+    carousel.addEventListener('animationend', (animationEvent) => {
+      if (animationEvent.animationName === 'move-left-carousel') {
+        carousel.classList.remove('move-left');
+        const itemRight = carousel.querySelector('.carousel-item.right');
+        const RightItem = itemRight.innerHTML;
+        carousel.querySelectorAll('.carousel-item.active').forEach((item) => {
+          item.innerHTML = RightItem;
+          itemRight.innerHTML = '';
+        });
 
 
-  } else {
-    carousel.classList.remove('move-right');
-    const LeftItem = itemLeft.innerHTML;
-    document.querySelector('#carousel-active').innerHTML = LeftItem;
-    itemLeft.innerHTML = "";
-    let randomArr = getRandomArr();
-    for (let i = 0; i < 3; i++) {
-      let a = randomArr[i];
-      const card = createCardTemplate2(a);
-      itemLeft.appendChild(card);
-    }
-  }
-})
+        const randomArr = carousel.getAttribute('id') === 'first' ? getRandomArr(0, 5) : getRandomArr(6, 11);
+        for (let i = 0; i < 3; i += 1) {
+          const index = randomArr[i];
+          const card = createCardTemplate(index);
+          itemRight.appendChild(card);
+        }
+      } else {
+        carousel.classList.remove('move-right');
+        const itemLeft = carousel.querySelector('.carousel-item.left');
+        const LeftItem = itemLeft.innerHTML;
+        document.querySelector('.carousel-item.active').innerHTML = LeftItem;
+        itemLeft.innerHTML = '';
 
-const carousel = () => {
-  console.log('car');
-}
+        const randomArr = carousel.getAttribute('id') === 'first' ? getRandomArr(0, 5) : getRandomArr(6, 11);
+        for (let i = 0; i < 3; i += 1) {
+          const a = randomArr[i];
+          const card = createCardTemplate(a);
+          itemLeft.appendChild(card);
+        }
+      }
+    });
+  });
+};
 
-export default carousel;
+export default goCarousel;
