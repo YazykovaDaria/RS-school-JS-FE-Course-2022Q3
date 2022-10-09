@@ -9,6 +9,14 @@ display: flex;
 justify-content: space-between;
 padding: 14px 13.75rem;
 margin: 0 auto;
+
+.mobile-link {
+  display: none;
+}
+}
+
+.design-mobile {
+  display: none;
 }
 
 .nav-container {
@@ -21,9 +29,14 @@ margin: 0 auto;
   display: flex;
   justify-content: space-between;
   gap: 3.625rem;
+
+  .logo {
+    display: none;
+  }
 }
 
 .nal-item {
+
   .active {
     pointer-events: none;
     background: $orange;

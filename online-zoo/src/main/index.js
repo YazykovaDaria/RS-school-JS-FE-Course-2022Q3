@@ -1,5 +1,6 @@
 import './index.html';
 import 'normalize.css';
 import './style.scss';
+import burgerMenu from '../js/burger';
 
-console.log('кнопка submit изменяется при фокусе \n в поле Enter your email');
+burgerMenu();
