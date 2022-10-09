@@ -1,11 +1,8 @@
-import {animals} from './data';
-//console.log(animals);
+import { animals } from './data';
 
 const buttonsLeft = document.querySelectorAll('.control.ctrl-left');
 const buttonsRight = document.querySelectorAll('.control.ctrl-right');
 const carousels = document.querySelectorAll('.carousel-set');
-
-//на обратном листании ещё остаётся косяк с повторами +не все картинки отображаются((
 
 function getRandomArr(min = 0, max = 11) {
   const randomArr = [];
@@ -66,8 +63,7 @@ const goCarousel = () => {
           itemRight.innerHTML = '';
         });
 
-
-        const randomArr = carousel.getAttribute('id') === 'first' ? getRandomArr(0, 5) : getRandomArr(6, 11);
+        const randomArr = carousel.getAttribute('id') === 'first' ? getRandomArr(0, 7) : getRandomArr(8, 15);
         for (let i = 0; i < 3; i += 1) {
           const index = randomArr[i];
           const card = createCardTemplate(index);
@@ -77,10 +73,10 @@ const goCarousel = () => {
         carousel.classList.remove('move-right');
         const itemLeft = carousel.querySelector('.carousel-item.left');
         const LeftItem = itemLeft.innerHTML;
-        document.querySelector('.carousel-item.active').innerHTML = LeftItem;
+        carousel.querySelector('.carousel-item.active').innerHTML = LeftItem;
         itemLeft.innerHTML = '';
 
-        const randomArr = carousel.getAttribute('id') === 'first' ? getRandomArr(0, 5) : getRandomArr(6, 11);
+        const randomArr = carousel.getAttribute('id') === 'first' ? getRandomArr(0, 7) : getRandomArr(8, 15);
         for (let i = 0; i < 3; i += 1) {
           const a = randomArr[i];
           const card = createCardTemplate(a);

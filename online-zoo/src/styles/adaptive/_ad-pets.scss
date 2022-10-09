@@ -11,6 +11,11 @@
     gap: 12px;
   }
 
+  .carousel-set {
+    max-width: 953px;
+    left: -954px;
+  }
+
 .mobil {
   display: flex;
 }
@@ -54,6 +59,11 @@
 position: relative;
 left: 160px;
     }
+}
+
+.carousel-set {
+  max-width: 610px;
+  left: -1087px;
 }
 
   .carousel-img {
@@ -101,6 +111,10 @@ gap: 30px;
 
   .pets-container {
     gap: 10px;
+
+    .btn {
+      margin-top: 10px;
+    }
   }
 
   .carousel-controls {
@@ -110,15 +124,24 @@ gap: 30px;
       .carousel {
 
         .carousel-item {
-    position: relative;
     flex-direction: column;
     left: 0;
     gap: 20px;
+
+    &:nth-child(odd) {
+      display: none;
+    }
 
     .carousel-card:first-child {
       display: none;
     }
         }
     }
+    .carousel-set {
+      position: static;
+      flex-direction: column;
+      left: 0;
+    }
+
 
 }
