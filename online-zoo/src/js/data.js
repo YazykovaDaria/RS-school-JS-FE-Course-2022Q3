@@ -35,7 +35,18 @@ export const animals = [
   {
     id: 'an12', img: 'assets/capibara.jpg', icon: 'assets/banana-bamboo_icon.svg', name: 'capibara', place: 'Mesoamerica, South America',
   },
-
+  {
+    id: 'an13', img: 'assets/fox.jpg', icon: 'assets/meet-fish_icon.svg', name: 'fox', place: 'Mesoamerica, South America',
+  },
+  {
+    id: 'an14', img: 'assets/quokka.jpg', icon: 'assets/banana-bamboo_icon.svg', name: 'quokka', place: 'Mesoamerica, South America',
+  },
+  {
+    id: 'an15', img: 'assets/suricat.jpeg', icon: 'assets/banana-bamboo_icon.svg', name: 'suricat', place: 'Mesoamerica, South America',
+  },
+  {
+    id: 'an14', img: 'assets/coala.jpg', icon: 'assets/banana-bamboo_icon.svg', name: 'coala', place: 'Mesoamerica, South America',
+  },
 ];
 
 export const testimonials = [];
