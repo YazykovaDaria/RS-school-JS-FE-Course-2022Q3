@@ -23,6 +23,7 @@ align-items: center;
 gap: 20px;
 }
 
+
 .control {
 width: 62px;
 height: 62px;
@@ -50,7 +51,46 @@ height: 8px;
   flex-direction: column;
   justify-content: center;
   gap: 20px;
+  overflow: hidden;
 }
+
+.carousel-set {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  max-width: 1158px;
+	left: -1158px;
+
+}
+
+@keyframes move-left-carousel {
+  from {
+    left: -1158px;
+  }
+  to {
+    left: -2316px;
+  }
+  }
+
+  @keyframes move-right-carousel {
+  from {
+    left: -1158px;
+  }
+  to {
+    left: 0;
+  }
+  }
+
+  .move-right {
+animation-name: move-right-carousel;
+        animation-duration: 0.5s;
+  }
+
+  .move-left {
+        animation-name: move-left-carousel;
+        animation-duration: 0.5s;
+  }
+
 
 .carousel-controls {
   display: none
