@@ -16,10 +16,10 @@
   }
 
   .testim-cards {
+    justify-content: center;
     margin-top: 30px;
 
     .card-border {
-      width: 288px;
       height: 388px;
 
       &:nth-child(1) {
@@ -30,6 +30,7 @@
   }
 
   .testim-card {
+    min-width: 265px;
     padding: 12px 15px 16px 14px;
   }
 
@@ -62,6 +63,7 @@ input[type=range] {
     flex-wrap: wrap;
     padding-left: 20px;
     padding-right: 20px;
+    max-height: 370px;
 
     .card-border {
       width: 99%;
@@ -76,7 +78,7 @@ input[type=range] {
 
 
   .testim-card {
-    padding: 12px 15px 8px 14px;
+      padding: 12px 15px 8px 14px;
   }
 
 .range {

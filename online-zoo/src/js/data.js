@@ -67,9 +67,7 @@ export const testimonials = [
     postDate: 'Yesterday',
     content: `Illo distinctio neque aut dolores at nam voluptas minima, pariatur tempore repellat beatae libero commodi nesciunt doloremque debitis, cum eligendi! Ex deleniti corrupti consequatur error? Consequatur fugiat doloribus perspiciatis distinctio.
     Ratione, eum mollitia doloremque iure labore similique vel illum fugiat repudiandae ullam, ipsam incidunt odit necessitatibus aspernatur obcaecati recusandae quaerat facere numquam, velit aperiam harum animi! Id soluta necessitatibus asperiores!
-    Quae sunt nesciunt voluptates atque sequi modi eveniet, quod dolorum nemo ratione sit totam, dicta molestias quis ad autem accusantium ipsam dolor culpa praesentium. Vel magnam nisi earum vitae optio!
-
-    `,
+    Quae sunt nesciunt voluptates atque sequi modi eveniet, quod dolorum nemo ratione sit totam, dicta molestias quis ad autem accusantium ipsam dolor culpa praesentium. Vel magnam nisi earum vitae optio!`,
   },
   {
     id: '3',
@@ -96,7 +94,7 @@ export const testimonials = [
     avatar: 'assets/user_icon.svg',
     userName: 'Mira Ota',
     userLocal: 'Local Austria',
-    postDate: 'Prew week',
+    postDate: 'Prev week',
     content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui rem laborum necessitatibus, cupiditate omnis doloremque repellendus totam eius. Magnam, eum! Eaque doloremque ipsa quia, ratione consectetur voluptas. Maxime, sequi optio!Lorem
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis laborum unde excepturi repellendus quas iusto hic, veniam dolore esse error pariatur id nam aperiam quia voluptatem voluptates quo impedit quisquam.`,
   },
@@ -105,7 +103,7 @@ export const testimonials = [
     avatar: 'assets/twi.svg',
     userName: 'Michael On',
     userLocal: 'Local Austria',
-    postDate: 'Prew week',
+    postDate: 'Prev week',
     content: `Provident id eum voluptatum, dolore possimus facilis error aperiam illum aliquid eligendi eius aspernatur suscipit enim eaque veniam explicabo facere! Similique voluptatibus molestiae tempora eligendi quaerat asperiores libero harum ea.
     Quibusdam voluptatum suscipit nisi quos deserunt aspernatur asperiores odit architecto ducimus debitis! Nulla officia ea unde quidem non neque amet mollitia, at nobis enim vitae adipisci delectus sapiente ut quo.`,
   },

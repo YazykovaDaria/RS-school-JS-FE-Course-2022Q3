@@ -9,6 +9,7 @@
 .testim-container {
 max-width: 1160px;
 margin: 0 auto;
+//overflow: hidden;
 
 .btn {
   border-radius: 5px;
@@ -26,19 +27,33 @@ margin: 0 auto;
 
 .testim-cards {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     text-align: start;
-    overflow-x: auto;
+    overflow: hidden;
+    position: relative;
+   // overflow-x: auto;
     max-width: 1193px;
 
 }
 
 .card-border {
 
+  &.visible {
+    transform: translateX(0);
+  }
+
+  &.hidden {
+    position: absolute;
+    top: 0;
+    right: -30px;
+    display: block;
+    transform: translateX(100%);
+  }
+
   margin: 0 15px;
     border-radius: 20px;
     padding: 2px;
-    width: 268px;
+    //width: 268px;
     height: 391px;
     background: $pink-grad;
 
@@ -48,7 +63,7 @@ margin: 0 auto;
 }
 
 .testim-card {
-
+  min-width: 231px;
 border-radius: 20px;
 padding: 15px 15px 19px 14px;
 background: #F1F3F2;
@@ -115,5 +130,114 @@ border-radius: 5px;
 appearance: none;
 }
 }
+
+.from-left-to-center {
+  -webkit-animation-name: left;
+          animation-name: left;
+}
+
+.from-center-to-right {
+  -webkit-animation-name: right;
+          animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-center-to-left {
+  -webkit-animation-name: left;
+          animation-name: left;
+  animation-direction: reverse;
+}
+
+.from-right-to-center {
+  -webkit-animation-name: right;
+          animation-name: right;
+}
+
+.from-left {
+  -webkit-animation-name: left;
+          animation-name: left;
+}
+
+.to-right {
+  -webkit-animation-name: right;
+          animation-name: right;
+  animation-direction: reverse;
+}
+
+.from-center {
+  -webkit-animation-name: left;
+          animation-name: left;
+  animation-direction: reverse;
+}
+
+.to-center {
+  -webkit-animation-name: right;
+          animation-name: right;
+}
+
+@-webkit-keyframes left {
+  from {
+    transform: translateX(-105%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes left {
+  from {
+    transform: translateX(-105%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes right {
+  from {
+    transform: translateX(105%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@keyframes right {
+  from {
+    transform: translateX(105%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@-webkit-keyframes fadeout {
+  0% {
+    opacity: 0;
+    margin-top: 100%;
+    height: 0%;
+  }
+  3% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    margin-top: 0;
+    height: 90%;
+  }
+}
+@keyframes fadeout {
+  0% {
+    opacity: 0;
+    margin-top: 100%;
+    height: 0%;
+  }
+  3% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+    margin-top: 0;
+    height: 90%;
+  }
+}
+
 
 @import './adaptive/_ad-testimonails';
