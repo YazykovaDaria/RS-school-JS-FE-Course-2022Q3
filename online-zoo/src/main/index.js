@@ -34,8 +34,8 @@ const changeDisplayedItems = () => {
       allTestimonialItems[+startIndex].addEventListener(
         'animationend',
         () => {
-          allTestimonialItems[startIndex - 1].classList.remove('_visible');
-          allTestimonialItems[startIndex - 1].classList.add('_hidden');
+          allTestimonialItems[startIndex - 1].classList.remove('visible');
+          allTestimonialItems[startIndex - 1].classList.add('hidden');
 
           allTestimonialItems[startIndex - 1].classList.remove(
             'from-center-to-left',
@@ -57,14 +57,14 @@ const changeDisplayedItems = () => {
     }
 
     if (endIndex <= 10) {
-      allTestimonialItems[endIndex].classList.remove('_hidden');
-      allTestimonialItems[endIndex].classList.add('_visible');
+      allTestimonialItems[endIndex].classList.remove('hidden');
+      allTestimonialItems[endIndex].classList.add('visible');
     }
   } else {
     startIndex == 0 ? (previousIndex = 0) : (previousIndex -= 1);
     //console.log(startIndex);
-    allTestimonialItems[startIndex].classList.remove('_hidden');
-    allTestimonialItems[startIndex].classList.add('_visible');
+    allTestimonialItems[startIndex].classList.remove('hidden');
+    allTestimonialItems[startIndex].classList.add('visible');
 
     allTestimonialItems[startIndex].classList.add('from-left-to-center');
     allTestimonialItems[+startIndex + 1].classList.add('from-left-to-center');
@@ -73,8 +73,8 @@ const changeDisplayedItems = () => {
     allTestimonialItems[+startIndex + 4].classList.add('from-left-to-center');
 
     allTestimonialItems[endIndex].addEventListener('animationend', () => {
-      allTestimonialItems[+endIndex].classList.remove('_hidden');
-      allTestimonialItems[+endIndex].classList.add('_visible');
+      allTestimonialItems[+endIndex].classList.remove('hidden');
+      allTestimonialItems[+endIndex].classList.add('visible');
 
       allTestimonialItems[startIndex].classList.remove('from-left-to-center');
 
@@ -94,13 +94,12 @@ const changeDisplayedItems = () => {
     });
 
     if (startIndex > 0) {
-      allTestimonialItems[startIndex - 1].classList.remove('_visible');
-      allTestimonialItems[startIndex - 1].classList.add('_hidden');
+      allTestimonialItems[startIndex - 1].classList.remove('visible');
+      allTestimonialItems[startIndex - 1].classList.add('hidden');
     }
   }
 };
 
-rangeInput.addEventListener('input', () => {
-console.log('hi');
+rangeInput.addEventListener('change', () => {
   changeDisplayedItems();
 });
