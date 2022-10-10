@@ -129,7 +129,7 @@ export const testimonials = [
   },
   {
     id: '9',
-    avatar: 'assetsuser_icon.svg',
+    avatar: 'assets/user_icon.svg',
     userName: 'Mira John',
     userLocal: 'Local Austria',
     postDate: 'Today',
