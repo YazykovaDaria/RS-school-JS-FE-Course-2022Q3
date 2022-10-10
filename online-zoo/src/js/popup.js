@@ -6,7 +6,8 @@ const popupClose = popup.querySelector('.popup-close');
 
 const getCardData = (id) => testimonials.filter((card) => card.id === id);
 
-const getPopupCard = ([data]) => `<div class="testim-card">
+const getPopupCard = ([data]) => `<div class="card-border visible">
+  <div class="testim-card">
   <div class="card-header">
   <img class="avatar" src="${data.avatar}" alt="avatar">
   <div class="card-header-title">
@@ -18,6 +19,7 @@ const getPopupCard = ([data]) => `<div class="testim-card">
   </div>
   </div>
   <div class="card-content">${data.content}</div>
+    </div>
     </div>`;
 
 const close = () => popup.classList.remove('active');
@@ -28,7 +30,7 @@ const goPopup = () => {
       const card = e.target.closest('.testim-card');
       if (card) {
         const popupCard = getPopupCard(getCardData(card.id));
-        popup.querySelector('.card-border').innerHTML = popupCard;
+        popup.querySelector('.card-cont').innerHTML = popupCard;
         popup.classList.add('active');
       }
     }

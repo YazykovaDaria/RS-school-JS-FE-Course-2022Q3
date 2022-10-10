@@ -37,7 +37,11 @@ justify-content: center;
   right: 15px;
         }
 
-        .testim-card .card-content {
-          height: 324px;
+        .testim-card {
+          display: block;
+
+          .card-content {
+            height: 324px;
+          }
         }
 }
