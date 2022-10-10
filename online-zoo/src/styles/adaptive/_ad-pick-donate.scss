@@ -74,14 +74,6 @@ figure {
   .tabl {
     display: none;
   }
-
-  input[type=radio]#sum-100 + label img.checked {
-    display: inline;
-  }
-
-  input[type=radio]#sum-100 ~ p {
-    color: $orange;
-  }
 }
 
 input[type=number] {

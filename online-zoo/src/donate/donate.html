@@ -10,35 +10,52 @@
 <body class="body">
   <header class="header">
     <nav class="nav">
-  <div class="nav-container">
+
+      <a href="./index.html" class="logo-link mobile-link">
+        <h1 class="logo">PetStory<br>Online
+          <img class="logo-img" src="../assets/icons/bamboo.svg" alt="bomboo">
+          </h1>
+      </a>
+
+      <div class="nav-container">
   <a href="./index.html" class="logo-link">
-    <h1 class="logo">PetStory<br>Online
+    <p class="logo">PetStory<br>Online
       <img class="logo-img" src="../assets/icons/bamboo.svg" alt="bomboo">
-      </h1>
+      </p>
   </a>
+
       <ul class="nav-list">
+        <li class="nal-item">
+          <a href="./index.html" class="logo-link design-mobile">
+            <p class="logo">PetStory<br>Online
+              <img class="logo-img" src="../assets/icons/bamboo.svg" alt="bomboo">
+              </p>
+          </a>
+        </li>
   <li class="nal-item"><a href="./index.html" class="nav-link link">About</a></li>
   <li class="nal-item"><a href="#pick" class="nav-link link">Map</a></li>
   <li class="nal-item"><a href="#pets" class="nav-link link">Zoos</a></li>
-  <li class="nal-item"><a href="./donate.html" class="nav-link link active">Donate</a></li>
+  <li class="nal-item"><a href="./donate.html" class="nav-link link">Donate</a></li>
   <li class="nal-item"><a href="#footer" class="nav-link link">Contact us</a></li>
+  <li class="nal-item design-mobile">
+    <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks?node-id=0%3A1" class="link">Designed by ©</a>
+  </li>
       </ul>
-
     </div>
       <div class="design">
-        <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks?node-id=0%3A1" class="link" target="_blank">Designed by ©</a>
+        <a href="https://www.figma.com/file/ypzT9idgAILaSRVRmDAJxn/online-zoo-3-weeks?node-id=0%3A1" class="link">Designed by ©</a>
       </div>
 
       <div class="menu-burger">
         <div class="burger-lines">
             <span class="burger-line"></span>
         </div>
+      </div>
 
      </nav>
     </header>
     <main>
       <section class="panda">
-
       </section>
 
       <section class="pick">
@@ -104,7 +121,6 @@
             name="radios"
             id="sum-1000"
             value="1000"
-            checked
           />
           <label for="sum-1000"><img src="../assets/icons/Ellipse 8.svg"> <img src="../assets/icons/roller_icon.svg" class="checked"></label>
           <p>$1000</p> </div>
@@ -138,6 +154,7 @@
             name="radios"
             id="sum-100"
             value="100"
+            checked
           />
           <label for="sum-100"><img src="../assets/icons/Ellipse 8.svg"> <img src="../assets/icons/roller_icon.svg" class="checked"></label>
            <p id="d100">$100</p>
@@ -175,9 +192,9 @@
   </fieldset>
 </form>
 
-<div class="card-footer">
+<form class="card-footer">
 
-  <input type="number" min="0" max="4" placeholder="Another amount">
+  <input type="number" max="9999" maxlength="4" placeholder="Another amount">
 
 <div class="card-radio">
   <input type="radio" id="month"
@@ -192,7 +209,7 @@
 <button class="btn" type="submit">Feed a friend now</button>
 
 <p class="card-share">Share with your friends on social networks</p>
-</div>
+</form>
 
 </div>
 

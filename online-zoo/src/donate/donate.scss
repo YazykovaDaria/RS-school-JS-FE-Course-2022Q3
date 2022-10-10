@@ -54,6 +54,13 @@ padding-left: 30px;
     }
   }
   @media (max-width: 640px) {
+    .nav-container {
+      align-items: flex-start;
+    }
+
+    .nav .nav-list {
+      padding-left: 20px;
+  }
     .panda {
       height: 335px;
       background-repeat: no-repeat;
