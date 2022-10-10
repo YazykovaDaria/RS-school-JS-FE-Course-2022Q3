@@ -1,6 +1,6 @@
 import './donate.html';
 import 'normalize.css';
 import './donate.scss';
-import { donateApp } from '../js/apps';
+import app from '../js/donateApp';
 
-donateApp();
+app();

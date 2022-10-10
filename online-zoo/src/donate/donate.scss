@@ -52,8 +52,6 @@ padding-left: 30px;
     .panda {
       margin-top: 34px;
     }
-  }
-  @media (max-width: 640px) {
     .nav-container {
       align-items: flex-start;
     }
@@ -61,6 +59,9 @@ padding-left: 30px;
     .nav .nav-list {
       padding-left: 20px;
   }
+  }
+
+  @media (max-width: 640px) {
     .panda {
       height: 335px;
       background-repeat: no-repeat;
