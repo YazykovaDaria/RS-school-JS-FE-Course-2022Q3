@@ -19,6 +19,11 @@
     justify-content: space-evenly;
     margin-top: 30px;
 
+    .last_visible {
+      display: none;
+    }
+
+
     .card-border {
       height: 388px;
 
@@ -63,8 +68,7 @@ input[type=range] {
     flex-wrap: wrap;
     padding-left: 20px;
     padding-right: 20px;
-    max-height: 370px;
-
+   //max-height: 370px;
 
 
     .card-border {

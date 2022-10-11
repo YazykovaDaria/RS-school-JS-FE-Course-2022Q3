@@ -9,7 +9,6 @@
 .testim-container {
 max-width: 1160px;
 margin: 0 auto;
-//overflow: hidden;
 
 .btn {
   border-radius: 5px;
@@ -26,13 +25,7 @@ margin: 0 auto;
 }
 
 .testim-cards {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   text-align: start;
-  //   overflow: hidden;
-  //   position: relative;
-  //  // overflow-x: auto;
-  //   max-width: 1193px;
+
   margin-top: 47px;
   display: flex;
   justify-content: center;
@@ -77,10 +70,11 @@ margin: 0 auto;
 }
 
 .testim-card {
-  min-width: 231px;
+min-width: 225px;
 border-radius: 20px;
 padding: 15px 15px 19px 14px;
 background: #F1F3F2;
+overflow: hidden;
 
 .card-content {
   height: 309px;
@@ -148,11 +142,5 @@ appearance: none;
   -webkit-appearance: none;
 }
 }
-
-
-
-
-
-
 
 @import './adaptive/_ad-testimonails';
