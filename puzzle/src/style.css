@@ -1,0 +1,43 @@
+body {
+
+  /* display: flex;
+  font-size: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1280px;
+  margin: 0 auto; */
+}
+
+.game-container {
+
+max-width: 400px;
+padding: 2rem 0;
+margin: 0 auto;
+
+}
+
+.game-play {
+width: 100%;
+padding-bottom: 100%;
+position: relative;
+background: rebeccapurple;
+margin-bottom: 1.5rem;
+}
+
+.item {
+position: absolute;
+left: 0;
+top: 0;
+width: 25%;
+height: 25%;
+margin: 0;
+padding: 0;
+border: 0;
+background: beige;
+font-size: 2rem;
+cursor: pointer;
+border: solid royalblue 2px;
+border-radius: 10%;
+transition: transform 0.2s;
+}

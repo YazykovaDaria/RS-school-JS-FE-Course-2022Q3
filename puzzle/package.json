@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack serve",
     "dev": "webpack",
-    "prod": "webpack --node-env=production"
+    "prod": "webpack --node-env=production",
+    "public": "webpack --node-env=production && gh-pages -d dist -e puzzle"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,11 @@
     "@babel/preset-env": "^7.19.1",
     "babel-loader": "^8.2.5",
     "css-loader": "^6.7.1",
+    "eslint": "^8.19.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-import": "^2.26.0",
+    "gh-pages": "^4.0.0",
     "html-loader": "^4.1.0",
     "html-webpack-plugin": "^5.5.0",
     "image-webpack-loader": "^8.1.0",
@@ -28,11 +34,7 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.11.1",
-    "eslint": "^8.19.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-import": "^2.26.0"
+    "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
