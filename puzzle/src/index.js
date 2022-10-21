@@ -8,6 +8,11 @@ import app from './js/app';
 const gamePlay = document.getElementById('game-play');
 const gameItems = Array.from(gamePlay.querySelectorAll('.item'));
 const countItems = 16;
+const blankItem = 16;
+const maxShuffleCount = 80;
+let timer;
+let blockedCoords = null;
+// let shuffleCount = 0;
 
 if (gameItems.length !== 16) {
   throw new Error('не 16 плиток');
@@ -50,26 +55,70 @@ const setPositionItems = (matrix) => {
 // position
 gameItems[countItems - 1].style.display = 'none';
 
-let matrix = getMatrix(gameItems.map((item) => Number(item.dataset.matrixId)));
+const matrix = getMatrix(gameItems.map((item) => Number(item.dataset.matrixId)));
 
 const positionItems = setPositionItems(matrix);
 
 // shuffle;
 
-const shuffleArr = (arr) => arr
-  .map((val) => ({ val, sort: Math.random() }))
-  .sort((a, b) => a.sort - b.sort)
-  .map(({ val }) => val);
+// const shuffleArr = (arr) => arr
+//   .map((val) => ({ val, sort: Math.random() }))
+//   .sort((a, b) => a.sort - b.sort)
+//   .map(({ val }) => val);
+
+const findValidCoords = ({ blankCoords, matrix, blockedCoords }) => {
+  const validCoords = [];
+  for (let y = 0; y < matrix.length; y += 1) {
+    for (let x = 0; x < matrix.length; x += 1) {
+      if (isValidForSwap({ x, y }, blankCoords)) {
+        if (!blockedCoords || !(blockedCoords.x === x && blockedCoords.y === y)) {
+         validCoords.push({ x, y });
+        }
+      }
+    }
+  }
+  return validCoords;
+};
+
+// let blockedCoords = null;
+const randomSwap = (matrix) => {
+  const blankCoords = findCoordinatesByNum(blankItem, matrix);
+  const validCoords = findValidCoords({
+    blankCoords,
+    matrix,
+    blockedCoords,
+  });
+  const swapCoords = validCoords[Math.floor(Math.random() * validCoords.length)];
+  swap(blankCoords, swapCoords, matrix);
+  blockedCoords = blankCoords;
+};
 
 const shuffleBtn = document.getElementById('start').addEventListener('click', () => {
-  const shuffle = shuffleArr(matrix.flat());
-  matrix = getMatrix(shuffle);
+  randomSwap(matrix);
   setPositionItems(matrix);
+
+  // let timer;
+  let shuffleCount = 0;
+  clearInterval(timer);
+
+  timer = setInterval(() => {
+    randomSwap(matrix);
+    setPositionItems(matrix);
+    shuffleCount += 1;
+    if (shuffleCount >= maxShuffleCount) {
+      // shuffleCount = 0;
+      clearInterval(timer);
+    }
+  }, 70);
+
+  // const shuffle = shuffleArr(matrix.flat());
+  // matrix = getMatrix(shuffle);
+  // setPositionItems(matrix);
   // console.log('hi');
 });
 
 // change position by click
-const blankItem = 16;
+// const blankItem = 16;
 
 const findCoordinatesByNum = (num, matrix) => {
   for (let y = 0; y < matrix.length; y += 1) {
@@ -82,11 +131,11 @@ const findCoordinatesByNum = (num, matrix) => {
   return null;
 };
 
-const isValidForSwap = (coords1, coords2) => {
+function isValidForSwap(coords1, coords2) {
   const difX = Math.abs(coords1.x - coords2.x);
   const difY = Math.abs(coords1.y - coords2.y);
   return (difX === 1 || difY === 1) && (coords1.x === coords2.x || coords1.y === coords2.y);
-};
+}
 
 // winner
 const winFlatArr = new Array(16).fill(0).map((item, i) => i + 1);
@@ -103,14 +152,15 @@ const isWon = (matrix) => {
 };
 
 // change position
-const swap = (coords1, coords2, matrix) => {
+function swap(coords1, coords2, matrix) {
   const coords1Num = matrix[coords1.y][coords1.x];
   matrix[coords1.y][coords1.x] = matrix[coords2.y][coords2.x];
   matrix[coords2.y][coords2.x] = coords1Num;
-  if (isWon(matrix)) {
-    alert('you are won!');
-  }
-};
+  // проверка победителя срабатывает при перемешивании!
+  // if (isWon(matrix)) {
+  //   alert('you are won!');
+  // }
+}
 
 gamePlay.addEventListener('click', (e) => {
   const btn = e.target;
