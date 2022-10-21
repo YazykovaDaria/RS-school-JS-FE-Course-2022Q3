@@ -42,6 +42,10 @@ border-radius: 10%;
 transition: transform 0.2s;
 }
 
+.item:last-child {
+  display: none;
+}
+
 #frame-size {
   display: flex;
   justify-content: center;
