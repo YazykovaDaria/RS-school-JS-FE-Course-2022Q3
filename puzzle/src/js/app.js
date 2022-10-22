@@ -14,13 +14,15 @@ const swapItems = (matrix, btnNum, blankNum, gameItems, watcher) => {
     // здесь добавить счётчик свапов
     swap(blankBtnCoordinates, btnCoordinates, matrix);
     watcher.gamePlay.itemCoordinates = getPositionItems(matrix, gameItems);
+    watcher.gamePlay.moves += 1;
   }
 };
 
 let timer;
 
-const shuffleItems = (matrix, countItems, gameItems, maxShuffleCount, watcher) => {
+const shuffleAndStartGame = (matrix, countItems, gameItems, maxShuffleCount, watcher) => {
   randomSwap(matrix, countItems);
+  watcher.isShuffle = true;
   watcher.gamePlay.itemCoordinates = getPositionItems(matrix, gameItems);
 
   let shuffleCount = 0;
@@ -32,6 +34,8 @@ const shuffleItems = (matrix, countItems, gameItems, maxShuffleCount, watcher) =
     shuffleCount += 1;
     if (shuffleCount >= maxShuffleCount) {
       clearInterval(timer);
+      watcher.isShuffle = false;
+      watcher.startGame = true;
     }
   }, 70);
 };
@@ -41,10 +45,11 @@ const app = () => {
 
   const elements = {
     gameControls: document.getElementById('js-controls'),
+    gamePlay: document.getElementById('game-play'),
     movesCount: document.getElementById('moves'),
     timesSecond: document.getElementById('second'),
     timesMinute: document.getElementById('minute'),
-    gamePlay: document.getElementById('game-play'),
+    newGameBtn: document.getElementById('start'),
     getGameItems() {
       return Array.from(this.gamePlay.querySelectorAll('.item'));
     },
@@ -53,12 +58,14 @@ const app = () => {
 
   const initState = {
     startGame: false,
+    isShuffle: false,
     saveGame: false,
     gamePlay: {
       countItems: 16,
       maxShuffleCount: 80,
       matrix: [],
       itemCoordinates: [],
+      moves: 0,
     },
     // showResult: false,
   };
@@ -79,11 +86,11 @@ const app = () => {
 
   elements.gameControls.addEventListener('click', (e) => {
     const { id } = e.target;
-    //console.log(id);
+    // console.log(id);
     switch (id) {
       case 'start':
-        shuffleItems(matrix, countItems, elements.getGameItems(), maxShuffleCount, watcher);
-        //добавить сост для блока поля и начала игры
+        shuffleAndStartGame(matrix, countItems, elements.getGameItems(), maxShuffleCount, watcher);
+        // добавить сост для блока поля и начала игры
 
         // watcher.startGame = true;
         break;

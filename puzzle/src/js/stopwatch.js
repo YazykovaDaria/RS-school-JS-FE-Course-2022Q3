@@ -1,15 +1,16 @@
-const minuteEl = document.getElementById('minute');
-const secondEl = document.getElementById('second');
+// const minuteEl = document.getElementById('minute');
+// const secondEl = document.getElementById('second');
 
 let minute;
 let second = 0;
 let interval = 0;
 
-const startStopWatch = () => {
+const startStopWatch = (minuteEl, secondEl) => {
   second += 1;
   if (second <= 9) {
     secondEl.innerText = `0${second}`;
-  } if (second > 9) {
+  }
+  if (second > 9) {
     secondEl.innerText = second;
   } if (second === 60) {
     minute += 1;
@@ -21,10 +22,10 @@ const startStopWatch = () => {
   }
 };
 
-const stopWatch = (toggle) => {
-  if (toggle) {
+const stopWatch = (isStart, minuteEl, secondEl) => {
+  if (isStart) {
     clearInterval(interval);
-    interval = setInterval(startStopWatch, 1000);
+    interval = setInterval(() => startStopWatch(minuteEl, secondEl), 1000);
   } else {
     clearInterval(interval);
     second = 0;

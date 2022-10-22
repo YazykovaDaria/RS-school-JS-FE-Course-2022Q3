@@ -30,7 +30,7 @@ export default () => {
       </div>
   </div>
   <div class="row game-container">
-    <div class="game-play" id="game-play">
+    <div class="game-play game-shuffle" id="game-play">
     <button class="item" data-matrix-id="1">1</button>
     <button class="item" data-matrix-id="2">2</button>
     <button class="item" data-matrix-id="3">3</button>
