@@ -1,5 +1,6 @@
 
 export const isWon = (matrix, winArr) => {
+  if (!winArr) return false;
   const flatMatrix = matrix.flat();
   for (let i = 0; i < winArr.length; i += 1) {
     if (flatMatrix[i] !== winArr[i]) {

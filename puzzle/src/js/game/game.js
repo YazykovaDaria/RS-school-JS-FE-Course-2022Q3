@@ -1,4 +1,4 @@
-import { isValidForSwap } from "./validators";
+import { isValidForSwap, isWon } from './validators';
 
 export const getPositionItems = (matrix, gameItems) => {
   const itemsPosition = [];
@@ -12,32 +12,32 @@ export const getPositionItems = (matrix, gameItems) => {
   return itemsPosition;
 };
 
-const getWinFlatArr = (count) => {
+export const getWinFlatArr = (count) => {
   const winArr = new Array(count).fill(0).map((item, i) => i + 1);
   return winArr;
-}
+};
 
 export const findCoordinatesByNum = (num, matrix) => {
-    for (let y = 0; y < matrix.length; y += 1) {
-      for (let x = 0; x < matrix.length; x += 1) {
-        if (matrix[y][x] === num) {
-          return { x, y };
-        }
+  for (let y = 0; y < matrix.length; y += 1) {
+    for (let x = 0; x < matrix.length; x += 1) {
+      if (matrix[y][x] === num) {
+        return { x, y };
       }
     }
-    return null;
-  };
+  }
+  return null;
+};
 
-export const swap = (coords1, coords2, matrix) => {
+export const swap = (coords1, coords2, matrix, winArr) => {
   const coords1Num = matrix[coords1.y][coords1.x];
   matrix[coords1.y][coords1.x] = matrix[coords2.y][coords2.x];
   matrix[coords2.y][coords2.x] = coords1Num;
+  //console.log(winArr);
   // проверка победителя срабатывает при перемешивании!
-  // if (isWon(matrix)) {
-  //   alert('you are won!');
-  // }
-  return matrix;
-}
+  if (isWon(matrix, winArr)) {
+    return true;
+  }
+};
 
 const findValidCoords = ({ blankCoords, matrix, blockedCoords }) => {
   const validCoords = [];

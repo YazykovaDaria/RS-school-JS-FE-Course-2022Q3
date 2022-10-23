@@ -72,5 +72,8 @@ export default () => {
   <label for="8on8">8&times;8</label>
   </form>
   </div>
+  <div id="modal" class="hidden">
+  you win
+  </div>
   </div>`;
 };

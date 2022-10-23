@@ -59,3 +59,12 @@ input[type="radio"] {
 input[type="radio"]:checked+label{
   color: blue;
 }
+
+#modal {
+  display: flex;
+  background-color: blue;
+}
+
+#modal.hidden {
+  display: none;
+}

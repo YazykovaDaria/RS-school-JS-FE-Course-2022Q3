@@ -2,19 +2,25 @@ import getStartHtml from './startHtml';
 import appWiev from './wiev';
 import { getMatrix } from './utils/utils';
 import {
-  getPositionItems, findCoordinatesByNum, swap, randomSwap,
+  getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr,
 } from './game/game';
 import { isValidForSwap } from './game/validators';
 
-const swapItems = (matrix, btnNum, blankNum, gameItems, watcher) => {
+const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr) => {
   const btnCoordinates = findCoordinatesByNum(btnNum, matrix);
   const blankBtnCoordinates = findCoordinatesByNum(blankNum, matrix);
   const isValid = isValidForSwap(btnCoordinates, blankBtnCoordinates);
   if (isValid) {
     // здесь добавить счётчик свапов
-    swap(blankBtnCoordinates, btnCoordinates, matrix);
+    const swaper = swap(blankBtnCoordinates, btnCoordinates, matrix, winArr);
     watcher.gamePlay.itemCoordinates = getPositionItems(matrix, gameItems);
     watcher.gamePlay.moves += 1;
+//сигнал о выигрыше
+    if (swaper) {
+      //console.log('hi');
+      watcher.startGame = false;
+      watcher.isWin = true;
+    }
   }
 };
 
@@ -50,6 +56,7 @@ const app = () => {
     timesSecond: document.getElementById('second'),
     timesMinute: document.getElementById('minute'),
     newGameBtn: document.getElementById('start'),
+    modal: document.getElementById('modal'),
     getGameItems() {
       return Array.from(this.gamePlay.querySelectorAll('.item'));
     },
@@ -58,11 +65,12 @@ const app = () => {
 
   const initState = {
     startGame: false,
+    isWin: false,
     isShuffle: false,
     saveGame: false,
     gamePlay: {
       countItems: 16,
-      maxShuffleCount: 80,
+      maxShuffleCount: 1,
       matrix: [],
       itemCoordinates: [],
       moves: 0,
@@ -75,6 +83,8 @@ const app = () => {
   const gameItemsNumber = elements.getGameItems().map((item) => Number(item.dataset.matrixId));
 
   initState.gamePlay.matrix = getMatrix(gameItemsNumber);
+
+  const winArr = getWinFlatArr(initState.gamePlay.countItems);
 
   const { matrix, countItems, maxShuffleCount } = initState.gamePlay;
 
@@ -115,7 +125,7 @@ const app = () => {
   elements.gamePlay.addEventListener('click', (e) => {
     const btn = e.target;
     const btnNumber = Number(btn.dataset.matrixId);
-    swapItems(matrix, btnNumber, countItems, elements.getGameItems(), watcher);
+    swapItems(matrix, btnNumber, countItems, elements.getGameItems(), watcher, winArr);
   });
 
   elements.gameSize.addEventListener('change', (e) => {

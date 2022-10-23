@@ -17,11 +17,32 @@ const showMoves = (movesCount, movesEl) => {
   movesEl.innerText = movesCount;
 };
 
+//доделать стили + закрытие + проверить на нескольких выигрышах
+const showWonMessage = (isShow, {modal, movesCount, timesMinute, timesSecond} ) => {
+if (isShow) {
+const moves = movesCount.textContent;
+const minutes = timesMinute.textContent;
+const seconds = timesSecond.textContent;
+const mes = `Hooray! You solved the puzzle in ${minutes}:${seconds} and ${moves} moves!`;
+modal.innerText = mes;
+modal.classList.remove('hidden');
+} else {
+  modal.classList.add('hidden');
+}
+}
+
 const appWiev = (state, elements) => onChange(state, (path, value) => {
   switch (path) {
     case 'startGame':
       stopWatch(value, elements.timesMinute, elements.timesSecond);
       break;
+
+      case 'isWin':
+
+  showWonMessage(value, elements);
+
+        //console.log(value);
+        break;
 
     case 'isShuffle':
       toggleShuffleClass(elements.gamePlay, value);
