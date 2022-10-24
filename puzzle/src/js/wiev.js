@@ -28,6 +28,22 @@ const addWonMessage = (winData, { modal }) => {
   container.innerHTML = data.join('');
 };
 
+const addResultsTable = (results, modal) => {
+  const container = modal.querySelector('.modal-cont');
+  if (typeof results === 'string') {
+    container.innerHTML = '';
+    container.textContent = results;
+  } else {
+    const resultsList = results.map((res, i) => {
+      const min = res.minute > 9 ? res.minute : `0${res.minute}`;
+      const sec = res.second > 9 ? res.second : `0${res.second}`;
+      const resultStr = `${i + 1}. moves: ${res.moves}; time: ${min} : ${sec}`;
+      return `<span>${resultStr}</span>`;
+    });
+container.innerHTML = resultsList.join('');
+  }
+};
+
 const setSizeElement = (element, size) => {
   let elementSize;
 
@@ -97,6 +113,11 @@ const appWiev = (state, elements) => onChange(state, (path, value) => {
       toggleShuffleClass(elements.gamePlay, value);
       elements.newGameBtn.disabled = value;
       break;
+
+      case 'resultTable':
+        addResultsTable(value, elements.modal);
+//console.log(value);
+        break;
 
     case 'winData':
       addWonMessage(value, elements);

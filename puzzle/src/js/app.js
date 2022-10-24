@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 import getStartHtml from './startHtml';
 import appWiev from './wiev';
-import getMatrix from './utils/utils';
+import {getMatrix, saveBestResults, getBestResults} from './utils/utils';
 import {
   getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr,
 } from './game/game';
@@ -16,10 +16,12 @@ const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr) => {
     const swaper = swap(blankBtnCoordinates, btnCoordinates, matrix, winArr);
     watcher.gamePlay.itemCoordinates = getPositionItems(matrix, gameItems);
     watcher.gamePlay.moves += 1;
+
     // сигнал о выигрыше
     if (swaper) {
-
-      watcher.winData = [{ minute: watcher.gamePlay.gameTime.minute, second: watcher.gamePlay.gameTime.second, moves: watcher.gamePlay.moves }];
+      const winResult = [{ minute: watcher.gamePlay.gameTime.minute, second: watcher.gamePlay.gameTime.second, moves: watcher.gamePlay.moves }];
+      saveBestResults(winResult, blankNum);
+      watcher.winData = winResult;
       stopWatch(false, watcher);
       localStorage.removeItem(String(blankNum));
       watcher.isWin = true;
@@ -83,6 +85,7 @@ const app = () => {
   const initState = {
     isWin: false,
     winData: [],
+    resultTable: [],
     isShuffle: false,
     saveGame: false,
     gamePlay: {
@@ -95,7 +98,6 @@ const app = () => {
         minute: 0,
       },
     },
-    // showResult: false,
   };
 
   const watcher = appWiev(initState, elements);
@@ -136,7 +138,8 @@ const app = () => {
 
       case 'result':
 
-        watcher.isWin = true;
+watcher.resultTable = getBestResults(initState.gamePlay.countItems);
+         watcher.isWin = true;
         break;
 
       default:
