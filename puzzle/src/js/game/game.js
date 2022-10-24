@@ -1,7 +1,6 @@
 import { isValidForSwap, isWon } from './validators';
 
 export const getPositionItems = (matrix, gameItems) => {
-  //console.log(matrix.length);
   const itemsPosition = [];
   for (let y = 0; y < matrix.length; y += 1) {
     for (let x = 0; x < matrix.length; x += 1) {
@@ -10,7 +9,6 @@ export const getPositionItems = (matrix, gameItems) => {
       itemsPosition.push({ item, x, y });
     }
   }
-  //console.log(itemsPosition);
   return itemsPosition;
 };
 
@@ -34,8 +32,6 @@ export const swap = (coords1, coords2, matrix, winArr) => {
   const coords1Num = matrix[coords1.y][coords1.x];
   matrix[coords1.y][coords1.x] = matrix[coords2.y][coords2.x];
   matrix[coords2.y][coords2.x] = coords1Num;
-  //console.log(winArr);
-  // проверка победителя срабатывает при перемешивании!
   if (isWon(matrix, winArr)) {
     return true;
   }

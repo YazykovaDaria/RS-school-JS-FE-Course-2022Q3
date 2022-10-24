@@ -1,35 +1,30 @@
-// const minuteEl = document.getElementById('minute');
-// const secondEl = document.getElementById('second');
-
-let minute;
+let minute = 0;
 let second = 0;
 let interval = 0;
 
-const startStopWatch = (minuteEl, secondEl) => {
+const startStopWatch = (watcher) => {
   second += 1;
-  if (second <= 9) {
-    secondEl.innerText = `0${second}`;
-  }
-  if (second > 9) {
-    secondEl.innerText = second;
-  } if (second === 60) {
+    watcher.gamePlay.gameTime.second = second;
+  if (second === 60) {
     minute += 1;
-    minuteEl.innerText = `0${minute}`;
+    watcher.gamePlay.gameTime.minute = minute;
     second = 0;
-    secondEl.innerText = `0${second}`;
-  } if (minute > 9) {
-    minuteEl.innerText = minute;
+    watcher.gamePlay.gameTime.second = second;
   }
 };
 
-const stopWatch = (isStart, minuteEl, secondEl) => {
+const stopWatch = (isStart, watcher, min = 0, sec = 0) => {
+  second = sec;
+  minute = min;
   if (isStart) {
     clearInterval(interval);
-    interval = setInterval(() => startStopWatch(minuteEl, secondEl), 1000);
+    interval = setInterval(() => startStopWatch(watcher), 1000);
   } else {
     clearInterval(interval);
     second = 0;
     minute = 0;
+    watcher.gamePlay.gameTime.minute = minute;
+    watcher.gamePlay.gameTime.second = second;
   }
 };
 

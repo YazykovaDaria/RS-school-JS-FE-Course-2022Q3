@@ -64,7 +64,6 @@ const setSizeElement = (element, size) => {
 
 const changeFrameSize = (size, { gamePlay }) => {
   gamePlay.innerHTML = '';
-  gamePlay.classList.add('game-shuffle');
   for (let i = 0; i < size; i += 1) {
     const item = document.createElement('button');
     item.classList.add('item');
@@ -75,12 +74,28 @@ const changeFrameSize = (size, { gamePlay }) => {
   }
 };
 
+const showTime = (element, time) => {
+  if (time <= 9) {
+element.innerText = `0${time}`;
+  }
+ if (time > 9) {
+element.innerText = time;
+  }
+};
+
 const appWiev = (state, elements) => onChange(state, (path, value) => {
   switch (path) {
     case 'startGame':
-      stopWatch(value, elements.timesMinute, elements.timesSecond);
+      //stopWatch(value, elements.timesMinute, elements.timesSecond);
       break;
 
+      case 'gamePlay.gameTime.second':
+        showTime(elements.timesSecond, value);
+        break;
+
+        case 'gamePlay.gameTime.minute':
+        showTime(elements.timesMinute, value);
+          break;
     case 'isWin':
 
       showWonMessage(value, elements);
@@ -94,6 +109,7 @@ const appWiev = (state, elements) => onChange(state, (path, value) => {
       break;
 
     case 'gamePlay.itemCoordinates':
+      //console.log(value);
       setItemStyles(value);
       break;
 
