@@ -31,8 +31,8 @@ const addWonMessage = (winData, { modal }) => {
 const addResultsTable = (results, modal) => {
   const container = modal.querySelector('.modal-cont');
   if (typeof results === 'string') {
-    container.innerHTML = '';
-    container.textContent = results;
+    //container.innerHTML = '';
+    container.innerText = results;
   } else {
     const resultsList = results.map((res, i) => {
       const min = res.minute > 9 ? res.minute : `0${res.minute}`;

@@ -76,6 +76,9 @@ input[type="radio"]:checked+label{
   position: fixed;
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
   padding-top: 30px;
@@ -90,7 +93,6 @@ align-items: center;
 max-width: 400px;
 min-height: 300px;
 padding: 0.5rem;
-margin: 50% auto;
 background-color: white;
 border: solid 2px rebeccapurple;
 border-radius: 2%;
