@@ -90,7 +90,7 @@ const app = () => {
     saveGame: false,
     gamePlay: {
       countItems: 16,
-      maxShuffleCount: 1,
+      maxShuffleCount: 80,
       itemCoordinates: [],
       moves: 0,
       gameTime: {
