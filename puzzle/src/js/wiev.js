@@ -1,5 +1,4 @@
 import onChange from 'on-change';
-import stopWatch from './stopwatch';
 
 const setItemStyles = (itemsPosition) => {
   const shiftPs = 100;
@@ -17,20 +16,16 @@ const showMoves = (movesCount, movesEl) => {
   movesEl.innerText = movesCount;
 };
 
-// доделать стили + закрытие + проверить на нескольких выигрышах
-const showWonMessage = (isShow, {
-  modal, movesCount, timesMinute, timesSecond,
-}) => {
-  if (isShow) {
-    const moves = movesCount.textContent;
-    const minutes = timesMinute.textContent;
-    const seconds = timesSecond.textContent;
-    const mes = `Hooray! You solved the puzzle in ${minutes}:${seconds} and ${moves} moves!`;
-    modal.innerText = mes;
-    modal.classList.remove('hidden');
-  } else {
-    modal.classList.add('hidden');
-  }
+const showWonMessage = (isShow, modal) => (isShow ? modal.classList.remove('hidden') : modal.classList.add('hidden'));
+
+const addWonMessage = (winData, { modal }) => {
+  const data = winData.map((info) => {
+    const min = info.minute > 9 ? info.minute : `0${info.minute}`;
+    const sec = info.second > 9 ? info.second : `0${info.second}`;
+    return `Hooray! You solved the puzzle in ${min}:${sec} and ${info.moves} moves!`;
+  });
+  const container = modal.querySelector('.modal-cont');
+  container.innerHTML = data.join('');
 };
 
 const setSizeElement = (element, size) => {
@@ -76,31 +71,26 @@ const changeFrameSize = (size, { gamePlay }) => {
 
 const showTime = (element, time) => {
   if (time <= 9) {
-element.innerText = `0${time}`;
+    element.innerText = `0${time}`;
   }
- if (time > 9) {
-element.innerText = time;
+  if (time > 9) {
+    element.innerText = time;
   }
 };
 
 const appWiev = (state, elements) => onChange(state, (path, value) => {
   switch (path) {
-    case 'startGame':
-      //stopWatch(value, elements.timesMinute, elements.timesSecond);
+    case 'gamePlay.gameTime.second':
+      showTime(elements.timesSecond, value);
       break;
 
-      case 'gamePlay.gameTime.second':
-        showTime(elements.timesSecond, value);
-        break;
+    case 'gamePlay.gameTime.minute':
+      showTime(elements.timesMinute, value);
+      break;
 
-        case 'gamePlay.gameTime.minute':
-        showTime(elements.timesMinute, value);
-          break;
     case 'isWin':
+      showWonMessage(value, elements.modal);
 
-      showWonMessage(value, elements);
-
-      // console.log(value);
       break;
 
     case 'isShuffle':
@@ -108,8 +98,13 @@ const appWiev = (state, elements) => onChange(state, (path, value) => {
       elements.newGameBtn.disabled = value;
       break;
 
+    case 'winData':
+      addWonMessage(value, elements);
+      // console.log(value);
+      break;
+
     case 'gamePlay.itemCoordinates':
-      //console.log(value);
+      // console.log(value);
       setItemStyles(value);
       break;
 

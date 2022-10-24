@@ -18,9 +18,9 @@ const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr) => {
     watcher.gamePlay.moves += 1;
     // сигнал о выигрыше
     if (swaper) {
-      // watcher.startGame = false;
+
+      watcher.winData = [{ minute: watcher.gamePlay.gameTime.minute, second: watcher.gamePlay.gameTime.second, moves: watcher.gamePlay.moves }];
       stopWatch(false, watcher);
-      //console.log(blankNum);
       localStorage.removeItem(String(blankNum));
       watcher.isWin = true;
     }
@@ -82,6 +82,7 @@ const app = () => {
 
   const initState = {
     isWin: false,
+    winData: [],
     isShuffle: false,
     saveGame: false,
     gamePlay: {
@@ -110,14 +111,9 @@ const app = () => {
 
   elements.gameControls.addEventListener('click', (e) => {
     const { id } = e.target;
-    // console.log(id);
     switch (id) {
       case 'start':
         shuffleAndStartGame(matrix, initState.gamePlay.countItems, elements.getGameItems(), maxShuffleCount, watcher);
-        break;
-
-      case 'stop':
-        // watcher.startGame = false;
         break;
 
       case 'save':
@@ -127,19 +123,20 @@ const app = () => {
 
         const itemCoordsWithMatrixId = addMatrixIdForCoords(itemCoordinates);
         const saveData = {
-          matrix, countItems, itemCoordsWithMatrixId, moves, gameTime, winArr
+          matrix, countItems, itemCoordsWithMatrixId, moves, gameTime, winArr,
         };
 
-//console.log(winArr, saveData);
+        // console.log(winArr, saveData);
 
         const key = String(countItems);
-        //localStorage.clear();
+        // localStorage.clear();
         localStorage.setItem(key, JSON.stringify(saveData));
         stopWatch(false, watcher);
         break;
 
       case 'result':
-        // watcher.showResult = true;
+
+        watcher.isWin = true;
         break;
 
       default:
@@ -168,14 +165,13 @@ const app = () => {
     initFrameSize = size;
     const savedGame = localStorage.getItem(String(itemsCount));
 
-
     if (savedGame) {
       const gameData = JSON.parse(savedGame);
       matrix = gameData.matrix;
       watcher.gamePlay.countItems = gameData.countItems;
-      //console.log(initState.gamePlay.countItems);
+      // console.log(initState.gamePlay.countItems);
 
-      //watcher.isShuffle = false;
+      // watcher.isShuffle = false;
       watcher.gamePlay.itemCoordinates = restablishItems(gameData.itemCoordsWithMatrixId, elements.gamePlay);
       watcher.gamePlay.gameTime.second = gameData.gameTime.second;
       watcher.gamePlay.gameTime.minute = gameData.gameTime.minute;
@@ -183,13 +179,12 @@ const app = () => {
       watcher.gamePlay.moves = gameData.moves;
       stopWatch(true, watcher, gameData.gameTime.minute, gameData.gameTime.second);
       winArr = gameData.winArr;
-
     } else {
       watcher.gamePlay.countItems = itemsCount;
       gameItemsNumber = getItemsNumbers(elements);
       matrix = getMatrix(gameItemsNumber, initFrameSize);
       winArr = getWinFlatArr(initState.gamePlay.countItems);
-      //watcher.isShuffle = true;
+      // watcher.isShuffle = true;
       watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
     }
   });

@@ -73,7 +73,7 @@ export default () => {
   </form>
   </div>
   <div id="modal" class="hidden">
-  you win
+  <div class="modal-cont">winn</div>
   </div>
   </div>`;
 };
