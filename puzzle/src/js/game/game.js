@@ -1,6 +1,7 @@
 import { isValidForSwap, isWon } from './validators';
 
 export const getPositionItems = (matrix, gameItems) => {
+  //console.log(matrix.length);
   const itemsPosition = [];
   for (let y = 0; y < matrix.length; y += 1) {
     for (let x = 0; x < matrix.length; x += 1) {
@@ -9,6 +10,7 @@ export const getPositionItems = (matrix, gameItems) => {
       itemsPosition.push({ item, x, y });
     }
   }
+  //console.log(itemsPosition);
   return itemsPosition;
 };
 

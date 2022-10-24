@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 import getStartHtml from './startHtml';
 import appWiev from './wiev';
-import { getMatrix } from './utils/utils';
+import getMatrix from './utils/utils';
 import {
   getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr,
 } from './game/game';
@@ -11,13 +12,11 @@ const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr) => {
   const blankBtnCoordinates = findCoordinatesByNum(blankNum, matrix);
   const isValid = isValidForSwap(btnCoordinates, blankBtnCoordinates);
   if (isValid) {
-    // здесь добавить счётчик свапов
     const swaper = swap(blankBtnCoordinates, btnCoordinates, matrix, winArr);
     watcher.gamePlay.itemCoordinates = getPositionItems(matrix, gameItems);
     watcher.gamePlay.moves += 1;
 //сигнал о выигрыше
     if (swaper) {
-      //console.log('hi');
       watcher.startGame = false;
       watcher.isWin = true;
     }
@@ -40,11 +39,14 @@ const shuffleAndStartGame = (matrix, countItems, gameItems, maxShuffleCount, wat
     shuffleCount += 1;
     if (shuffleCount >= maxShuffleCount) {
       clearInterval(timer);
+      watcher.gamePlay.moves = 0;
       watcher.isShuffle = false;
       watcher.startGame = true;
     }
   }, 70);
 };
+
+const getItemsNumbers = (elements) => elements.getGameItems().map((item) => Number(item.dataset.matrixId));
 
 const app = () => {
   getStartHtml();
@@ -71,7 +73,7 @@ const app = () => {
     gamePlay: {
       countItems: 16,
       maxShuffleCount: 1,
-      matrix: [],
+      //matrix: [],
       itemCoordinates: [],
       moves: 0,
     },
@@ -80,27 +82,28 @@ const app = () => {
 
   const watcher = appWiev(initState, elements);
 
-  const gameItemsNumber = elements.getGameItems().map((item) => Number(item.dataset.matrixId));
+  let gameItemsNumber = getItemsNumbers(elements);
+  let initFrameSize = 4;
+  let matrix = getMatrix(gameItemsNumber, initFrameSize);
+  let winArr = getWinFlatArr(initState.gamePlay.countItems);
 
-  initState.gamePlay.matrix = getMatrix(gameItemsNumber);
 
-  const winArr = getWinFlatArr(initState.gamePlay.countItems);
+  const { maxShuffleCount } = initState.gamePlay;
 
-  const { matrix, countItems, maxShuffleCount } = initState.gamePlay;
-
-  // console.log(matrix);
+  //console.log(matrix);
+//const coord = getPositionItems(matrix, elements.getGameItems())
+//console.log(coord);
 
   watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
 
-  // console.log(initState.gamePlay.matrix);
 
   elements.gameControls.addEventListener('click', (e) => {
     const { id } = e.target;
     // console.log(id);
     switch (id) {
       case 'start':
-        shuffleAndStartGame(matrix, countItems, elements.getGameItems(), maxShuffleCount, watcher);
-        // добавить сост для блока поля и начала игры
+        shuffleAndStartGame(matrix, initState.gamePlay.countItems, elements.getGameItems(), maxShuffleCount, watcher);
+
 
         // watcher.startGame = true;
         break;
@@ -125,13 +128,34 @@ const app = () => {
   elements.gamePlay.addEventListener('click', (e) => {
     const btn = e.target;
     const btnNumber = Number(btn.dataset.matrixId);
-    swapItems(matrix, btnNumber, countItems, elements.getGameItems(), watcher, winArr);
+    //
+    //console.log(countItems);
+    swapItems(matrix, btnNumber, initState.gamePlay.countItems, elements.getGameItems(), watcher, winArr);
+  });
+
+  elements.modal.addEventListener('click', () => {
+    //console.log('hi');
+watcher.isWin = false;
   });
 
   elements.gameSize.addEventListener('change', (e) => {
-    console.log(e.target.value);
-    // watcher.gamePlay.countItems = e.target.value;
+   // console.log(e.target.value);
+   const size = e.target.value;
+   const itemsCount = size * size;
+   initFrameSize = size;
+    watcher.gamePlay.countItems = itemsCount;
+
+    gameItemsNumber = getItemsNumbers(elements);
+
+    //console.log(initState.gamePlay.countItems);
+
+    matrix = getMatrix(gameItemsNumber, initFrameSize);
+//console.log(gameItemsNumber);
+    winArr = getWinFlatArr(initState.gamePlay.countItems);
+
+    watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
   });
+
 };
 
 export default app;

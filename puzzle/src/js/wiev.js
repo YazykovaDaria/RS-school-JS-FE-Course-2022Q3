@@ -31,6 +31,17 @@ modal.classList.remove('hidden');
 }
 }
 
+const changeFrameSize = (size, {gamePlay}) => {
+  gamePlay.innerHTML = '';
+  const newItems = [];
+  for (let i = 0; i < size; i += 1) {
+    const item = `<button class="item" data-matrix-id="${i + 1}">${i + 1}</button>`;
+    newItems.push(item);
+  }
+  gamePlay.innerHTML = newItems.join('');
+  //console.log(gamePlay);
+}
+
 const appWiev = (state, elements) => onChange(state, (path, value) => {
   switch (path) {
     case 'startGame':
@@ -56,6 +67,11 @@ const appWiev = (state, elements) => onChange(state, (path, value) => {
     case 'gamePlay.moves':
       showMoves(value, elements.movesCount);
       // console.log(value);
+      break;
+
+      case 'gamePlay.countItems':
+changeFrameSize(value, elements);
+      //console.log(value);
       break;
 
     default:

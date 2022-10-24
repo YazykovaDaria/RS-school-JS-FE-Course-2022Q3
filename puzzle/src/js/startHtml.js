@@ -53,22 +53,22 @@ export default () => {
   <form class="col-sm fs-7 text-center" id="frame-size">
   <p>Frame size:</p>
   <input type="radio" id="3on3"
-    name="frame-size" value="9">
+    name="frame-size" value="3">
   <label for="3on3">3&times;3</label>
   <input type="radio" id="4on4"
-  name="frame-size" value="16" checked>
+  name="frame-size" value="4" checked>
   <label for="4on4">4&times;4</label>
   <input type="radio" id="5on5"
-  name="frame-size" value="25">
+  name="frame-size" value="5">
   <label for="5on5">5&times;5</label>
   <input type="radio" id="6on6"
-  name="frame-size" value="36">
+  name="frame-size" value="6">
   <label for="6on6">6&times;6</label>
   <input type="radio" id="7on7"
-  name="frame-size" value="49">
+  name="frame-size" value="7">
   <label for="7on7">7&times;7</label>
   <input type="radio" id="8on8"
-  name="frame-size" value="64">
+  name="frame-size" value="8">
   <label for="8on8">8&times;8</label>
   </form>
   </div>
