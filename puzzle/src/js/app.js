@@ -99,7 +99,7 @@ const app = () => {
     isSound: true,
     gamePlay: {
       countItems: 16,
-      maxShuffleCount: 2,
+      maxShuffleCount: 50,
       itemCoordinates: [],
       moves: 0,
       gameTime: {
