@@ -62,6 +62,15 @@ module.exports = {
           filename: 'fonts/[name][ext]',
         },
       },
+
+      {
+        test: /\.mp3$/,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+        },
+
+      },
       {
         test: /\.(jpe?g|png|webp|gif|svg)$/i,
         use: [
