@@ -100,6 +100,10 @@ const changeSoundBtn = (controls) => {
 
 const appWiev = (state, elements) => onChange(state, (path, value) => {
   switch (path) {
+    case 'isStart':
+      toggleShuffleClass(elements.gamePlay, !value);
+      break;
+
     case 'gamePlay.gameTime.second':
       showTime(elements.timesSecond, value);
       break;
@@ -107,6 +111,7 @@ const appWiev = (state, elements) => onChange(state, (path, value) => {
     case 'isSound':
       changeSoundBtn(elements.gameControls);
       break;
+
     case 'gamePlay.gameTime.minute':
       showTime(elements.timesMinute, value);
       break;

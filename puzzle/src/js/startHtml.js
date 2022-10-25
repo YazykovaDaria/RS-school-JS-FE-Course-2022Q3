@@ -78,3 +78,15 @@ export default () => {
   </div>
   </div>`;
 };
+
+const l = ` <div class="row">
+<form class="col-sm fs-7 text-center" id="level">
+<p>Level:</p>
+<input type="radio" id="easy"
+  name="game-level" value="5">
+<label for="easu">easy</label>
+<input type="radio" id="normal"
+name="game-level" value="80" checked>
+<label for="normal">normal</label>
+</form>
+</div>`;

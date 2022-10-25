@@ -1,3 +1,5 @@
+import stopWatch from "../stopwatch";
+
 const getEmptyMatrix = (size) => {
   const matrix = [];
   for (let i = 0; i < size; i += 1) {
@@ -45,4 +47,25 @@ export const getBestResults = (gameItemsNum) => {
     return `results have not been saved`;
   }
   return JSON.parse(savedResults);
+};
+
+const addMatrixIdForCoords = (coords) => coords.map((itemCoords) => {
+  itemCoords.matrixId = itemCoords.item.dataset.matrixId;
+  return itemCoords;
+});
+
+export const saveGame = (gamePlay, matrix, winArr) => {
+  const {
+    countItems, itemCoordinates, moves, gameTime,
+  } = gamePlay;
+
+  const itemCoordsWithMatrixId = addMatrixIdForCoords(itemCoordinates);
+
+  const saveData = {
+    matrix, countItems, itemCoordsWithMatrixId, moves, gameTime, winArr,
+  };
+  const key = String(countItems);
+  localStorage.setItem(key, JSON.stringify(saveData));
+
+  alert('Игра сохранена, чтобы к ней вернуться переключитесь на другой фрэйм а затем вернитесь назад');
 };

@@ -1,7 +1,9 @@
 /* eslint-disable max-len */
 import getStartHtml from './startHtml';
 import appWiev from './wiev';
-import { getMatrix, saveBestResults, getBestResults } from './utils/utils';
+import {
+  getMatrix, saveBestResults, getBestResults, saveGame,
+} from './utils/utils';
 import {
   getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr, playAudio,
 } from './game/game';
@@ -26,9 +28,15 @@ const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr, isSound
       const winResult = [{ minute: watcher.gamePlay.gameTime.minute, second: watcher.gamePlay.gameTime.second, moves: watcher.gamePlay.moves }];
       saveBestResults(winResult, blankNum);
       watcher.winData = winResult;
-      stopWatch(false, watcher);
+
       localStorage.removeItem(String(blankNum));
-      watcher.isWin = true;
+
+      setTimeout(() => {
+        watcher.isWin = true;
+        stopWatch(false, watcher);
+        watcher.gamePlay.moves = 0;
+        watcher.isStart = false;
+      }, 300);
     }
   }
 };
@@ -52,17 +60,12 @@ const shuffleAndStartGame = (matrix, countItems, gameItems, maxShuffleCount, wat
       watcher.gamePlay.moves = 0;
       watcher.isShuffle = false;
       stopWatch(true, watcher);
-      // watcher.startGame = true;
+      watcher.isStart = true;
     }
   }, 70);
 };
 
 const getItemsNumbers = (elements) => elements.getGameItems().map((item) => Number(item.dataset.matrixId));
-
-const addMatrixIdForCoords = (coords) => coords.map((itemCoords) => {
-  itemCoords.matrixId = itemCoords.item.dataset.matrixId;
-  return itemCoords;
-});
 
 const restablishItems = (coordsWithMatrixId, gamePlay) => coordsWithMatrixId.map((el) => {
   el.item = gamePlay.querySelector(`[data-matrix-id="${el.matrixId}"]`);
@@ -84,6 +87,7 @@ const app = () => {
       return Array.from(this.gamePlay.querySelectorAll('.item'));
     },
     gameSize: document.getElementById('frame-size'),
+    gameLevel: document.getElementById('level'),
   };
 
   const initState = {
@@ -91,11 +95,11 @@ const app = () => {
     winData: [],
     resultTable: [],
     isShuffle: false,
-    saveGame: false,
+    isStart: false,
     isSound: true,
     gamePlay: {
       countItems: 16,
-      maxShuffleCount: 80,
+      maxShuffleCount: 2,
       itemCoordinates: [],
       moves: 0,
       gameTime: {
@@ -112,33 +116,46 @@ const app = () => {
   let matrix = getMatrix(gameItemsNumber, initFrameSize);
   let winArr = getWinFlatArr(initState.gamePlay.countItems);
 
-  const { maxShuffleCount } = initState.gamePlay;
-
   watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
+
+  const getSavedGame = (itemsCount) => {
+    const savedGame = localStorage.getItem(String(itemsCount));
+
+    if (savedGame) {
+      const gameData = JSON.parse(savedGame);
+      matrix = gameData.matrix;
+      watcher.gamePlay.countItems = gameData.countItems;
+
+      watcher.gamePlay.itemCoordinates = restablishItems(gameData.itemCoordsWithMatrixId, elements.gamePlay);
+      watcher.gamePlay.gameTime.second = gameData.gameTime.second;
+      watcher.gamePlay.gameTime.minute = gameData.gameTime.minute;
+
+      watcher.gamePlay.moves = gameData.moves;
+      stopWatch(true, watcher, gameData.gameTime.minute, gameData.gameTime.second);
+      watcher.isStart = true;
+      winArr = gameData.winArr;
+    } else {
+      watcher.gamePlay.countItems = itemsCount;
+      gameItemsNumber = getItemsNumbers(elements);
+      matrix = getMatrix(gameItemsNumber, initFrameSize);
+      winArr = getWinFlatArr(initState.gamePlay.countItems);
+      watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
+      watcher.isStart = false;
+    }
+  };
+
 
   elements.gameControls.addEventListener('click', (e) => {
     const { id } = e.target;
     switch (id) {
       case 'start':
-        shuffleAndStartGame(matrix, initState.gamePlay.countItems, elements.getGameItems(), maxShuffleCount, watcher);
+        shuffleAndStartGame(matrix, initState.gamePlay.countItems, elements.getGameItems(), initState.gamePlay.maxShuffleCount, watcher);
         break;
 
       case 'save':
-        const {
-          countItems, itemCoordinates, moves, gameTime,
-        } = initState.gamePlay;
-
-        const itemCoordsWithMatrixId = addMatrixIdForCoords(itemCoordinates);
-        const saveData = {
-          matrix, countItems, itemCoordsWithMatrixId, moves, gameTime, winArr,
-        };
-
-        // console.log(winArr, saveData);
-
-        const key = String(countItems);
-        // localStorage.clear();
-        localStorage.setItem(key, JSON.stringify(saveData));
+        saveGame(initState.gamePlay, matrix, winArr);
         stopWatch(false, watcher);
+        watcher.gamePlay.moves = 0;
         break;
 
       case 'result':
@@ -168,34 +185,42 @@ const app = () => {
   elements.gameSize.addEventListener('change', (e) => {
     stopWatch(false, watcher);
     watcher.gamePlay.moves = 0;
+
     const size = e.target.value;
     const itemsCount = size * size;
     initFrameSize = size;
-    const savedGame = localStorage.getItem(String(itemsCount));
 
-    if (savedGame) {
-      const gameData = JSON.parse(savedGame);
-      matrix = gameData.matrix;
-      watcher.gamePlay.countItems = gameData.countItems;
-      // console.log(initState.gamePlay.countItems);
+    getSavedGame(itemsCount);
+    // const savedGame = localStorage.getItem(String(itemsCount));
 
-      // watcher.isShuffle = false;
-      watcher.gamePlay.itemCoordinates = restablishItems(gameData.itemCoordsWithMatrixId, elements.gamePlay);
-      watcher.gamePlay.gameTime.second = gameData.gameTime.second;
-      watcher.gamePlay.gameTime.minute = gameData.gameTime.minute;
+    // if (savedGame) {
+    //   const gameData = JSON.parse(savedGame);
+    //   matrix = gameData.matrix;
+    //   watcher.gamePlay.countItems = gameData.countItems;
 
-      watcher.gamePlay.moves = gameData.moves;
-      stopWatch(true, watcher, gameData.gameTime.minute, gameData.gameTime.second);
-      winArr = gameData.winArr;
-    } else {
-      watcher.gamePlay.countItems = itemsCount;
-      gameItemsNumber = getItemsNumbers(elements);
-      matrix = getMatrix(gameItemsNumber, initFrameSize);
-      winArr = getWinFlatArr(initState.gamePlay.countItems);
-      // watcher.isShuffle = true;
-      watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
-    }
+    //   watcher.gamePlay.itemCoordinates = restablishItems(gameData.itemCoordsWithMatrixId, elements.gamePlay);
+    //   watcher.gamePlay.gameTime.second = gameData.gameTime.second;
+    //   watcher.gamePlay.gameTime.minute = gameData.gameTime.minute;
+
+    //   watcher.gamePlay.moves = gameData.moves;
+    //   stopWatch(true, watcher, gameData.gameTime.minute, gameData.gameTime.second);
+    //   winArr = gameData.winArr;
+    // } else {
+    //   watcher.gamePlay.countItems = itemsCount;
+    //   gameItemsNumber = getItemsNumbers(elements);
+    //   matrix = getMatrix(gameItemsNumber, initFrameSize);
+    //   winArr = getWinFlatArr(initState.gamePlay.countItems);
+    //   watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
+    // }
   });
+
+  // elements.gameLevel.onchange = (e) => {
+  //   console.log('hi');
+  // }
+//   elements.gameLevel.addEventListener('click', (e) => {
+//     console.log(e.target.value);
+// //initState.gamePlay.maxShuffleCount = e.target.value;
+//   });
 };
 
 export default app;

@@ -64,6 +64,12 @@ transition: transform 0.2s;
   gap: 0.4rem;
 }
 
+#level {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
 input[type="radio"] {
   display: none;
 }
