@@ -67,5 +67,5 @@ export const saveGame = (gamePlay, matrix, winArr) => {
   const key = String(countItems);
   localStorage.setItem(key, JSON.stringify(saveData));
 
-  alert('Игра сохранена, чтобы к ней вернуться переключитесь на другой фрэйм а затем вернитесь назад');
+  alert('Игра сохранена, при загрузке/переключении на текущий фрэйм сохранённая игра будет продолжена');
 };

@@ -144,6 +144,7 @@ const app = () => {
     }
   };
 
+getSavedGame(initState.gamePlay.countItems);
 
   elements.gameControls.addEventListener('click', (e) => {
     const { id } = e.target;
