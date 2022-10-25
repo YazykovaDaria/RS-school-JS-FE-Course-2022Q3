@@ -1,5 +1,5 @@
 import { isValidForSwap, isWon } from './validators';
-//import sound from '../../audio/game';
+import sound from '../../assets/audio/game.mp3';
 
 export const getPositionItems = (matrix, gameItems) => {
   const itemsPosition = [];
@@ -67,8 +67,6 @@ export const randomSwap = (matrix, blankItem) => {
 };
 
 export const playAudio = () => {
-  console.log('hi');
-  //const url = '../audio/game.mp3';
   const audio = new Audio(sound);
   audio.play();
 };

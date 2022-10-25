@@ -8,13 +8,14 @@ export default () => {
       <button class="btn btn-primary" id="start">New game</button>
     </div>
     <div class="col-sm">
-      <button class="btn btn-secondary" id="save">Save</button>
+      <button class="btn btn-info" id="save">Save</button>
     </div>
     <div class="col-sm">
       <button class="btn btn-primary" id="result">Results</button>
     </div>
     <div class="col-sm">
-      <button class="btn btn-primary" id="sound">Sound</button>
+      <button class="btn btn-primary" id="sound">
+      Sound</button>
     </div>
   </div>
   <div class="row mt-4">

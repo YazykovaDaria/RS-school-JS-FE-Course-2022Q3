@@ -104,3 +104,8 @@ text-align: center;
 #modal.hidden {
   display: none;
 }
+
+#sound.off {
+  background-color: slategray;
+  text-decoration: line-through;
+}

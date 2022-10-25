@@ -1,14 +1,14 @@
 /* eslint-disable max-len */
 import getStartHtml from './startHtml';
 import appWiev from './wiev';
-import {getMatrix, saveBestResults, getBestResults} from './utils/utils';
+import { getMatrix, saveBestResults, getBestResults } from './utils/utils';
 import {
-  getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr, playAudio
+  getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr, playAudio,
 } from './game/game';
 import { isValidForSwap } from './game/validators';
 import stopWatch from './stopwatch';
 
-const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr) => {
+const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr, isSound) => {
   const btnCoordinates = findCoordinatesByNum(btnNum, matrix);
   const blankBtnCoordinates = findCoordinatesByNum(blankNum, matrix);
   const isValid = isValidForSwap(btnCoordinates, blankBtnCoordinates);
@@ -16,6 +16,10 @@ const swapItems = (matrix, btnNum, blankNum, gameItems, watcher, winArr) => {
     const swaper = swap(blankBtnCoordinates, btnCoordinates, matrix, winArr);
     watcher.gamePlay.itemCoordinates = getPositionItems(matrix, gameItems);
     watcher.gamePlay.moves += 1;
+    // звук
+    if (isSound) {
+      playAudio();
+    }
 
     // сигнал о выигрыше
     if (swaper) {
@@ -88,6 +92,7 @@ const app = () => {
     resultTable: [],
     isShuffle: false,
     saveGame: false,
+    isSound: true,
     gamePlay: {
       countItems: 16,
       maxShuffleCount: 80,
@@ -137,11 +142,13 @@ const app = () => {
         break;
 
       case 'result':
-
-watcher.resultTable = getBestResults(initState.gamePlay.countItems);
-         watcher.isWin = true;
+        watcher.resultTable = getBestResults(initState.gamePlay.countItems);
+        watcher.isWin = true;
         break;
 
+      case 'sound':
+        watcher.isSound = !initState.isSound;
+        break;
       default:
         break;
     }
@@ -150,10 +157,7 @@ watcher.resultTable = getBestResults(initState.gamePlay.countItems);
   elements.gamePlay.addEventListener('click', (e) => {
     const btn = e.target;
     const btnNumber = Number(btn.dataset.matrixId);
-
-    playAudio();
-    // console.log(countItems);
-    swapItems(matrix, btnNumber, initState.gamePlay.countItems, elements.getGameItems(), watcher, winArr);
+    swapItems(matrix, btnNumber, initState.gamePlay.countItems, elements.getGameItems(), watcher, winArr, initState.isSound);
   });
 
   elements.modal.addEventListener('click', () => {

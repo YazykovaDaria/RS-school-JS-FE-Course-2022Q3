@@ -31,7 +31,6 @@ const addWonMessage = (winData, { modal }) => {
 const addResultsTable = (results, modal) => {
   const container = modal.querySelector('.modal-cont');
   if (typeof results === 'string') {
-    //container.innerHTML = '';
     container.innerText = results;
   } else {
     const resultsList = results.map((res, i) => {
@@ -40,7 +39,7 @@ const addResultsTable = (results, modal) => {
       const resultStr = `${i + 1}. moves: ${res.moves}; time: ${min} : ${sec}`;
       return `<span>${resultStr}</span>`;
     });
-container.innerHTML = resultsList.join('');
+    container.innerHTML = resultsList.join('');
   }
 };
 
@@ -94,12 +93,20 @@ const showTime = (element, time) => {
   }
 };
 
+const changeSoundBtn = (controls) => {
+  const soundBtn = controls.querySelector('#sound');
+  soundBtn.classList.toggle('off');
+};
+
 const appWiev = (state, elements) => onChange(state, (path, value) => {
   switch (path) {
     case 'gamePlay.gameTime.second':
       showTime(elements.timesSecond, value);
       break;
 
+    case 'isSound':
+      changeSoundBtn(elements.gameControls);
+      break;
     case 'gamePlay.gameTime.minute':
       showTime(elements.timesMinute, value);
       break;
@@ -114,10 +121,10 @@ const appWiev = (state, elements) => onChange(state, (path, value) => {
       elements.newGameBtn.disabled = value;
       break;
 
-      case 'resultTable':
-        addResultsTable(value, elements.modal);
-//console.log(value);
-        break;
+    case 'resultTable':
+      addResultsTable(value, elements.modal);
+      // console.log(value);
+      break;
 
     case 'winData':
       addWonMessage(value, elements);
