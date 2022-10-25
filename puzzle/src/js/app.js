@@ -3,7 +3,7 @@ import getStartHtml from './startHtml';
 import appWiev from './wiev';
 import {getMatrix, saveBestResults, getBestResults} from './utils/utils';
 import {
-  getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr,
+  getPositionItems, findCoordinatesByNum, swap, randomSwap, getWinFlatArr, playAudio
 } from './game/game';
 import { isValidForSwap } from './game/validators';
 import stopWatch from './stopwatch';
@@ -150,7 +150,8 @@ watcher.resultTable = getBestResults(initState.gamePlay.countItems);
   elements.gamePlay.addEventListener('click', (e) => {
     const btn = e.target;
     const btnNumber = Number(btn.dataset.matrixId);
-    //
+
+    playAudio();
     // console.log(countItems);
     swapItems(matrix, btnNumber, initState.gamePlay.countItems, elements.getGameItems(), watcher, winArr);
   });

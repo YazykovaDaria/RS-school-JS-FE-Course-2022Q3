@@ -1,4 +1,5 @@
 import { isValidForSwap, isWon } from './validators';
+//import sound from '../../audio/game';
 
 export const getPositionItems = (matrix, gameItems) => {
   const itemsPosition = [];
@@ -63,4 +64,11 @@ export const randomSwap = (matrix, blankItem) => {
   const swapCoords = validCoords[Math.floor(Math.random() * validCoords.length)];
   swap(blankCoords, swapCoords, matrix);
   blockedCoords = blankCoords;
+};
+
+export const playAudio = () => {
+  console.log('hi');
+  //const url = '../audio/game.mp3';
+  const audio = new Audio(sound);
+  audio.play();
 };
