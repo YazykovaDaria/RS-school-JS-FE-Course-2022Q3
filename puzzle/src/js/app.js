@@ -144,7 +144,7 @@ const app = () => {
     }
   };
 
-getSavedGame(initState.gamePlay.countItems);
+  getSavedGame(initState.gamePlay.countItems);
 
   elements.gameControls.addEventListener('click', (e) => {
     const { id } = e.target;
@@ -184,35 +184,23 @@ getSavedGame(initState.gamePlay.countItems);
   });
 
   elements.gameSize.addEventListener('change', (e) => {
-    stopWatch(false, watcher);
-    watcher.gamePlay.moves = 0;
+    const { name, value } = e.target;
+    switch (name) {
+      case 'frame-size':
+        stopWatch(false, watcher);
+        watcher.gamePlay.moves = 0;
+        const size = value;
+        const itemsCount = size * size;
+        initFrameSize = size;
 
-    const size = e.target.value;
-    const itemsCount = size * size;
-    initFrameSize = size;
-
-    getSavedGame(itemsCount);
-    // const savedGame = localStorage.getItem(String(itemsCount));
-
-    // if (savedGame) {
-    //   const gameData = JSON.parse(savedGame);
-    //   matrix = gameData.matrix;
-    //   watcher.gamePlay.countItems = gameData.countItems;
-
-    //   watcher.gamePlay.itemCoordinates = restablishItems(gameData.itemCoordsWithMatrixId, elements.gamePlay);
-    //   watcher.gamePlay.gameTime.second = gameData.gameTime.second;
-    //   watcher.gamePlay.gameTime.minute = gameData.gameTime.minute;
-
-    //   watcher.gamePlay.moves = gameData.moves;
-    //   stopWatch(true, watcher, gameData.gameTime.minute, gameData.gameTime.second);
-    //   winArr = gameData.winArr;
-    // } else {
-    //   watcher.gamePlay.countItems = itemsCount;
-    //   gameItemsNumber = getItemsNumbers(elements);
-    //   matrix = getMatrix(gameItemsNumber, initFrameSize);
-    //   winArr = getWinFlatArr(initState.gamePlay.countItems);
-    //   watcher.gamePlay.itemCoordinates = getPositionItems(matrix, elements.getGameItems());
-    // }
+        getSavedGame(itemsCount);
+        break;
+      case 'game-level':
+        initState.gamePlay.maxShuffleCount = value;
+        break;
+      default:
+        break;
+    }
   });
 
   // elements.gameLevel.onchange = (e) => {

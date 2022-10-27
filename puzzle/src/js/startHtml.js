@@ -51,7 +51,8 @@ export default () => {
     </div>
         </div>
   <div class="row">
-  <form class="col-sm fs-7 text-center" id="frame-size">
+  <form id="frame-size">
+  <div class="col-sm form-item">
   <p>Frame size:</p>
   <input type="radio" id="3on3"
     name="frame-size" value="3">
@@ -71,6 +72,18 @@ export default () => {
   <input type="radio" id="8on8"
   name="frame-size" value="8">
   <label for="8on8">8&times;8</label>
+</div>
+
+<div class="col-sm form-item">
+  <p>Level:</p>
+<input type="radio" id="easy"
+name="game-level" value="5">
+<label for="easy">easy</label>
+<input type="radio" id="normal"
+name="game-level" value="80" checked>
+<label for="normal">normal</label>
+</div>
+
   </form>
   </div>
   <div id="modal" class="hidden">
@@ -78,7 +91,7 @@ export default () => {
   </div>
   </div>`;
 
-  alert('Привет) чтобы начать игру нажмите new game, сохранить: save (игра продолжается при переходе на сохранённый фрэйм или перезагрузкe страницы), посомотреть результаты: results (результаты сохраняются в случае успешного сбора паззла)');
+  alert('Привет) чтобы начать игру нажмите new game, сохранить: save (игра продолжается при переходе на сохранённый фрэйм или перезагрузкe страницы), посомотреть результаты: results (результаты сохраняются в случае успешного сбора паззла)\n Для быстрой проверки выбери level easy перед началом игры');
 };
 
 const l = ` <div class="row">
