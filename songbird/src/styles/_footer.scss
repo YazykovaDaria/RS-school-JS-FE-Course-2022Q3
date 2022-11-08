@@ -1,0 +1,31 @@
+.footer {
+  padding: 1rem;
+  flex-shrink: 0;
+}
+
+.footer__nav {
+align-items: center;
+}
+
+.links {
+  display: flex;
+}
+
+.nav__links {
+  gap: 1.5rem;
+}
+
+.link {
+
+}
+.nav__link {
+}
+
+.link__img {
+  max-width: 100px;
+  height: 40px;
+
+  &:hover {
+    background-color: $hover-fonts;
+  }
+}

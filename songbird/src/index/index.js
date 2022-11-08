@@ -1,2 +1,3 @@
 import './index.html';
-import './style.css';
+import 'reset-css';
+import './style.scss';
