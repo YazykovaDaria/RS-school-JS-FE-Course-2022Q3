@@ -1,3 +1,3 @@
 import './quiz.html';
 import 'reset-css';
-import './style.css';
+import './style.scss';

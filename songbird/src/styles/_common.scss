@@ -26,6 +26,11 @@ a {
   color: $main-fonts;
 }
 
+.main {
+  flex: 1 0 auto;
+  background-color: rgb(43, 42, 42);
+}
+
 .logo-link {
   display: block;
 }
