@@ -28,7 +28,7 @@ a {
 
 .main {
   flex: 1 0 auto;
-  background-color: rgb(43, 42, 42);
+  //background-color: rgb(43, 42, 42);
 }
 
 .logo-link {
@@ -63,6 +63,10 @@ color: $main-fonts;
 }
 
 .btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 150px;
   height: 54px;
   background: $main-btn;
@@ -80,6 +84,10 @@ cursor: pointer;
 transition: 0.5s;
 }
 
+&:disabled {
+  background-color: $disable-btn;
+  }
+
 @media (max-width: 680px) {
   width: 100px;
   font-size: 14px;
@@ -87,11 +95,16 @@ transition: 0.5s;
 }
 
 .btn-link {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 
   &:hover {
     color: $hover-fonts;
   }
+}
+
+.btn-big {
+  width: 100%;
+  border-radius: 10px;
+  font-weight: 600;
+  // background-color: $hover-btn;
+  // color: $hover-fonts;
 }

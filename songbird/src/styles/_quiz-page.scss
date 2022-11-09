@@ -1,5 +1,5 @@
-.header__nav {
-  padding: 0.5rem 1rem;
+.header__nav-quiz {
+  padding: 0.5rem 1.5rem;
 }
 
 .score {
@@ -9,4 +9,96 @@
   align-items: center;
   gap: 10px;
   font-size: 1.5rem;
+}
+
+.main__nav-quiz {
+padding: 1rem 1.5rem;
+font-size: 1.5rem;
+flex-wrap: wrap;
+gap: 1rem;
+background-color:$main-side;
+
+@media (max-width: 710px) {
+  justify-content: center;
+  // padding-left: 10px;
+  // padding-right: 10px;
+}
+}
+
+.nav__item {
+  flex-wrap: wrap;
+
+  &.active {
+    color: $hover-btn;
+  }
+
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+  }
+}
+
+.quiz {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem 0.5rem;
+}
+
+.gameplay{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.quiz__gameplay {
+  flex-wrap: wrap;
+}
+
+.gameplay__item {
+width: 48%;
+background-color: $game-back;
+
+  @media (max-width: 780px) {
+    width: 100%;
+  }
+}
+
+.gameplay__item-answers {
+display: flex;
+flex-direction: column;
+//gap: 10px;
+}
+
+.answer__list {
+  padding: 1rem;
+  padding-left: 1.5rem;
+  border: $main-side 1px solid;
+  border-radius: 5px;
+  transition: 0.3s;
+
+  &.right span::before {
+  content: '✔';
+  display: inline-block;
+  color: $main-btn;
+  text-align: center;
+  margin-right: 0.5em;
+  }
+
+&.wrong span::before {
+  content: '✕';
+  display: inline-block;
+  color: $attention;
+  text-align: center;
+  margin-right: 0.5em;
+}
+
+  &:hover {
+    background-color: $main-side;
+    transition: 0.3s;
+  }
+
+  @media (max-width: 780px) {
+    padding: 0.5rem;
+    padding-left: 1.5rem;
+  }
 }
