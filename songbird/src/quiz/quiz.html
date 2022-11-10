@@ -26,29 +26,29 @@
 
   <main class="main">
     <ul class="nav main__nav-quiz">
-<li class="nav__item active">
+<li class="nav__item active js-level">
   Разминка
 </li>
-<li class="nav__item">
+<li class="nav__item js-level">
   Воробьиные
 </li>
-<li class="nav__item">
+<li class="nav__item js-level">
 Лесные птицы
 </li>
-<li class="nav__item">
+<li class="nav__item js-level">
 Певчие птицы
 </li>
-<li class="nav__item">
+<li class="nav__item js-level">
 Хищные птицы
 </li>
-<li class="nav__item">
+<li class="nav__item js-level">
 Морские птицы
 </li>
     </ul>
 
     <section class="quiz">
 
-<div class="quiz__card card active">
+<div class="quiz__card card active" id="question">
 
 <img src="../assets/img/silhouette-bird-sing-with-musical-note-logo-symbol-icon-design-illustration-vector.jpg" alt="bird songs" class="card__img">
 
@@ -58,7 +58,7 @@
 
 
 <audio controls>
-  <source src="https://ia800905.us.archive.org/19/items/FREE_background_music_dhalius/backsound.mp3"  type="audio/mp3">
+  <source id="audio"src="https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3"  type="audio/mp3">
 </audio>
 
 
@@ -67,7 +67,7 @@
 </div>
 
 <div class="quiz__gameplay gameplay">
-<ul class="gameplay__item-answers gameplay__item">
+<ul class="gameplay__item-answers gameplay__item" id="quiz-answers">
   <li class="answer__list right">
     <span>bird 1</span>
   </li>
@@ -79,12 +79,12 @@
 </li>
 </ul>
 
-<div class="gameplay__item quiz__card quiz__card-choised">
+<div class="gameplay__item quiz__card quiz__card-choised" id="choisedAnswer">
   card be here
 </div>
 </div>
 
-<button class="btn btn-big btn-link" disabled>Next level</button>
+<button class="btn btn-big btn-link" disabled id="nextLevel">Next level</button>
     </section>
   </main>
 
