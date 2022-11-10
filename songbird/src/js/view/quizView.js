@@ -42,6 +42,17 @@ const addClassForAnswer = ({ id }, className) => {
   el.classList.add(className);
 };
 
+const switchLevel = () => {
+  for (let i = 0; i < categories.length; i += 1) {
+    const el = categories[i];
+    if (el.classList.contains('active')) {
+      el.classList.remove('active');
+      categories[i + 1].classList.add('active');
+      return;
+    }
+  }
+};
+
 const viewQuiz = (indicator, data = '') => {
   switch (indicator) {
     case 'answers':
@@ -79,7 +90,12 @@ const viewQuiz = (indicator, data = '') => {
       score.textContent = data;
       break;
 
+    case 'nextLevel':
+      switchLevel();
+      break;
+
     default:
+      console.log('unknom indicator');
       break;
   }
 };

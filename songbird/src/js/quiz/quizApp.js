@@ -2,6 +2,7 @@ import model from '../model/model';
 import viewQuiz from '../view/quizView';
 
 const answersContainer = document.getElementById('quiz-answers');
+const btnLevels = document.getElementById('nextLevel');
 const maxLevel = 5;
 const quizRules = 'Послушайте плеер\nВыберите птицу из списка';
 let scoreCount = 5;
@@ -52,6 +53,14 @@ const quizApp = () => {
       }
     }
   });
+
+  //разобраться с плеером не меняется мелодия на новом уровне
+  btnLevels.addEventListener('click', () => {
+    model.quiz.isWonLevel = false;
+    buildQuizContent();
+    viewQuiz('nextLevel');
+
+  })
 };
 
 export default quizApp;
