@@ -4,18 +4,18 @@ import viewQuiz from '../view/quizView';
 const answersContainer = document.getElementById('quiz-answers');
 const btnLevels = document.getElementById('nextLevel');
 const maxLevel = 5;
-const quizRules = 'Послушайте плеер\nВыберите птицу из списка';
 let scoreCount = 5;
 
 const buildQuizContent = () => {
   model.startQuiz();
   const { answers, rightAnswer } = model.quiz;
+  viewQuiz('init', {answers, rightAnswer})
   // отрисовка списка птиц
-  viewQuiz('answers', answers);
-  // добавление мелодии в плеер
-  viewQuiz('melody', rightAnswer);
-  // вставка в блок выбранных птиц
-  viewQuiz('choised', quizRules);
+  // viewQuiz('answers', answers);
+  // // добавление мелодии в плеер
+  // viewQuiz('melody', rightAnswer);
+  // // вставка в блок выбранных птиц
+  // viewQuiz('choised', quizRules);
 };
 
 const checkWonGame = (answer) => {

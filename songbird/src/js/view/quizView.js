@@ -1,14 +1,27 @@
 import { playAudio } from '../helpers/helpers';
 import audioFail from '../../assets/audio/sucsses.mp3';
 import audioSucsses from '../../assets/audio/wrong.mp3';
+import AudioPlayer from '../helpers/audioPlayer';
+import birdImg from '../../assets/img/bird.jpg';
 
-const questContainer = document.getElementById('question');
+const questBody = document.getElementById('question');
 const answersContainer = document.getElementById('quiz-answers');
 const choisedContainer = document.getElementById('choisedAnswer');
 const btn = document.getElementById('nextLevel');
 const score = document.getElementById('score');
 const categories = document.querySelectorAll('.js-level');
-const audioSrc = document.getElementById('audio');
+
+const quizRules = '<p class="subtitle">Послушайте плеер</p><p class="subtitle">Выберите птицу из списка</p>';
+const hidedName = '******';
+
+const mainAudioPlayer = new AudioPlayer('');
+const sideAudioPlayer = new AudioPlayer('');
+
+mainAudioPlayer.setAnotherPlayer(sideAudioPlayer);
+questBody.append(mainAudioPlayer.init());
+
+sideAudioPlayer.init();
+sideAudioPlayer.setAnotherPlayer(mainAudioPlayer);
 
 const buildAnswers = (answers) => {
   answersContainer.innerHTML = '';
@@ -23,12 +36,10 @@ const buildAnswers = (answers) => {
   });
 };
 
-const changeAudio = ({ audio }) => audioSrc.src = audio;
-
 const showChoizedContent = (content) => {
   choisedContainer.innerHTML = '';
   if (typeof content === 'string') {
-    choisedContainer.textContent = content;
+    choisedContainer.innerHTML = content;
   } else {
     choisedContainer.textContent = content.name;
     // тут будет добавление карточки птицы
@@ -53,18 +64,33 @@ const switchLevel = () => {
   }
 };
 
+const showPlayCard = (img, cardName) => {
+  questBody.querySelector('.title').textContent = cardName;
+  document.body.querySelector('.js-main-bird').src = img;
+};
+
 const viewQuiz = (indicator, data = '') => {
   switch (indicator) {
-    case 'answers':
-      buildAnswers(data);
+    case 'init':
+      buildAnswers(data.answers);
+      showChoizedContent(quizRules);
+      mainAudioPlayer.setSound(data.rightAnswer.audio);
+      showPlayCard(birdImg, hidedName);
       btn.disabled = true;
-      break;
 
-    case 'melody':
-      // поменять логику после переделки плеера
-      changeAudio(data);
       console.log(data);
       break;
+
+      // case 'answers':
+      //   buildAnswers(data);
+      //   btn.disabled = true;
+      //   break;
+
+      // case 'melody':
+      //   // поменять логику после переделки плеера
+      //   //changeAudio(data);
+      //   console.log(data);
+      //   break;
 
     case 'wrong':
       addClassForAnswer(data, indicator);
@@ -75,6 +101,8 @@ const viewQuiz = (indicator, data = '') => {
     case 'right':
       addClassForAnswer(data, indicator);
       playAudio(audioFail);
+      mainAudioPlayer.pause();
+      showPlayCard(data.image, data.name);
       showChoizedContent(data);
       btn.disabled = false;
       // функцию для показа птицы в игровой карточке
