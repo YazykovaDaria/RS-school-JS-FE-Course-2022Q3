@@ -14,12 +14,16 @@ class AudioPlayer {
 
   anotherPlayer = false;
 
+  inicialized = false;
+
   constructor(sound) {
     this.audio = new Audio(sound);
   }
 
   init() {
-    const html = this._render();
+    if (this.inicialized) return this.elements.audioContainer;
+
+    this._render();
 
     this.elements.volumeBtn = this.elements.audioContainer.querySelector('.volume-button');
     this.elements.playBtn = this.elements.audioContainer.querySelector('.toggle-play.play');
@@ -28,7 +32,8 @@ class AudioPlayer {
     this.elements.progressBar = this.elements.audioContainer.querySelector('.progress');
 
     this._attachEvents();
-    return html;
+    this.inicialized = true;
+    return this.elements.audioContainer;
   }
 
   _render() {
@@ -47,6 +52,7 @@ class AudioPlayer {
     <div class="divider">/</div>
     <div class="length"></div>
   </div>
+  <div class="name">Music is loading</div>
   <div class="volume-container">
     <div class="volume-button">
       <div class="volume icono-volumeMedium">
@@ -66,6 +72,7 @@ class AudioPlayer {
     this.audio.addEventListener(
       'canplaythrough',
       () => {
+        this.elements.audioContainer.querySelector('.name').classList.add('hide');
         this.elements.audioContainer.querySelector('.time .length').textContent = getTimeCodeFromNum(
           this.audio.duration,
         );
