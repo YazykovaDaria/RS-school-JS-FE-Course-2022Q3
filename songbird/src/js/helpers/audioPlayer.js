@@ -14,13 +14,12 @@ class AudioPlayer {
 
   anotherPlayer = false;
 
-  constructor(sound, container) {
+  constructor(sound) {
     this.audio = new Audio(sound);
-    this.container = container;
   }
 
   init() {
-    this._render();
+    const html = this._render();
 
     this.elements.volumeBtn = this.elements.audioContainer.querySelector('.volume-button');
     this.elements.playBtn = this.elements.audioContainer.querySelector('.toggle-play.play');
@@ -29,6 +28,7 @@ class AudioPlayer {
     this.elements.progressBar = this.elements.audioContainer.querySelector('.progress');
 
     this._attachEvents();
+    return html;
   }
 
   _render() {
@@ -59,7 +59,7 @@ class AudioPlayer {
     </div>
   </div>
 </div>`;
-    this.container.append(this.elements.audioContainer);
+    return this.elements.audioContainer;
   }
 
   _attachEvents() {
@@ -126,6 +126,10 @@ class AudioPlayer {
 
   setAnotherPlayer(player) {
     this.anotherPlayer = player;
+  }
+
+  setSound(newSound) {
+    this.audio = new Audio(newSound);
   }
 }
 
