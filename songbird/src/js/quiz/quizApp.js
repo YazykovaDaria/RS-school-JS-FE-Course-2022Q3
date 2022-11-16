@@ -1,6 +1,7 @@
 import model from '../model/model';
 import viewQuiz from '../view/quizView';
 
+const resultPage = './result.html';
 const answersContainer = document.getElementById('quiz-answers');
 const btnLevels = document.getElementById('nextLevel');
 const maxLevel = 5;
@@ -9,13 +10,7 @@ let scoreCount = 5;
 const buildQuizContent = () => {
   model.startQuiz();
   const { answers, rightAnswer } = model.quiz;
-  viewQuiz('init', {answers, rightAnswer})
-  // отрисовка списка птиц
-  // viewQuiz('answers', answers);
-  // // добавление мелодии в плеер
-  // viewQuiz('melody', rightAnswer);
-  // // вставка в блок выбранных птиц
-  // viewQuiz('choised', quizRules);
+  viewQuiz('init', { answers, rightAnswer });
 };
 
 const checkWonGame = (answer) => {
@@ -28,8 +23,11 @@ const checkWonGame = (answer) => {
   if (level < maxLevel) {
     viewQuiz('right', answer);
   } else {
-    // здесь будет загрузка страницы с выигрышем
-    console.log('win');
+    viewQuiz('right', answer);
+
+    setTimeout(() => {
+      window.location.href = resultPage;
+    }, 1000);
   }
 };
 
@@ -54,13 +52,12 @@ const quizApp = () => {
     }
   });
 
-  //разобраться с плеером не меняется мелодия на новом уровне
+  // разобраться с плеером не меняется мелодия на новом уровне
   btnLevels.addEventListener('click', () => {
     model.quiz.isWonLevel = false;
     buildQuizContent();
     viewQuiz('nextLevel');
-
-  })
+  });
 };
 
 export default quizApp;
