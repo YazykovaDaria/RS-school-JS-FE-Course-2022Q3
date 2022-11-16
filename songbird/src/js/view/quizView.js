@@ -7,21 +7,23 @@ import birdImg from '../../assets/img/bird.jpg';
 const questBody = document.getElementById('question');
 const answersContainer = document.getElementById('quiz-answers');
 const choisedContainer = document.getElementById('choisedAnswer');
+const choisedBody = choisedContainer.querySelector('.card__body');
+const quizRules = document.getElementById('rules');
 const btn = document.getElementById('nextLevel');
 const score = document.getElementById('score');
 const categories = document.querySelectorAll('.js-level');
 
-const quizRules = '<p class="subtitle">Послушайте плеер</p><p class="subtitle">Выберите птицу из списка</p>';
-const hidedName = '******';
+const hidedName = '*******';
 
-const mainAudioPlayer = new AudioPlayer('');
-const sideAudioPlayer = new AudioPlayer('');
+const mainAudio = new AudioPlayer('');
+const sideAudio = new AudioPlayer('');
+const mainAudioPlayer = mainAudio.init();
+const sideAudioPlayer = sideAudio.init();
+mainAudio.setAnotherPlayer(sideAudio);
+sideAudio.setAnotherPlayer(mainAudio);
 
-mainAudioPlayer.setAnotherPlayer(sideAudioPlayer);
-questBody.append(mainAudioPlayer.init());
-
-sideAudioPlayer.init();
-sideAudioPlayer.setAnotherPlayer(mainAudioPlayer);
+questBody.append(mainAudioPlayer);
+choisedBody.append(sideAudioPlayer);
 
 const buildAnswers = (answers) => {
   answersContainer.innerHTML = '';
@@ -36,20 +38,26 @@ const buildAnswers = (answers) => {
   });
 };
 
-const showChoizedContent = (content) => {
-  choisedContainer.innerHTML = '';
-  if (typeof content === 'string') {
-    choisedContainer.innerHTML = content;
+const showChoizedContent = (indicator, data = '') => {
+  if (indicator === 'init') {
+    choisedContainer.classList.add('hide');
+    quizRules.classList.remove('hide');
   } else {
-    choisedContainer.textContent = content.name;
-    // тут будет добавление карточки птицы
-    // console.log(content);
+    choisedContainer.classList.remove('hide');
+    quizRules.classList.add('hide');
+
+    choisedContainer.querySelector('.js-main-bird').src = data.image;
+    choisedContainer.querySelector('.js-text').textContent = data.description;
+    choisedBody.querySelector('.js-name').textContent = data.name;
+    choisedBody.querySelector('.js-second-name').textContent = data.species;
+
+    sideAudio.setSound(data.audio);
   }
 };
 
 const addClassForAnswer = ({ id }, className) => {
   const el = document.getElementById(String(id));
-  console.log(el);
+  //console.log(el);
   el.classList.add(className);
 };
 
@@ -73,45 +81,31 @@ const viewQuiz = (indicator, data = '') => {
   switch (indicator) {
     case 'init':
       buildAnswers(data.answers);
-      showChoizedContent(quizRules);
-      mainAudioPlayer.setSound(data.rightAnswer.audio);
+      showChoizedContent(indicator);
+      mainAudio.setSound(data.rightAnswer.audio);
       showPlayCard(birdImg, hidedName);
       btn.disabled = true;
 
       console.log(data);
       break;
 
-      // case 'answers':
-      //   buildAnswers(data);
-      //   btn.disabled = true;
-      //   break;
-
-      // case 'melody':
-      //   // поменять логику после переделки плеера
-      //   //changeAudio(data);
-      //   console.log(data);
-      //   break;
-
     case 'wrong':
       addClassForAnswer(data, indicator);
       playAudio(audioSucsses);
-      showChoizedContent(data);
+      showChoizedContent(indicator, data);
       break;
 
     case 'right':
       addClassForAnswer(data, indicator);
       playAudio(audioFail);
-      mainAudioPlayer.pause();
+      mainAudio.pause();
       showPlayCard(data.image, data.name);
-      showChoizedContent(data);
+      showChoizedContent(indicator, data);
       btn.disabled = false;
-      // функцию для показа птицы в игровой карточке
-
-      // console.log(data);
       break;
 
     case 'choised':
-      showChoizedContent(data);
+      showChoizedContent(indicator, data);
       break;
 
     case 'score':

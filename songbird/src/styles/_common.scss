@@ -10,6 +10,7 @@ a {
 .container {
   height: 100%;
   color: $main-fonts;
+  background-color: $main;
 }
 
 .wrapper {
@@ -17,7 +18,7 @@ a {
   flex-direction: column;
   margin: 0 auto;
   max-width: 1200px;
-  background: $main;
+  //background: $main;
 }
 
 .nav {
@@ -27,8 +28,9 @@ a {
 }
 
 .main {
+ // background-color: $main;
   flex: 1 0 auto;
-  //background-color: rgb(43, 42, 42);
+
 }
 
 .logo-link {
@@ -109,7 +111,23 @@ transition: 0.5s;
   // color: $hover-fonts;
 }
 
+.title {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
 .subtitle {
   margin: 0.5em;
   font-weight: 500;
+}
+
+.text {
+  line-height: 20px;
+}
+
+.svg {
+
+  &:hover {
+    fill: $side;
+  }
 }

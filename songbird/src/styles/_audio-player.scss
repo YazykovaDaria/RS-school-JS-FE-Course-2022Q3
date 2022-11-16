@@ -18,7 +18,7 @@
     cursor: pointer;
     box-shadow: 0 2px 10px 0 #0008;
     .progress {
-      background: rgb(235, 255, 80);
+      background:$side;
       width: 0%;
       height: 100%;
       transition: 0.25s;
@@ -53,6 +53,7 @@
         width: 20px;
         cursor: pointer;
         position: relative;
+        transition: 0.3s;
         &:before {
           position: absolute;
           top: 0;
@@ -73,6 +74,7 @@
         }
         &:hover {
           transform: scale(1.1);
+          transition: 0.3s;
         }
       }
     }
@@ -96,6 +98,7 @@
         align-items: center;
         .volume {
           transform: scale(0.7);
+          transition: 0.3s;
         }
       }
 
@@ -106,12 +109,12 @@
         left: -3px; top: 15px;
         z-index: -1;
         width: 0;
-        height: 15px;
+        height: 10px;
         background: white;
         box-shadow: 0 0 20px #000a;
         transition: .25s;
         .volume-percentage {
-          background: coral;
+          background: $hover-fonts;
           height: 100%;
           width: 75%;
         }
