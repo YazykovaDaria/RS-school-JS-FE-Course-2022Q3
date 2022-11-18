@@ -4,6 +4,15 @@ import audioSucsses from '../../assets/audio/wrong.mp3';
 import AudioPlayer from '../helpers/audioPlayer';
 import birdImg from '../../assets/img/bird.jpg';
 
+const elements = {
+  questBody: null,
+  answersContainer: null,
+  choisedContainer: null,
+  choisedBody: null,
+  quizRules: null,
+  btn: null,
+  score: null,
+}
 // const questBody = document.getElementById('question');
 // const answersContainer = document.getElementById('quiz-answers');
 // const choisedContainer = document.getElementById('choisedAnswer');
@@ -13,6 +22,7 @@ import birdImg from '../../assets/img/bird.jpg';
 // const score = document.getElementById('score');
 // const categories = document.querySelectorAll('.js-level');
 
+const main = document.querySelector('.main');
 const hidedName = '*******';
 
 const mainAudio = new AudioPlayer('');
@@ -77,11 +87,8 @@ const showPlayCard = (img, cardName) => {
   document.body.querySelector('.js-main-bird').src = img;
 };
 
-const viewQuiz = (indicator, data = '') => {
+const quizView = (indicator, data = '') => {
   switch (indicator) {
-    case 'lang':
-      document.getElementById(data).checked = true;
-      break;
 
       // case 'init':
       //   buildAnswers(data.answers);
@@ -126,4 +133,4 @@ const viewQuiz = (indicator, data = '') => {
   }
 };
 
-export default viewQuiz;
+export default quizView;

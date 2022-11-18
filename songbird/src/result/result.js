@@ -1,2 +1,5 @@
 import './result.html';
-import './style.css';
+import './style.scss';
+// import resultApp from '../js/result/resultApp';
+
+// resultApp();
