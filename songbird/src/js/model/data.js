@@ -1,4 +1,4 @@
-const birdsData = [
+export const ruData = [
   {
     id: 1,
     level: 0,
@@ -325,4 +325,22 @@ const birdsData = [
   },
 ];
 
-export default birdsData;
+export const enData = [{
+  id: 1,
+  level: 0,
+  name: 'Voron',
+  species: 'Corvus corax',
+  description: 'English text',
+  image: 'https://live.staticflickr.com//65535//49298804222_474cfe8682.jpg',
+  audio: 'https://www.xeno-canto.org/sounds/uploaded/XIQVMQVUPP/XC518684-Grands%20corbeaux%2009012020%20Suzon.mp3',
+},
+{
+  id: 2,
+  level: 0,
+  name: 'Grus',
+  species: 'Grus grus',
+  description: 'already text',
+  image: 'https://live.staticflickr.com/65535/49221158846_b0b69a58f1.jpg',
+  audio: 'https://www.xeno-canto.org/sounds/uploaded/BLMSIUFTFU/XC512582-190604_1087_Grus_tok.mp3',
+},
+];

@@ -2,9 +2,12 @@
 import './index.html';
 import 'reset-css';
 import './style.scss';
-import mainController from '../js/mainController';
+import app from '../js/app';
 
-mainController();
+app();
+// import mainController from '../js/mainController';
+
+// mainController();
 
 // mainApp();
 // const main = document.querySelector('.main');

@@ -1,17 +1,17 @@
-import birdsData from './data';
+//import birdsDataRu, { dataEn } from './data';
 import { getRandomInt } from '../helpers/helpers';
 
-const initQuizState = {
-  level: 0,
-  score: 0,
-  answers: [],
-  rightAnswer: {},
-  isWonLevel: false,
-  isWonGame: false,
-};
+// const initQuizState = {
+//   level: 0,
+//   score: 0,
+//   answers: [],
+//   rightAnswer: {},
+//   isWonLevel: false,
+//   isWonGame: false,
+// };
 
 const model = {
-  data: birdsData,
+  data: [],
   quiz: {
     level: 0,
     score: 0,
@@ -34,7 +34,9 @@ const model = {
     const [dataItem] = this.data.filter((item) => item.id === id);
     return dataItem;
   },
-
+  setData(data) {
+    this.data = data;
+  },
 };
 
 export default model;

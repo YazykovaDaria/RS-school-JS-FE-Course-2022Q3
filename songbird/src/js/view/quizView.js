@@ -4,14 +4,14 @@ import audioSucsses from '../../assets/audio/wrong.mp3';
 import AudioPlayer from '../helpers/audioPlayer';
 import birdImg from '../../assets/img/bird.jpg';
 
-const questBody = document.getElementById('question');
-const answersContainer = document.getElementById('quiz-answers');
-const choisedContainer = document.getElementById('choisedAnswer');
-const choisedBody = choisedContainer.querySelector('.card__body');
-const quizRules = document.getElementById('rules');
-const btn = document.getElementById('nextLevel');
-const score = document.getElementById('score');
-const categories = document.querySelectorAll('.js-level');
+// const questBody = document.getElementById('question');
+// const answersContainer = document.getElementById('quiz-answers');
+// const choisedContainer = document.getElementById('choisedAnswer');
+// const choisedBody = choisedContainer.querySelector('.card__body');
+// const quizRules = document.getElementById('rules');
+// const btn = document.getElementById('nextLevel');
+// const score = document.getElementById('score');
+// const categories = document.querySelectorAll('.js-level');
 
 const hidedName = '*******';
 
@@ -22,8 +22,8 @@ const sideAudioPlayer = sideAudio.init();
 mainAudio.setAnotherPlayer(sideAudio);
 sideAudio.setAnotherPlayer(mainAudio);
 
-questBody.append(mainAudioPlayer);
-choisedBody.append(sideAudioPlayer);
+// questBody.append(mainAudioPlayer);
+// choisedBody.append(sideAudioPlayer);
 
 const buildAnswers = (answers) => {
   answersContainer.innerHTML = '';
@@ -57,7 +57,7 @@ const showChoizedContent = (indicator, data = '') => {
 
 const addClassForAnswer = ({ id }, className) => {
   const el = document.getElementById(String(id));
-  //console.log(el);
+  // console.log(el);
   el.classList.add(className);
 };
 
@@ -79,42 +79,46 @@ const showPlayCard = (img, cardName) => {
 
 const viewQuiz = (indicator, data = '') => {
   switch (indicator) {
-    case 'init':
-      buildAnswers(data.answers);
-      showChoizedContent(indicator);
-      mainAudio.setSound(data.rightAnswer.audio);
-      showPlayCard(birdImg, hidedName);
-      btn.disabled = true;
-
-      console.log(data);
+    case 'lang':
+      document.getElementById(data).checked = true;
       break;
 
-    case 'wrong':
-      addClassForAnswer(data, indicator);
-      playAudio(audioSucsses);
-      showChoizedContent(indicator, data);
-      break;
+      // case 'init':
+      //   buildAnswers(data.answers);
+      //   showChoizedContent(indicator);
+      //   mainAudio.setSound(data.rightAnswer.audio);
+      //   showPlayCard(birdImg, hidedName);
+      //   btn.disabled = true;
 
-    case 'right':
-      addClassForAnswer(data, indicator);
-      playAudio(audioFail);
-      mainAudio.pause();
-      showPlayCard(data.image, data.name);
-      showChoizedContent(indicator, data);
-      btn.disabled = false;
-      break;
+      //   console.log(data);
+      //   break;
 
-    case 'choised':
-      showChoizedContent(indicator, data);
-      break;
+      // case 'wrong':
+      //   addClassForAnswer(data, indicator);
+      //   playAudio(audioSucsses);
+      //   showChoizedContent(indicator, data);
+      //   break;
 
-    case 'score':
-      score.textContent = data;
-      break;
+      // case 'right':
+      //   addClassForAnswer(data, indicator);
+      //   playAudio(audioFail);
+      //   mainAudio.pause();
+      //   showPlayCard(data.image, data.name);
+      //   showChoizedContent(indicator, data);
+      //   btn.disabled = false;
+      //   break;
 
-    case 'nextLevel':
-      switchLevel();
-      break;
+      // case 'choised':
+      //   showChoizedContent(indicator, data);
+      //   break;
+
+      // case 'score':
+      //   score.textContent = data;
+      //   break;
+
+      // case 'nextLevel':
+      //   switchLevel();
+      //   break;
 
     default:
       console.log('unknom indicator');
