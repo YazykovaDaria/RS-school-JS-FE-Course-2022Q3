@@ -25,3 +25,12 @@ display: none;
 color: $side;
 }
 }
+
+.language__label {
+  transition: 0.3s;
+
+  &:hover {
+color: $hover-fonts;
+transition: 0.3s;
+  }
+}

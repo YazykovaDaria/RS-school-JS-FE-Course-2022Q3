@@ -88,6 +88,10 @@ text-transform: uppercase;
 color: $main-fonts;
 transition: 0.5s;
 
+&.hide {
+  display: none;
+}
+
 &:hover {
 background: $hover-btn;
 cursor: pointer;

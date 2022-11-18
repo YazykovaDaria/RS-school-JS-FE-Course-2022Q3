@@ -12,6 +12,7 @@ import { getRandomInt } from '../helpers/helpers';
 
 const model = {
   data: [],
+  lang: '',
   quiz: {
     level: 0,
     score: 0,
@@ -36,6 +37,12 @@ const model = {
   },
   setData(data) {
     this.data = data;
+  },
+  setLang(lang) {
+    this.lang = lang;
+  },
+  getLang() {
+    return this.lang;
   },
 };
 
