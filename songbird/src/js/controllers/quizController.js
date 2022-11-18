@@ -1,7 +1,8 @@
 import model from '../model/model';
 import viewQuiz from '../view/quizView';
 
-const resultPage = './result.html';
+// придется делать ререндер при выигрыше иначе данные в модели не сохраняются
+const linkforgit = 'https://jik789.github.io/music/round1/cosmopolitan.mp3';
 const answersContainer = document.getElementById('quiz-answers');
 const btnLevels = document.getElementById('nextLevel');
 const maxLevel = 5;
@@ -25,13 +26,13 @@ const checkWonGame = (answer) => {
   } else {
     viewQuiz('right', answer);
 
-    setTimeout(() => {
-      window.location.href = resultPage;
-    }, 1000);
+    // setTimeout(() => {
+    //   window.location.href = resultPage;
+    // }, 2000);
   }
 };
 
-const quizApp = () => {
+const quizController = () => {
   document.addEventListener('DOMContentLoaded', buildQuizContent);
 
   answersContainer.addEventListener('click', (e) => {
@@ -52,7 +53,6 @@ const quizApp = () => {
     }
   });
 
-  // разобраться с плеером не меняется мелодия на новом уровне
   btnLevels.addEventListener('click', () => {
     model.quiz.isWonLevel = false;
     buildQuizContent();
@@ -60,4 +60,4 @@ const quizApp = () => {
   });
 };
 
-export default quizApp;
+export default quizController;

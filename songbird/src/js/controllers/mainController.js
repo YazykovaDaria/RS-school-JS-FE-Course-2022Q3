@@ -1,5 +1,5 @@
-import model from './model/model';
-import popupView from './view/popupView';
+import model from '../model/model';
+import popupView from '../view/popupView';
 
 const popup = document.querySelector('.popup');
 const gallery = document.querySelector('.gallery');
