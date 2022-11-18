@@ -33,6 +33,14 @@ a {
 
 }
 
+.main_main-page {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
 .logo-link {
   display: block;
 }
@@ -119,6 +127,11 @@ transition: 0.5s;
 .subtitle {
   margin: 0.5em;
   font-weight: 500;
+}
+
+.subtitle_main-page {
+  margin: 0.7rem;
+  font-size: 1.2rem;
 }
 
 .text {

@@ -1,0 +1,49 @@
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.gallery__card {
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+
+    .gallery__subtitle {
+      border-radius: 10px;
+      animation: cardHover 1s forwards;
+    }
+  }
+}
+
+.gallery__subtitle {
+  position: absolute;
+  width: 100%;
+  padding: 0.8rem 0;
+  //border-radius: 10px;
+  top: -45px;
+  background-color: $main-side;
+  text-align: center;
+  animation: cardNotHover 1s forwards;
+}
+
+@keyframes cardHover{
+  0%{
+    top: -45px;
+  }
+  100%{
+    top: 0;
+  }
+  }
+
+  @keyframes cardNotHover{
+    0%{
+      top: 0;
+    }
+    100%{
+      top: -45px;
+    }
+    }

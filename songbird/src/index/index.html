@@ -12,47 +12,79 @@
   <div class="wrapper">
 <header class="header">
   <nav class="nav header__nav">
-<a class="logo nav__logo logo-link" href="./index.html">
+<a class="logo nav__logo logo-link" href="/">
 <span class="logo__item">Song</span>
 <span class="logo__item logo__item-position">birds</span>
 </a>
-<a href="./quiz.html" class="btn btn-link">Start game</a>
+<div class="nav__menu">
+  <div class="language">
+    <input
+    type="radio"
+    name="language"
+    id="en"
+    value="en"
+  />
+  <label for="en" class="title">en</label>
+
+  <span class="title">/</span>
+
+    <input
+            type="radio"
+            name="language"
+            id="ru"
+            value="ru"
+            checked
+          />
+          <label for="ru" class="title">ru</label>
+  </div>
+
+<a href="#quiz" class="btn btn-link">Start game</a>
+</div>
 
   </nav>
 </header>
 
-<main class="main main_sm">
-  content starting page be here later
+<main class="main main_main-page">
+<h2 class="title">Галерея исполнителей</h2>
+<p class="subtitle subtitle_main-page">Кликните на карточку артиста, чтобы узнать больше</p>
 
-  <!-- <div class="audio-player">
-    <div class="timeline">
-      <div class="progress"></div>
+<div class="gallery">
+
+<div class="gallery__card" id="1">
+<p class="gallery__subtitle">Name</p>
+<img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
+</div>
+
+<div class="gallery__card" id="2">
+  <p class="gallery__subtitle">Name</p>
+  <img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
+  </div>
+  <div class="gallery__card">
+    <p class="gallery__subtitle">Name</p>
+    <img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
     </div>
-    <div class="controls">
-      <div class="play-container">
-        <div class="toggle-play play">
+    <div class="gallery__card">
+      <p class="gallery__subtitle">Name</p>
+      <img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
       </div>
-      </div>
-      <div class="time">
-        <div class="current">0:00</div>
-        <div class="divider">/</div>
-        <div class="length"></div>
-      </div>
-      <div class="name">Music Song</div>
-       credit for icon to https://saeedalipoor.github.io/icono/
-      <div class="volume-container">
-        <div class="volume-button">
-          <div class="volume icono-volumeMedium">
-            <img src="../assets/icons/audio.png" alt="audio icon">
+      <div class="gallery__card">
+        <p class="gallery__subtitle">Name</p>
+        <img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
+        </div>
+        <div class="gallery__card">
+          <p class="gallery__subtitle">Name</p>
+          <img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
           </div>
-        </div>
+          <div class="gallery__card">
+            <p class="gallery__subtitle">Name</p>
+            <img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
+            </div>
+            <div class="gallery__card">
+              <p class="gallery__subtitle">Name</p>
+              <img class="card__img" src="https://live.staticflickr.com//65535//48539007512_5029d2a9a0.jpg" alt="bird">
+              </div>
 
-        <div class="volume-slider">
-          <div class="volume-percentage"></div>
-        </div>
-      </div>
-    </div>
-  </div>-->
+</div>
 
 </main>
 
