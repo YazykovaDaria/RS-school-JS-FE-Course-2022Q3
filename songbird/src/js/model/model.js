@@ -1,6 +1,15 @@
 import birdsData from './data';
 import { getRandomInt } from '../helpers/helpers';
 
+const initQuizState = {
+  level: 0,
+  score: 0,
+  answers: [],
+  rightAnswer: {},
+  isWonLevel: false,
+  isWonGame: false,
+};
+
 const model = {
   data: birdsData,
   quiz: {
@@ -17,10 +26,15 @@ const model = {
     const randomIndex = getRandomInt(roundAnswers.length);
     this.quiz.rightAnswer = roundAnswers[randomIndex];
   },
-  getAnswer(id) {
+  getAnswersItem(id) {
     const answer = this.quiz.answers.filter((item) => item.id === id);
     return answer[0];
   },
+  getDataItem(id) {
+    const [dataItem] = this.data.filter((item) => item.id === id);
+    return dataItem;
+  },
+
 };
 
 export default model;
