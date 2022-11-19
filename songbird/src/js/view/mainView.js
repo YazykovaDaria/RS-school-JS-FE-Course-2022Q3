@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import AudioPlayer from '../helpers/audioPlayer';
 
 const audio = new AudioPlayer('');
@@ -19,18 +20,30 @@ const changePopupContent = (data) => {
   audio.setSound(data.audio);
 };
 
-const mainView = (indicator, popupEl, data) => {
+const buildGallery = (container, data) => {
+  const html = data.map((item) => `<div class="gallery__card" id="${item.id}">
+  <p class="gallery__subtitle">${item.name}</p>
+  <img class="card__img" src="${item.image}" alt="bird">
+  </div>`);
+  container.innerHTML = html.join('');
+};
 
+const mainView = (indicator, element, data) => {
   switch (indicator) {
     case 'openPopup':
       changePopupContent(data);
-      popupEl.classList.add('active');
+      element.classList.add('active');
       break;
 
     case 'closePopup':
-      popupEl.classList.remove('active');
+      element.classList.remove('active');
+      break;
+
+    case 'gallery':
+      buildGallery(element, data);
       break;
     default:
+      console.log('unknom indicator');
       break;
   }
 };

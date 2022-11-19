@@ -38,6 +38,9 @@ const model = {
   setData(data) {
     this.data = data;
   },
+  getData() {
+    return this.data;
+  },
   setLang(lang) {
     this.lang = lang;
   },

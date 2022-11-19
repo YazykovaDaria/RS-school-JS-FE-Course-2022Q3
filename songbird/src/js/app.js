@@ -29,7 +29,6 @@ const changeLanguage = (lang) => {
 };
 
 const app = () => {
-  mainController();
 
   document.addEventListener('DOMContentLoaded', () => {
     const lang = localStorage.getItem('lang');
@@ -42,6 +41,7 @@ const app = () => {
       model.setData(ruData);
       model.setLang(defaultLang);
     }
+    mainController();
   });
 
   window.addEventListener('hashchange', () => {

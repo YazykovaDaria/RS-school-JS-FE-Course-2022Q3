@@ -5,6 +5,8 @@ const popup = document.querySelector('.popup');
 const gallery = document.querySelector('.gallery');
 
 const mainController = () => {
+  mainView('gallery', gallery, model.getData());
+
   gallery.addEventListener('click', (e) => {
     const card = e.target.closest('.gallery__card');
     const id = Number(card.id);
