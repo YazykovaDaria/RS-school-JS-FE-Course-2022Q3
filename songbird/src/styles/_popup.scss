@@ -66,11 +66,13 @@ padding-top: 3rem;
   width: 80%;
   padding: 1rem;
   border-radius: 10px;
+  //min-width: 400px;
 
   @media (max-width: 780px) {
 
     & {
     width: 100%;
+    //min-width: none;
     }
   }
 }

@@ -6,7 +6,7 @@ import { enData, ruData } from './model/data';
 import translate from './helpers/translate';
 import appView from './view/appView';
 
-//const main = document.querySelector('.main');
+// const main = document.querySelector('.main');
 const language = document.querySelector('.language');
 const defaultLang = 'ru';
 let secondLang = '';
@@ -29,7 +29,6 @@ const changeLanguage = (lang) => {
 };
 
 const app = () => {
-
   document.addEventListener('DOMContentLoaded', () => {
     const lang = localStorage.getItem('lang');
     if (lang !== defaultLang || !lang) {
@@ -42,34 +41,29 @@ const app = () => {
       model.setLang(defaultLang);
     }
     mainController();
+    window.location.hash = '#main';
   });
 
   window.addEventListener('hashchange', () => {
-      const { hash } = window.location;
-      appView('quizPage');
-      switch (hash) {
-        // case '#main':
-        //   main.textContent = 'main page'
-        //   break;
-          case '#quiz':
-            console.log('quiz');
-            // main.innerHTML = '';
-            // const div = document.createElement('div');
-            // div.textContent = 'hi quizzzzzz'
-            // main.prepend(div);
-    //     main.innerHTML = '<p>quizzzzzzzzzzz</p>'
-          break;
-          case '#result':
-            console.log('result');
-            // main.innerHTML = '';
-            // const d = document.createElement('div')
-            // d.textContent = 'result'
-            // main.prepend(d);
-            break;
-        default:
-          break;
-      }
-    }, false);
+    const { hash } = window.location;
+
+    switch (hash) {
+      case '#main':
+        appView('mainPage');
+        break;
+      case '#quiz':
+        appView('quizPage');
+        quizController();
+        break;
+      case '#result':
+        //console.log('result');
+        appView('resultPage')
+
+        break;
+      default:
+        break;
+    }
+  }, false);
 
   language.addEventListener('change', (e) => {
     const { value } = e.target;

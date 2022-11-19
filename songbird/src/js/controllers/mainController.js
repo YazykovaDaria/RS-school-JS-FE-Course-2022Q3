@@ -9,7 +9,7 @@ const mainController = () => {
 
   gallery.addEventListener('click', (e) => {
     const card = e.target.closest('.gallery__card');
-    const id = Number(card.id);
+    const id = Number(card.dataset.id);
     const data = model.getDataItem(id);
     mainView('openPopup', popup, data);
   });

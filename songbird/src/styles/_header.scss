@@ -34,3 +34,16 @@ color: $hover-fonts;
 transition: 0.3s;
   }
 }
+
+.score {
+  height: 54px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+
+  &.hide {
+    display: none;
+  }
+}
