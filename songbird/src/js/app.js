@@ -4,7 +4,7 @@ import quizController from './controllers/quizController';
 import { enData, ruData } from './model/data';
 // write translate!
 import translate from './helpers/translate';
-import mainView from './view/mainView';
+import appView from './view/appView';
 
 //const main = document.querySelector('.main');
 const language = document.querySelector('.language');
@@ -36,7 +36,7 @@ const app = () => {
     if (lang !== defaultLang || !lang) {
       secondLang = lang;
       changeLanguage(secondLang);
-      mainView('lang', secondLang);
+      appView('lang', secondLang);
       model.setLang(secondLang);
     } else {
       model.setData(ruData);
@@ -46,7 +46,7 @@ const app = () => {
 
   window.addEventListener('hashchange', () => {
       const { hash } = window.location;
-      mainView('startBtn');
+      appView('quizPage');
       switch (hash) {
         // case '#main':
         //   main.textContent = 'main page'
