@@ -12,19 +12,20 @@
   <div class="wrapper">
 <header class="header">
   <nav class="nav header__nav">
-<a class="logo nav__logo logo-link" href="/">
-<span class="logo__item">Song</span>
-<span class="logo__item logo__item-position">birds</span>
+<a class="logo nav__logo logo-link" href="#main">
+<span class="logo__item js-lang" data-lang="song">Музыкальный</span>
+<span class="logo__item logo__item-position js-lang" data-lang="quest">вопрос</span>
 </a>
 <div class="nav__menu">
   <form class="language">
     <input
     type="radio"
     name="language"
-    id="en"
-    value="en"
+    id="by"
+    value="by"
+    checked
   />
-  <label for="en" class="title language__label">en</label>
+  <label for="by" class="title language__label">бел</label>
 
   <span class="title">/</span>
 
@@ -33,14 +34,13 @@
             name="language"
             id="ru"
             value="ru"
-            checked
           />
-          <label for="ru" class="title language__label">ru</label>
+          <label for="ru" class="title language__label">рус</label>
   </form>
 
-<a href="#quiz" class="btn btn-link">Start game</a>
+<a href="#quiz" class="btn btn-link js-lang" data-lang="gameBtn">Пачать гульню</a>
 <div class="score hide">
-  <span class="score__item">Score:</span>
+  <span class="score__item js-lang" data-lang="score">Лiк:</span>
   <span class="score__item" id="score">0</span>
 </div>
 </div>
@@ -59,28 +59,48 @@
 <a href="#quiz" class="btn btn-big btn-link">Start game</a>
 
 </main>
+<div class="popup">
+  <div class="popup__container">
+<div class="popup__close">X</div>
+
+    <div class="gameplay__item gameplay__item_popup">
+      <div class="card">
+        <img src="../assets/img/bird.jpg" alt="bird" class="card__img popup__img">
+
+        <div class="card__body card__popup">
+          <p class="js-title">bird</p>
+          <p class="js-subtitle">dgldjg</p>
+
+        </div>
+    </div>
+
+    <p class="js-text-popup text text-popup"></p>
+    </div>
+
+  </div>
+    </div>
 </div>
 
 <div class="js-quiz-page quiz-page">
   <main class="main">
     <ul class="nav main__nav-quiz">
-<li class="nav__item active js-level">
-  Разминка
+<li class="nav__item active js-level js-lang" data-lang="stretch">
+  Размінка
 </li>
 <li class="nav__item js-level">
-  Воробьиные
+  Рэп
 </li>
 <li class="nav__item js-level">
-Лесные птицы
+Поп
 </li>
 <li class="nav__item js-level">
-Певчие птицы
+Рок
+</li>
+<li class="nav__item js-level js-lang" data-lang="indi">
+  Індзі
 </li>
 <li class="nav__item js-level">
-Хищные птицы
-</li>
-<li class="nav__item js-level">
-Морские птицы
+Панк
 </li>
     </ul>
 
@@ -100,8 +120,8 @@
 </ul>
 
 <div class="gameplay__item gameplay__item-choised hide" id="rules">
-  <p class="subtitle">Послушайте плеер</p>
-  <p class="subtitle">Выберите птицу из списка</p>
+  <p class="subtitle js-lang" data-lang="hear">Паслухай песню</p>
+  <p class="subtitle js-lang" data-lang="chois">Абяры выканаўца са спісу</p>
 </div>
 
 <div class="gameplay__item gameplay__item-choised" id="choisedAnswer">
@@ -120,7 +140,7 @@
 
 </div>
 
-<button class="btn btn-big btn-link" id="nextLevel">Next level</button>
+<button class="btn btn-big btn-link js-lang" id="nextLevel" data-lang="nextLvl">наступны ўзровень</button>
     </section>
   </main>
 </div>
@@ -175,26 +195,7 @@
 
   </footer>
 
-  <div class="popup">
-    <div class="popup__container">
-<div class="popup__close">X</div>
 
-      <div class="gameplay__item gameplay__item_popup">
-        <div class="card">
-          <img src="../assets/img/bird.jpg" alt="bird" class="card__img popup__img">
-
-          <div class="card__body card__popup">
-            <p class="js-title">bird</p>
-            <p class="js-subtitle">dgldjg</p>
-
-          </div>
-      </div>
-
-      <p class="js-text-popup text text-popup"></p>
-      </div>
-
-    </div>
-      </div>
 
 </div>
 
