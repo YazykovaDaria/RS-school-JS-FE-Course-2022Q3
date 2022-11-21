@@ -37,14 +37,6 @@ a {
 
 }
 
-.main_main-page {
-  display: flex;
-  flex-direction: column;
-  //justify-content: center;
-  align-items: center;
-  padding-top: 2rem;
-}
-
 .logo-link {
   display: block;
 }
@@ -130,11 +122,13 @@ transition: 0.5s;
 .title {
   font-size: 1.5rem;
   font-weight: 500;
+  text-align: center;
 }
 
 .subtitle {
   margin: 0.5em;
   font-weight: 500;
+  text-align: center;
 }
 
 .subtitle_main-page {

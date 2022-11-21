@@ -1,0 +1,18 @@
+
+.main_main-page {
+  display: flex;
+  flex-direction: column;
+  //justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  gap: 1rem;
+}
+
+.title_main {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.title_major {
+  color: $hover-btn;
+}
