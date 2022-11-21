@@ -7,6 +7,7 @@ import translate from './helpers/translate';
 import appView from './view/appView';
 
 const language = document.querySelector('.language');
+const clean = document.querySelector('.clean');
 
 const changeLanguage = (lang) => {
   translate(lang);
@@ -14,9 +15,11 @@ const changeLanguage = (lang) => {
   switch (lang) {
     case 'by':
       model.setData(byData);
+
       break;
     case 'ru':
       model.setData(ruData);
+
       break;
     default:
       model.setData(byData);
@@ -26,17 +29,20 @@ const changeLanguage = (lang) => {
 };
 
 const app = () => {
+  clean.addEventListener('click', () => {
+    localStorage.clear();
+  });
+
   document.addEventListener('DOMContentLoaded', () => {
     const lang = localStorage.getItem('lang');
     const defaultLang = model.getDefaultLang();
+    const secondLang = 'ru';
+
     if (lang !== defaultLang) {
-      if (!lang) {
-        model.setLang(defaultLang);
-      }
-      model.setLang(lang);
-      const secondLang = model.getLang();
+      model.setLang(secondLang);
       changeLanguage(secondLang);
       appView('lang', secondLang);
+      // }
     } else {
       model.setData(byData);
       model.setLang(defaultLang);
