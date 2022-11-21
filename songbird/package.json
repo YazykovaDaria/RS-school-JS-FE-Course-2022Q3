@@ -7,7 +7,8 @@
     "start": "webpack serve",
     "dev": "webpack",
     "prod": "webpack --node-env=production",
-    "clear": "rd /s /q dist"
+    "clear": "rd /s /q dist",
+    "public": "webpack --node-env=production && gh-pages -d dist -e songquiz"
   },
   "keywords": [],
   "author": "",
