@@ -48,11 +48,10 @@ class AudioPlayer {
   </div>
   </div>
   <div class="time">
-    <div class="current">0:00</div>
+  <div class="length"></div>
     <div class="divider">/</div>
-    <div class="length"></div>
+    <div class="current">0:00</div>
   </div>
-  <div class="name">Music is loading</div>
   <div class="volume-container">
     <div class="volume-button">
       <div class="volume icono-volumeMedium">
@@ -69,22 +68,6 @@ class AudioPlayer {
   }
 
   _attachEvents() {
-    this.audio.addEventListener(
-      'canplaythrough',
-      () => {
-        this.elements.audioContainer.querySelector('.name').classList.add('hide');
-        this.elements.audioContainer.querySelector('.time .length').textContent = getTimeCodeFromNum(
-          this.audio.duration,
-        );
-        this.audio.volume = 0.75;
-      },
-      false,
-    );
-
-    this.audio.addEventListener('ended', () => {
-      this._changePlayBtnStyle('play', 'pause');
-    });
-
     this.elements.playBtn.addEventListener(
       'click',
       () => {
@@ -126,6 +109,23 @@ class AudioPlayer {
     this.elements.playBtn.classList.add(add);
   }
 
+  _attachAudioEvents() {
+    this.audio.addEventListener(
+      'durationchange',
+      () => {
+        this.elements.audioContainer.querySelector('.time .length').textContent = getTimeCodeFromNum(
+          this.audio.duration,
+        );
+        this.audio.volume = 0.75;
+      },
+      false,
+    );
+
+    this.audio.addEventListener('ended', () => {
+      this._changePlayBtnStyle('play', 'pause');
+    });
+  }
+
   pause() {
     this.audio.pause();
     this._changePlayBtnStyle('play', 'pause');
@@ -137,6 +137,7 @@ class AudioPlayer {
 
   setSound(newSound) {
     this.audio = new Audio(newSound);
+    this._attachAudioEvents();
   }
 }
 
