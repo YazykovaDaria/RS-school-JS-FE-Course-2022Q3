@@ -7,10 +7,8 @@ const mode = process.env.NODE_ENV || 'development';
 const devMode = mode === 'development';
 const target = devMode ? 'web' : 'browserslist';
 const devtool = devMode ? 'source-map' : undefined;
-// название папки/html/js-файлов должны совпадать
-// чтобы дев-сервер находил заглавную страницу - именовать index
-// др страницы - любые имена, переход через ссылки
-const pages = ['index', 'quiz', 'result'];
+
+const pages = ['index'];
 
 module.exports = {
   mode,
