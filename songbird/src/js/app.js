@@ -39,7 +39,7 @@ const app = () => {
       model.setLang(defaultLang);
     }
     mainController();
-    window.location.hash = '#main';
+    //window.location.hash = '#main';
   });
 
   window.addEventListener('hashchange', () => {
