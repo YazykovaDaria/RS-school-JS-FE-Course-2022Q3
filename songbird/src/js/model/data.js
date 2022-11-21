@@ -458,7 +458,7 @@ export const byData = [
     name: 'Michael Soul',
     species: 'Humanize',
     description: 'Michael Soul (наст. імя - Міхаіл Сасуноў) - беларускі спявак і аўтар песень. Паўфіналіст восьмага сезона ўкраінскага шоу "Голас краіны". Таксама ўдзельнічаў у тэлепраектах "X-Фактар", "Хачу да Меладзэ" і "Ліга смеху". У 2018 годзе выпусціў міні-альбом "INSIDE", які складаецца з 5 англамоўных трэкаў.',
-    image: 'https://yazykovadaria.github.io/mysic//pop/Michael Soul - Humanize.mp3',
+    image: 'https://static.nv.ua/shared/system/MediaPhoto/images/000/220/494/medium/9541b030bb10fd88d4d1198abdd71365.png?q=85&stamp=20220211160431&f=jpg',
     audio: 'https://yazykovadaria.github.io/mysic//pop/Michael Soul - Humanize.mp3',
   },
   {
