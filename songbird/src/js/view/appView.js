@@ -18,21 +18,20 @@ const appView = (indicator, data = '') => {
 
       break;
 
-      case 'resultPage':
-       // startBtn.style.display = "none";
-        //mainPage.style.display = "none";
-        quizPage.style.display = "none";
-        score.style.display = "none";
-        resultPage.style.display = "block";
-break
-      case 'mainPage':
-        startBtn.style.display = "flex";
-        mainPage.style.display = "block";
-         quizPage.style.display = "none";
-         score.style.display = "none";
-         resultPage.style.display = "none";
+    case 'resultPage':
+      quizPage.style.display = "none";
+      score.style.display = "none";
+      resultPage.style.display = "block";
+      break;
 
-        break;
+    case 'mainPage':
+      startBtn.style.display = "flex";
+      mainPage.style.display = "block";
+      quizPage.style.display = "none";
+      score.style.display = "none";
+      resultPage.style.display = "none";
+
+      break;
     default:
       console.log('unknom indicator');
       break;

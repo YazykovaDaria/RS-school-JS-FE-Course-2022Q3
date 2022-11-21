@@ -1,14 +1,13 @@
-// import birdsDataRu, { dataEn } from './data';
 import { getRandomInt } from '../helpers/helpers';
 
-// const initQuizState = {
-//   level: 0,
-//   score: 0,
-//   answers: [],
-//   rightAnswer: {},
-//   isWonLevel: false,
-//   isWonGame: false,
-// };
+const initQuizState = {
+  level: 0,
+  score: 0,
+  answers: [],
+  rightAnswer: {},
+  isWonLevel: false,
+  isWonGame: false,
+};
 
 const model = {
   data: [],
@@ -17,10 +16,11 @@ const model = {
   quiz: {
     level: 0,
     score: 0,
+    maxScore: 30,
     answers: [],
     rightAnswer: {},
     isWonLevel: false,
-    isWonGame: false,
+    //isWonGame: false,
   },
   startQuiz() {
     const roundAnswers = this.data.filter((item) => item.level === this.quiz.level);
@@ -57,8 +57,17 @@ const model = {
   getDefaultLang() {
     return this.defaultLang;
   },
-    getLang() {
+  getLang() {
     return this.lang;
+  },
+  getQuizScore() {
+    return this.quiz.score;
+  },
+  cleanQuiz() {
+    this.quiz = initQuizState;
+  },
+  isWonGame() {
+    return (this.quiz.score === this.quiz.maxScore);
   },
 };
 
