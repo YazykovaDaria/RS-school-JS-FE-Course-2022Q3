@@ -29,7 +29,10 @@ const app = () => {
   document.addEventListener('DOMContentLoaded', () => {
     const lang = localStorage.getItem('lang');
     const defaultLang = model.getDefaultLang();
-    if (lang !== defaultLang || !lang) {
+    if (lang !== defaultLang) {
+      if (!lang) {
+        model.setLang(defaultLang);
+      }
       model.setLang(lang);
       const secondLang = model.getLang();
       changeLanguage(secondLang);
@@ -39,7 +42,7 @@ const app = () => {
       model.setLang(defaultLang);
     }
     mainController();
-    //window.location.hash = '#main';
+    window.location.hash = '#main';
   });
 
   window.addEventListener('hashchange', () => {

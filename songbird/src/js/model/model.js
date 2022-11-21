@@ -6,7 +6,6 @@ const initQuizState = {
   answers: [],
   rightAnswer: {},
   isWonLevel: false,
-  isWonGame: false,
 };
 
 const model = {
@@ -20,7 +19,6 @@ const model = {
     answers: [],
     rightAnswer: {},
     isWonLevel: false,
-    //isWonGame: false,
   },
   startQuiz() {
     const roundAnswers = this.data.filter((item) => item.level === this.quiz.level);
