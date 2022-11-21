@@ -13,8 +13,10 @@ const appView = (indicator, data = '') => {
     case 'quizPage':
       startBtn.style.display = "none";
       mainPage.style.display = "none";
+      resultPage.style.display = "none";
       quizPage.style.display = "block";
       score.style.display = "flex";
+      document.getElementById('score').textContent = '0';
 
       break;
 

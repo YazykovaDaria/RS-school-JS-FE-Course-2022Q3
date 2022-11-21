@@ -32,12 +32,10 @@ const app = () => {
     const lang = localStorage.getItem('lang');
     const defaultLang = model.getDefaultLang();
     const secondLang = 'ru';
-
     if (lang !== defaultLang) {
       model.setLang(secondLang);
       changeLanguage(secondLang);
       appView('lang', secondLang);
-      // }
     } else {
       model.setData(byData);
       model.setLang(defaultLang);
