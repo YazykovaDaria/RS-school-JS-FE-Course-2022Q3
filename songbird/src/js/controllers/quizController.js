@@ -1,11 +1,10 @@
 import model from '../model/model';
 import quizView from '../view/quizView';
+import translate from '../helpers/translate';
 
-// придется делать ререндер при выигрыше иначе данные в модели не сохраняются
-//const linkforgit = 'https://jik789.github.io/music/round1/cosmopolitan.mp3';
 const answersContainer = document.getElementById('quiz-answers');
 const btnLevels = document.getElementById('nextLevel');
-const maxLevel = 1;
+const maxLevel = 5;
 let scoreCount = 5;
 
 const buildQuizContent = () => {
@@ -33,13 +32,13 @@ const checkWonGame = (answer) => {
 
 const quizController = () => {
   buildQuizContent();
+  if (!model.langIsDefault()) {
+    translate(model.lang);
+  }
 
   answersContainer.addEventListener('click', (e) => {
     const elId = Number(e.target.id);
-    // const rightAnswer = model.getRightAnswer();
-    // const { id } = rightAnswer;
 
-    //if (elId === id && !model.quiz.isWonLevel)
     if (model.isRigthAnswer(elId) && !model.quiz.isWonLevel) {
       model.quiz.isWonLevel = true;
       checkWonGame(model.getRightAnswer());

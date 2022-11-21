@@ -1,4 +1,4 @@
-//import birdsDataRu, { dataEn } from './data';
+// import birdsDataRu, { dataEn } from './data';
 import { getRandomInt } from '../helpers/helpers';
 
 // const initQuizState = {
@@ -12,6 +12,7 @@ import { getRandomInt } from '../helpers/helpers';
 
 const model = {
   data: [],
+  defaultLang: 'by',
   lang: '',
   quiz: {
     level: 0,
@@ -31,6 +32,12 @@ const model = {
     const answer = this.quiz.answers.filter((item) => item.id === id);
     return answer[0];
   },
+  getRightAnswer() {
+    return this.quiz.rightAnswer;
+  },
+  isRigthAnswer(id) {
+    return (this.quiz.rightAnswer.id === id);
+  },
   getDataItem(id) {
     const [dataItem] = this.data.filter((item) => item.id === id);
     return dataItem;
@@ -44,7 +51,13 @@ const model = {
   setLang(lang) {
     this.lang = lang;
   },
-  getLang() {
+  langIsDefault() {
+    return (this.defaultLang === this.lang);
+  },
+  getDefaultLang() {
+    return this.defaultLang;
+  },
+    getLang() {
     return this.lang;
   },
 };

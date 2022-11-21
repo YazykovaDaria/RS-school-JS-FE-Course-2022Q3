@@ -1,28 +1,27 @@
 import model from './model/model';
 import mainController from './controllers/mainController';
 import quizController from './controllers/quizController';
-import { enData, ruData } from './model/data';
-// write translate!
+import { ruData, byData } from './model/data';
 import translate from './helpers/translate';
 import appView from './view/appView';
 
 // const main = document.querySelector('.main');
 const language = document.querySelector('.language');
-const defaultLang = 'ru';
-let secondLang = '';
+// export const defaultLang = 'by';
+// let secondLang = '';
 
 const changeLanguage = (lang) => {
   translate(lang);
   model.setLang(lang);
   switch (lang) {
-    case 'en':
-      model.setData(enData);
+    case 'by':
+      model.setData(byData);
       break;
     case 'ru':
       model.setData(ruData);
       break;
     default:
-      model.setData(ruData);
+      model.setData(byData);
       break;
   }
   localStorage.setItem('lang', lang);
@@ -31,13 +30,16 @@ const changeLanguage = (lang) => {
 const app = () => {
   document.addEventListener('DOMContentLoaded', () => {
     const lang = localStorage.getItem('lang');
+    const defaultLang = model.getDefaultLang();
+    //model.setLang(lang);
     if (lang !== defaultLang || !lang) {
-      secondLang = lang;
+      model.setLang(lang);
+      const secondLang = model.getLang();
       changeLanguage(secondLang);
       appView('lang', secondLang);
-      model.setLang(secondLang);
+      //model.setLang(secondLang);
     } else {
-      model.setData(ruData);
+      model.setData(byData);
       model.setLang(defaultLang);
     }
     mainController();
@@ -56,8 +58,7 @@ const app = () => {
         quizController();
         break;
       case '#result':
-        //console.log('result');
-        appView('resultPage')
+        appView('resultPage');
 
         break;
       default:
