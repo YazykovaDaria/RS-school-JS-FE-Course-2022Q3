@@ -2,17 +2,7 @@ import { playAudio } from '../helpers/helpers';
 import audioFail from '../../assets/audio/sucsses.mp3';
 import audioSucsses from '../../assets/audio/wrong.mp3';
 import AudioPlayer from '../helpers/audioPlayer';
-import birdImg from '../../assets/img/bird.jpg';
-
-// const elements = {
-//   questBody: null,
-//   answersContainer: null,
-//   choisedContainer: null,
-//   choisedBody: null,
-//   quizRules: null,
-//   btn: null,
-//   score: null,
-// }
+import birdImg from '../../assets/img/musician-rock-star-002-512.webp';
 
 const questBody = document.getElementById('question');
 const answersContainer = document.getElementById('quiz-answers');
@@ -23,7 +13,6 @@ const btn = document.getElementById('nextLevel');
 const score = document.getElementById('score');
 const categories = document.querySelectorAll('.js-level');
 
-// const main = document.querySelector('.main');
 const hidedName = '*******';
 
 const mainAudio = new AudioPlayer('');
