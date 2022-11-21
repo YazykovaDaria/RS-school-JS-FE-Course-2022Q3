@@ -7,7 +7,6 @@ import translate from './helpers/translate';
 import appView from './view/appView';
 
 const language = document.querySelector('.language');
-const clean = document.querySelector('.clean');
 
 const changeLanguage = (lang) => {
   translate(lang);
@@ -29,10 +28,6 @@ const changeLanguage = (lang) => {
 };
 
 const app = () => {
-  clean.addEventListener('click', () => {
-    localStorage.clear();
-  });
-
   document.addEventListener('DOMContentLoaded', () => {
     const lang = localStorage.getItem('lang');
     const defaultLang = model.getDefaultLang();
