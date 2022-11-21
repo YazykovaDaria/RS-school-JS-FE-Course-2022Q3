@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Song Birds</title>
+  <title>Muz quiz</title>
 
 </head>
 
@@ -120,8 +120,8 @@
 </ul>
 
 <div class="gameplay__item gameplay__item-choised hide" id="rules">
-  <p class="subtitle js-lang" data-lang="hear">Паслухай песню</p>
-  <p class="subtitle js-lang" data-lang="chois">Абяры выканаўца са спісу</p>
+  <p class="subtitle js-lang" data-lang="hear">Паслухайце песню</p>
+  <p class="subtitle js-lang" data-lang="chois">Абярыце выканаўца са спісу</p>
 </div>
 
 <div class="gameplay__item gameplay__item-choised" id="choisedAnswer">
@@ -146,23 +146,26 @@
 </div>
 
 <div class="js-result-page result-page main">
-  <main>
-    <p class="title">Поздравляю!</p>
+  <main class="result-card">
+    <p class="title title-result js-lang" data-lang="congratulations">Віншую!</p>
 
-    <div class="">
-    <span class="subtitle">Вы набрали</span>
-    <span class="subtitle js-res-score">30</span>
-    <span class="subtitle">баллов из 30</span>
+    <div class="result-card__score">
+    <span class="subtitle js-lang" data-lang="get">Вы набралі</span>
+    <span class="subtitle js-res-score"></span>
+    <span class="subtitle js-lang" data-lang="scoreRes">балаў з</span>
+    <span class="subtitle">30</span>
   </div>
 
-    <p class="title js-win">Вы отлично знаете белорусских исполнителей!)</p>
+    <p class="title title-result js-win js-lang" data-lang="youKnow">Вы выдатна ведаеце беларускіх выканаўцаў!)</p>
 
-<div class="js-not-win"></div>
-    <p class="subtitle">Хороший результат) Попробуем улучшить?</p>
-    <div class="btn btn-link js-btn-still">Попробовать ещё раз</div>
+<div class="js-not-win result-card_message">
+    <p class="subtitle title-result js-lang" data-lang="goodRes">Добры вынік) Паспрабуем палепшыць?</p>
+    <div class="btn btn-link js-btn-still js-lang" data-lang="gameBtn">Пачать гульню</div>
+  </div>
+    </main>
   </div>
 
-  </main>
+
 
   <footer class="footer">
     <div class="nav footer__nav">

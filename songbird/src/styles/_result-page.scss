@@ -1,0 +1,33 @@
+
+.result-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  padding: 1.5rem;
+  margin: 10% auto 0 auto;
+  background-color: $game-back;
+  border-radius: 20px;
+}
+
+.result-card__score {
+  display: flex;
+  gap: 5px;
+  font-size: 1.5rem;
+}
+
+.result-card_message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.title-result {
+  font-size: 2rem;
+  text-align: center;
+  line-height: 30px;
+}
