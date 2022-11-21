@@ -115,6 +115,7 @@ const quizView = (indicator, data = '') => {
       break;
 
     case 'choised':
+      sideAudio.pause();
       showChoizedContent(indicator, data);
       break;
 

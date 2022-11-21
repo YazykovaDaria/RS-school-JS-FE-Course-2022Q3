@@ -16,7 +16,6 @@ const changePopupContent = (data) => {
   popupCardTitle.textContent = data.name;
   popupCardSubtitle.textContent = data.species;
   popupCardText.textContent = data.description;
-  console.log(popupCardText);
   popupImg.src = data.image;
   audio.setSound(data.audio);
 };
@@ -37,6 +36,7 @@ const mainView = (indicator, element, data) => {
       break;
 
     case 'closePopup':
+      audio.pause();
       element.classList.remove('active');
       break;
 
