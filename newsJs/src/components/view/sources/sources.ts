@@ -1,17 +1,8 @@
 import './sources.css';
-
-type SourseItem = {
-    category: string;
-    country: string;
-    description: string;
-    id: string;
-    language: string;
-    name: string;
-    url: string;
-};
+import { SourseItem } from '../../types';
 
 class Sources {
-    draw(data: Array<SourseItem>) {
+    draw(data: Array<SourseItem>): void {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
