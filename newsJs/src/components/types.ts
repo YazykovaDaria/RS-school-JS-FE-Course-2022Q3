@@ -3,7 +3,7 @@ type NewsSourse = {
     name: string;
 };
 
-type News = {
+export type NewsType = {
     author: null;
     content: string;
     description: string;
@@ -14,14 +14,42 @@ type News = {
     urlToImage: string;
 };
 
+export type SourseItem = {
+    category: string;
+    country: string;
+    description: string;
+    id: string;
+    language: string;
+    name: string;
+    url: string;
+};
+
+export type SourseResponse = {
+    status?: string;
+    sourses?: Array<SourseItem>;
+};
+
 export interface NewsResponse {
     status: string;
     totalResults: number;
-    articles: Array<News>;
+    articles: Array<NewsType>;
 }
 
-export type Options = {
+export interface Options {
     [key: string]: string;
-};
+   // [sources: string]: string;
+    // sources: string;
+    // apiKey: string;
+}
 
-export type Callback = (data: NewsResponse) => void;
+// export type GetResponse = {
+//     endpoint: string;
+//     options: Options;
+// };
+
+export type Callback<T> = (data?: T) => void;
+
+// export interface NewsLoader {
+//     baseLink: string;
+//     options?: Options;
+// }
