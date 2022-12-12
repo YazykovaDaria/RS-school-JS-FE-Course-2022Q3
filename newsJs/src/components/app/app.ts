@@ -1,4 +1,4 @@
-import { NewsResponse } from './../types';
+import { NewsResponse, SourseItem } from './../types';
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
@@ -17,7 +17,7 @@ class App {
                 this.view.drawNews(data);
             })
         );
-        this.controller.getSources((data: NewsResponse) => this.view.drawSources(data));
+        this.controller.getSources((data) => this.view.drawSources(data));
     }
 }
 
