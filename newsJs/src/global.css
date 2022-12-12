@@ -31,6 +31,10 @@ footer {
     justify-content: space-between;
 }
 
+footer.hide {
+    display: none;
+}
+
 footer .copyright {
     font-size: 14px;
     color: rgb(242, 226, 226);
@@ -57,5 +61,5 @@ ul li {
 }
 
 .footer-links svg:hover {
-fill: rgb(34, 171, 183);
+fill:  #69db7e;
 }

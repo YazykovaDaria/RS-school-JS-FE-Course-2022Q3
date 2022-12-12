@@ -20,6 +20,12 @@ export class AppView {
         const values = data?.sources ? data?.sources : [];
         this.sources?.draw(values);
     }
+
+    toggleSelect(selectEl: Element): void {
+        const footer = document.querySelector('footer');
+        footer?.classList.toggle('hide');
+        selectEl.classList.toggle('active');
+    }
 }
 
 export default AppView;
