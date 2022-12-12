@@ -24,9 +24,9 @@ export type SourseItem = {
     url: string;
 };
 
-export type SourseResponse = {
+export type SourcesResponse = {
     status?: string;
-    sourses?: Array<SourseItem>;
+    sources?: Array<SourseItem>;
 };
 
 export interface NewsResponse {
@@ -37,19 +37,6 @@ export interface NewsResponse {
 
 export interface Options {
     [key: string]: string;
-   // [sources: string]: string;
-    // sources: string;
-    // apiKey: string;
 }
 
-// export type GetResponse = {
-//     endpoint: string;
-//     options: Options;
-// };
-
 export type Callback<T> = (data?: T) => void;
-
-// export interface NewsLoader {
-//     baseLink: string;
-//     options?: Options;
-// }

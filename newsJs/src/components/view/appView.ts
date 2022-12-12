@@ -1,11 +1,6 @@
 import News from './news/news';
 import Sources from './sources/sources';
-import { NewsResponse, SourseItem } from '../types';
-
-type SourcesType = {
-    status: string;
-    sources: Array<SourseItem>;
-};
+import { NewsResponse, SourcesResponse } from '../types';
 
 export class AppView {
     news: News;
@@ -21,7 +16,7 @@ export class AppView {
         this.news.draw(values);
     }
 
-    drawSources(data: SourcesType): void {
+    drawSources(data: SourcesResponse): void {
         const values = data?.sources ? data?.sources : [];
         this.sources?.draw(values);
     }

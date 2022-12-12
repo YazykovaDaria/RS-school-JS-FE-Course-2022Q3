@@ -1,9 +1,11 @@
-import { Options, Callback, SourseResponse } from './../types';
+import { Options, Callback, SourcesResponse } from './../types';
 
 type ResponseParametres = {
     endpoint: string;
     options?: Options;
 };
+
+//const getter = <T>(data: T): T => data;
 
 class Loader {
     baseLink: string;
@@ -44,7 +46,7 @@ class Loader {
         return url.slice(0, -1);
     }
 
-    private load(method: string, endpoint: string, callback: Callback<SourseResponse>, options: Options = {}): void {
+    private load(method: string, endpoint: string, callback: Callback<SourcesResponse>, options: Options = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
