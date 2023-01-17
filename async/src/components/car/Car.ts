@@ -1,22 +1,36 @@
 import gerCarImg from './carImg';
+import { Car } from '../../types/types';
 import flag from '../../../public/red-flag-svgrepo-com.svg';
+import { deleteCar } from '../../api/fetch';
 
-class Car {
+class CarCard {
   carEl: HTMLElement;
 
-  constructor() {
+  car: Car;
+
+  constructor(car: Car) {
     this.carEl = document.createElement('div');
+    this.car = car;
   }
 
   init(): HTMLElement {
-    this.carEl.classList.add('car-card');
+    this.render();
+    this.attachEvents();
 
-    const img = gerCarImg('green');
+    return this.carEl;
+  }
+
+  render(): void {
+    const { name, id, color } = this.car;
+    this.carEl.classList.add('car-card');
+    this.carEl.setAttribute('id', String(id));
+
+    const img = gerCarImg(color);
     this.carEl.innerHTML = `
 <div class="btns">
-<button>Select</button>
-<button>Remove</button>
-<span>Car Name<span>
+<button class="js-select">Select</button>
+<button class="js-remove">Remove</button>
+<span>${name}<span>
 </div>
 
     <section class="car">
@@ -30,11 +44,16 @@ class Car {
   ${img}
   <img src="${flag}" class="svg" alt="flag icon" />
   </div>
-
   </section>
   `;
+  }
 
-    return this.carEl;
+  attachEvents(): void {
+    const removeEl = this.carEl.querySelector('.js-remove');
+    removeEl?.addEventListener('click', () => {
+      deleteCar(this.car.id);
+      this.carEl.remove();
+    });
   }
 
   changeCarColor(color: string):void {
@@ -42,4 +61,4 @@ class Car {
   }
 }
 
-export default Car;
+export default CarCard;
