@@ -1,7 +1,7 @@
 import gerCarImg from './carImg';
 import { Car } from '../../types/types';
 import flag from '../../../public/red-flag-svgrepo-com.svg';
-import { deleteCar } from '../../api/fetch';
+import { deleteCar, deleteWinner } from '../../api/fetch';
 
 class CarCard {
   carEl: HTMLElement;
@@ -49,16 +49,17 @@ class CarCard {
   }
 
   attachEvents(): void {
+    const {id} = this.car;
+
     const removeEl = this.carEl.querySelector('.js-remove');
     removeEl?.addEventListener('click', () => {
-      deleteCar(this.car.id);
+      deleteCar(id);
+      deleteWinner(id);
       this.carEl.remove();
     });
   }
 
-  changeCarColor(color: string):void {
 
-  }
 }
 
 export default CarCard;

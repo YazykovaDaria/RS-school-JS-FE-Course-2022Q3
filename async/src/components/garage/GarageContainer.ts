@@ -1,44 +1,40 @@
-import { Cars } from '../../types/types';
+import { Cars, Car } from '../../types/types';
 import CarCard from '../car/Car';
 
 class GarageContainer {
-  targetEl: HTMLElement;
-
   garageEl: HTMLElement;
 
   cars: Cars;
 
-  constructor(targetEl: HTMLElement, cars: Cars) {
-    this.targetEl = targetEl;
+  constructor(cars: Cars) {
     this.cars = cars;
     this.garageEl = document.createElement('div');
+  }
 
+  init(): HTMLElement {
     this.render();
+
+    return this.garageEl;
   }
 
   render(): void {
     this.garageEl.setAttribute('id', 'garage');
 
-    this.garageEl.innerHTML = `
-  <h2>Garage (${this.cars.length})</h2>
-  <p>Page № </p>
-  `;
-
     this.cars.forEach((car) => {
       const carEl = new CarCard(car).init();
       this.garageEl.append(carEl);
     });
+  }
 
-    const btns = document.createElement('div');
-    btns.classList.add('btns');
-    btns.innerHTML = `
-  <button>Prew</button>
-  <button>Next</button>
-  `;
+  addCar(car: Car):void {
+    const newCar = new CarCard(car).init();
+    this.garageEl.append(newCar);
+  }
 
-    this.garageEl.append(btns);
-
-    this.targetEl.append(this.garageEl);
+  update(newCars: Cars): void {
+    this.cars = newCars;
+    this.garageEl.innerHTML = '';
+    this.render();
   }
 }
 
