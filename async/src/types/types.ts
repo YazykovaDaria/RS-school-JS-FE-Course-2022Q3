@@ -23,3 +23,8 @@ export type CreateWinner = {
   wins: number,
   time: number
 };
+
+export type StartStopCar = {
+  velocity: number,
+  distance: number
+};

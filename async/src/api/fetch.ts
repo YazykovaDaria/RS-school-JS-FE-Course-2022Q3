@@ -8,7 +8,7 @@ const baseUrl = 'http://127.0.0.1:3000';
 export const startStopEngineCar = async (
   carId: number, status: string): Promise<{ status: number; result: StartStopCar }> => {
   try {
-    const res = await fetch(`${baseUrl}/engine?id=${carId}&status=${status}`);
+    const res = await fetch(`${baseUrl}/engine?id=${carId}&status=${status}`, { method: 'PATCH' });
     const result:StartStopCar = await res.json();
 
     return {
@@ -22,7 +22,7 @@ export const startStopEngineCar = async (
 
 export const switchToDriveMode = async (carId: number): Promise<number> => {
   try {
-    const res = await fetch(`${baseUrl}/engine?id=${carId}&status=drive`);
+    const res = await fetch(`${baseUrl}/engine?id=${carId}&status=drive`, { method: 'PATCH' });
 
     return res.status;
   } catch (err) {
