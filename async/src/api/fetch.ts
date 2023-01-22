@@ -1,8 +1,34 @@
 import {
-  Car, Cars, CreateCar, Winners, Winner, CreateWinner
+  Car, Cars, CreateCar, Winners, Winner, CreateWinner,
+  StartStopCar,
 } from '../types/types';
 
 const baseUrl = 'http://127.0.0.1:3000';
+
+export const startStopEngineCar = async (
+  carId: number, status: string): Promise<{ status: number; result: StartStopCar }> => {
+  try {
+    const res = await fetch(`${baseUrl}/engine?id=${carId}&status=${status}`);
+    const result:StartStopCar = await res.json();
+
+    return {
+      status: res.status,
+      result,
+    };
+  } catch (err) {
+    throw new Error(err);
+  }
+};
+
+export const switchToDriveMode = async (carId: number): Promise<number> => {
+  try {
+    const res = await fetch(`${baseUrl}/engine?id=${carId}&status=drive`);
+
+    return res.status;
+  } catch (err) {
+    throw new Error(err);
+  }
+};
 
 export const getCars = async (
   page = 1,
