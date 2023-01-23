@@ -7,6 +7,7 @@ import GarageContainer from './GarageContainer';
 import store from '../../store/store';
 import { limitGarage, carNames, maxCarsGenerate } from '../../common/constans';
 import getRandomColor from '../../common/helpers';
+import Popup from '../Popup';
 
 const pageName = 'garage' as const;
 
@@ -90,7 +91,6 @@ class GarageControllers {
   }
 
   private async startCarsRace(): Promise<void> {
-
     const res: Promise<CarCard>[] = this.GarageContainer.cars.map(
       async (car) => {
         await car.startCarEngine(car.car.id);
@@ -99,6 +99,19 @@ class GarageControllers {
       },
     );
 
+    const winnerCar = await Promise.race(res);
+
+    const carData = {
+      id: winnerCar.car.id,
+      name: winnerCar.car.name,
+      color: winnerCar.car.color,
+      speed: +(winnerCar.speed / 1000).toFixed(2),
+      wins: 1,
+    };
+
+    const popup = new Popup(carData.name, carData.speed);
+    this.rootEl.append(popup.popupEl);
+    setTimeout(() => popup.remove(), 5000);
   }
 
   private resetCars(): void {
@@ -108,7 +121,6 @@ class GarageControllers {
 
     Promise.all(allCarsToReset);
   }
-
 
 
   private async generateRandomCars(): Promise<void> {
