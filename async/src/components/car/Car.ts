@@ -4,6 +4,7 @@ import flag from '../../../public/red-flag-svgrepo-com.svg';
 import {
   deleteCar, deleteWinner, switchToDriveMode, startStopEngineCar,
 } from '../../api/fetch';
+import store from '../../store/store';
 
 const carImageWidth = 100;
 
@@ -70,14 +71,22 @@ class CarCard {
   }
 
   attachEvents(): void {
-    const { id } = this.car;
+    const { id, name } = this.car;
 
-    const removeEl = this.carEl.querySelector('.js-remove');
-    removeEl?.addEventListener('click', () => {
-      deleteCar(id);
-      deleteWinner(id);
-      this.carEl.remove();
-    });
+    this.controlBtns.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement
+      if (target.matches('.js-remove')) {
+        deleteCar(id);
+        deleteWinner(id);
+        this.carEl.remove();
+      } else if (target.matches('.js-select')) {
+        store.garage.updateId = id;
+        store.garage.update = name;
+        const input = document.querySelector('.js-update') as HTMLInputElement;
+        input.value = name;
+      }
+    })
+
 
     this.startStopBtns.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;

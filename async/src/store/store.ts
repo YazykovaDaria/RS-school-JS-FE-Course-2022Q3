@@ -1,5 +1,9 @@
-type GarageStor = {
+export type GarageStor = {
   currentPage: number;
+  update: string;
+  updateId: number;
+  create: string;
+
 };
 
 type WinnersStor = {
@@ -15,7 +19,9 @@ type Store = {
 const store: Store = {
   garage: {
     currentPage: 1,
-    // currentCars: [],
+    update: '',
+    updateId: 0,
+    create: '',
   },
   winners: {
     currentPage: 1,

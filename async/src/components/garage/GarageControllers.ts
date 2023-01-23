@@ -1,7 +1,7 @@
-import { getCars } from '../../api/fetch';
+import { getCars, createCar, updateCar } from '../../api/fetch';
 import GarageForm from './GarageForm';
 import Pagination from '../Pagination';
-import { CreateCar } from '../../types/types';
+import { CreateCar, Cars } from '../../types/types';
 import GarageContainer from './GarageContainer';
 import store from '../../store/store';
 
@@ -15,16 +15,12 @@ class GarageControllers {
 
   Pagination: Pagination;
 
-  updateForm = new GarageForm('update');
+  updateForm: GarageForm;
 
-  createForm = new GarageForm('create');
+  createForm: GarageForm;
 
   constructor(data: { cars: Cars; count: string } ) {
     this.rootEl = document.createElement('div');
-
-    // this.updateForm = new GarageForm('update');
-
-    // this.createForm = new GarageForm('create');
 
     this.GarageContainer = new GarageContainer(data.cars);
 
@@ -33,8 +29,12 @@ class GarageControllers {
       limit,
       Number(data.count),
       this.GarageContainer.garageEl,
-      this.updateCars,
+      this.updateCars.bind(this),
     );
+
+    this.updateForm = new GarageForm('update', this.updateCar.bind(this));
+
+    this.createForm = new GarageForm('create', this.createCar.bind(this));
 
     this.render();
   }
@@ -56,29 +56,25 @@ class GarageControllers {
     this.rootEl.append(this.Pagination.rootEl);
   }
 
+  async createCar(data: CreateCar) {
+    await createCar(data);
+    await this.updateCars();
+  }
+
+  async updateCar(data: CreateCar) {
+  await updateCar(store.garage.updateId, data);
+  await this.updateCars();
+  }
+
   async updateCars(): Promise<void> {
     const cars = await getCars(store.garage.currentPage);
     if (cars) {
-      console.log(this.GarageContainer);
-
       this.Pagination.updatePagination(Number(cars.count));
       this.GarageContainer.update(cars.cars);
     }
   }
+
+
 }
 
 export default GarageControllers;
-
-const y = `<form>
-<input type="text" id="uname" name="name"/>
-<input type="color" id="head" name="head"
-value="#e66465">
-<button type="submit">Create</bytton>
-</form>
-
-<form>
-<input type="text" id="uname" name="name"/>
-<input type="color" id="head" name="head"
-value="#e66465">
-<button type="submit">Update</bytton>
-</form>`;
