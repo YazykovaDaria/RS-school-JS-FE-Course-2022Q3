@@ -2,12 +2,13 @@ import { getCars, createCar, updateCar } from '../../api/fetch';
 import GarageForm from './GarageForm';
 import Pagination from '../Pagination';
 import { CreateCar, Cars } from '../../types/types';
+import CarCard from '../car/Car';
 import GarageContainer from './GarageContainer';
 import store from '../../store/store';
 import { limitGarage, carNames, maxCarsGenerate } from '../../common/constans';
 import getRandomColor from '../../common/helpers';
 
-const pageName = 'garage';
+const pageName = 'garage' as const;
 
 class GarageControllers {
   rootEl: HTMLElement;
@@ -63,19 +64,40 @@ class GarageControllers {
     const btnRace = this.rootEl.querySelector('.js-race') as HTMLButtonElement;
     const btnReset = this.rootEl.querySelector('.js-reset') as HTMLButtonElement;
 
+    const disabledBtns = (flag = true) => {
+      btnGenerate.disabled = flag;
+      btnRace.disabled = flag;
+      btnReset.disabled = flag;
+    }
+
     btnGenerate?.addEventListener('click', async () => {
-      btnGenerate.disabled = true;
-      btnRace.disabled = true;
+      disabledBtns();
       await this.generateRandomCars();
-      btnGenerate.disabled = false;
-      btnRace.disabled = false;
+      disabledBtns(false);
+    });
+
+    btnRace.addEventListener('click', async() => {
+      disabledBtns();
+      await this.startCarsRace();
+      disabledBtns(false);
     });
   }
+
+  private async startCarsRace(): Promise<void> {
+
+    const res: Promise<CarCard>[] = this.GarageContainer.cars.map(
+      async (car) => {
+        await car.startCarEngine(car.car.id);
+        car.disableButtons();
+        return car;
+      },
+    );
+  }
+
 
   private async generateRandomCars(): Promise<void> {
     for (let i = 0; i <= maxCarsGenerate; i -= -1) {
       const randomName = carNames[Math.floor(Math.random() * carNames.length)];
-
       // eslint-disable-next-line no-await-in-loop
       await this.createCar({
         name: randomName,
