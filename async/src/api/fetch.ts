@@ -2,6 +2,7 @@ import {
   Car, Cars, CreateCar, Winners, Winner, CreateWinner,
   StartStopCar,
 } from '../types/types';
+import { limitGarage } from '../common/constans';
 
 const baseUrl = 'http://127.0.0.1:3000';
 
@@ -32,7 +33,7 @@ export const switchToDriveMode = async (carId: number): Promise<number> => {
 
 export const getCars = async (
   page = 1,
-  limit = 7,
+  limit = limitGarage,
 ): Promise<{ cars: Cars; count: string } | null> => {
   try {
     const res = await fetch(`${baseUrl}/garage?_limit=${limit}&_page=${page}`);
