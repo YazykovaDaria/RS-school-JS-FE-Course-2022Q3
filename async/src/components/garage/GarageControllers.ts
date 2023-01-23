@@ -68,7 +68,7 @@ class GarageControllers {
       btnGenerate.disabled = flag;
       btnRace.disabled = flag;
       btnReset.disabled = flag;
-    }
+    };
 
     btnGenerate?.addEventListener('click', async () => {
       disabledBtns();
@@ -76,9 +76,15 @@ class GarageControllers {
       disabledBtns(false);
     });
 
-    btnRace.addEventListener('click', async() => {
+    btnRace.addEventListener('click', async () => {
       disabledBtns();
       await this.startCarsRace();
+      disabledBtns(false);
+    });
+
+    btnReset.addEventListener('click', () => {
+      disabledBtns();
+      this.resetCars();
       disabledBtns(false);
     });
   }
@@ -92,7 +98,17 @@ class GarageControllers {
         return car;
       },
     );
+
   }
+
+  private resetCars(): void {
+    const allCarsToReset = this.GarageContainer.cars?.map(async (car) => {
+      await car.stopCarEngine(car.car.id);
+    });
+
+    Promise.all(allCarsToReset);
+  }
+
 
 
   private async generateRandomCars(): Promise<void> {
