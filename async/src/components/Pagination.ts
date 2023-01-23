@@ -45,7 +45,7 @@ class Pagination {
     const { currentPage } = store[this.name];
     this.titleEl.textContent = `Page: ${currentPage}, ${this.name}: ${this.count}`;
     const btns = document.createElement('div');
-    btns.classList.add('btns');
+    btns.classList.add('btns', 'pagination');
     this.btnPrev.textContent = 'Prev';
     this.btnNext.textContent = 'Next';
     this.disabledBtns();

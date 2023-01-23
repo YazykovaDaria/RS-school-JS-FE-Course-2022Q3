@@ -28,3 +28,11 @@ export type StartStopCar = {
   velocity: number,
   distance: number
 };
+
+export type WinCarData = {
+  id: number,
+  name: string,
+  color: string,
+  speed: number,
+  wins: number,
+};

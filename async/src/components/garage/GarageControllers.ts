@@ -1,7 +1,7 @@
-import { getCars, createCar, updateCar } from '../../api/fetch';
+import { getCars, createCar, updateCar, createWinner, updateWinner, getWinner } from '../../api/fetch';
 import GarageForm from './GarageForm';
 import Pagination from '../Pagination';
-import { CreateCar, Cars } from '../../types/types';
+import { CreateCar, Cars, WinCarData, Winner } from '../../types/types';
 import CarCard from '../car/Car';
 import GarageContainer from './GarageContainer';
 import store from '../../store/store';
@@ -100,8 +100,7 @@ class GarageControllers {
     );
 
     const winnerCar = await Promise.race(res);
-
-    const carData = {
+    const carData: WinCarData = {
       id: winnerCar.car.id,
       name: winnerCar.car.name,
       color: winnerCar.car.color,
@@ -112,6 +111,8 @@ class GarageControllers {
     const popup = new Popup(carData.name, carData.speed);
     this.rootEl.append(popup.popupEl);
     setTimeout(() => popup.remove(), 5000);
+
+    await this.createUpdateWinner(carData);
   }
 
   private resetCars(): void {
@@ -122,6 +123,39 @@ class GarageControllers {
     Promise.all(allCarsToReset);
   }
 
+  private async createUpdateWinner(winnerCar: WinCarData): Promise<void> {
+    const carData = await getWinner(winnerCar.id);
+
+    if (carData) {
+      carData.wins += 1;
+      // eslint-disable-next-line no-param-reassign
+      winnerCar.wins = carData.wins;
+
+      await this.updateWinner(winnerCar);
+    } else {
+      await this.createWinner(winnerCar);
+    }
+  }
+
+  private async createWinner(winnerData: WinCarData): Promise<void> {
+    const winner = {
+      id: winnerData.id,
+      wins: 1,
+      time: winnerData.speed,
+    };
+
+    await createWinner(winner);
+  }
+
+  private async updateWinner(winnerData: WinCarData): Promise<void> {
+    const newWinner: Winner = {
+      id: winnerData.id,
+      wins: winnerData.wins,
+      time: winnerData.speed,
+    };
+
+    await updateWinner(winnerData.id, newWinner);
+  }
 
   private async generateRandomCars(): Promise<void> {
     for (let i = 0; i <= maxCarsGenerate; i -= -1) {

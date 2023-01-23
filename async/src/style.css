@@ -22,6 +22,10 @@ body {
   color: rgba(255, 255, 255, 0.87);
 }
 
+header {
+  margin: 1rem;
+}
+
 #app {
   display: flex;
   flex-direction: column;
@@ -36,7 +40,7 @@ body {
 }
 
 button {
-  background-color: rgba(196, 174, 53, 0.722);
+  background-color: rgba(71, 181, 168, 0.722);
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.2rem 0.5rem;
@@ -49,7 +53,7 @@ button {
 }
 button:hover {
   border-color: #646cff;
-  background-color: #185db7;
+  background-color: #51ae1c;
 }
 
 button:disabled{
@@ -99,6 +103,10 @@ input[type="text"] {
   gap: 1rem;
   justify-content: flex-start;
   align-items: center;
+}
+
+.btns.pagination {
+  margin: 1rem;
 }
 
 .car {
