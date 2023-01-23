@@ -84,6 +84,14 @@ input[type="text"] {
   color: #242424;
 }
 
+.row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  font-size: 1.5rem;
+}
+
 .garage-btns {
   display: flex;
   gap: 0.2rem;

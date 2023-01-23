@@ -2,7 +2,7 @@ import {
   Car, Cars, CreateCar, Winners, Winner, CreateWinner,
   StartStopCar,
 } from '../types/types';
-import { limitGarage } from '../common/constans';
+import { limitGarage, limitWinners } from '../common/constans';
 
 const baseUrl = 'http://127.0.0.1:3000';
 
@@ -112,7 +112,7 @@ export const getWinners = async (
   page = 1,
   sort = 'time',
   order = 'ASC',
-  limit = 10,
+  limit = limitWinners,
 ): Promise<{ winners: Winners; count: string } | null> => {
   try {
     const res = await fetch(
