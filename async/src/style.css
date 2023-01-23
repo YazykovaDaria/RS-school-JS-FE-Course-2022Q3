@@ -92,6 +92,27 @@ input[type="text"] {
   font-size: 1.5rem;
 }
 
+.row span {
+  width: 100px;
+}
+
+span.active {
+  color: rgb(38, 255, 0);
+}
+
+.js-sort:hover {
+  cursor: pointer;
+  background-color: rgb(209, 96, 20);
+  border-radius: 10%;
+  transition: 0.3s;
+}
+
+.row.panel {
+  background-color: rgb(23, 79, 132);
+  margin-top: 2rem;
+  padding: 0.3rem 0;
+}
+
 .garage-btns {
   display: flex;
   gap: 0.2rem;
