@@ -5,7 +5,7 @@ import { CreateCar, Cars, WinCarData, Winner } from '../../types/types';
 import CarCard from '../car/Car';
 import GarageContainer from './GarageContainer';
 import store from '../../store/store';
-import { limitGarage, carNames, maxCarsGenerate } from '../../common/constans';
+import { limitGarage, carNames, maxCarsGenerate, carModels } from '../../common/constans';
 import getRandomColor from '../../common/helpers';
 import Popup from '../Popup';
 
@@ -160,9 +160,11 @@ class GarageControllers {
   private async generateRandomCars(): Promise<void> {
     for (let i = 0; i <= maxCarsGenerate; i -= -1) {
       const randomName = carNames[Math.floor(Math.random() * carNames.length)];
+      const randomModel = carModels[Math.floor(Math.random() * carModels.length)];
+      const name = `${randomName} ${randomModel}`;
       // eslint-disable-next-line no-await-in-loop
       await this.createCar({
-        name: randomName,
+        name,
         color: getRandomColor(),
       });
     }

@@ -4,4 +4,6 @@ export const maxCarsGenerate = 100 as const;
 
 export const limitWinners = 10 as const;
 
-export const carNames = ['toyota xc11', 'bugattu veron', 'lada s-11', 'random yx100500', 'the best car', 'carver c-12', 'xz yx', 'vaz 12', 'i dont know', 'model 2', 'my car 1', 'dacha sedan', 'winners car', 'random 1', 'shewrole d-2', 'number 1'] as const;
+export const carNames = ['toyota', 'bugattu', 'lada', 'random', 'the best car', 'carver', 'xz', 'vaz', 'i dont know', 'model', 'my car', 'dacha', 'winners', 'random', 'shewrole', 'number'] as const;
+
+export const carModels = ['xz', 'cn-5', 'yx-4', '1', '#1', 'fn-3', 'cs-12', 'sedan', 'ff-9', 'nd-3', 'm-11', 'z-22'] as const;
