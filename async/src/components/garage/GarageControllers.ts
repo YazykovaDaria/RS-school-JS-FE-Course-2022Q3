@@ -4,7 +4,8 @@ import Pagination from '../Pagination';
 import { CreateCar, Cars } from '../../types/types';
 import GarageContainer from './GarageContainer';
 import store from '../../store/store';
-import { limitGarage } from '../../common/constans';
+import { limitGarage, carNames, maxCarsGenerate } from '../../common/constans';
+import getRandomColor from '../../common/helpers';
 
 const pageName = 'garage';
 
@@ -43,10 +44,10 @@ class GarageControllers {
     const controls = document.createElement('div');
     controls.classList.add('contrls');
     controls.innerHTML = `
-<div class="garage-btns">
-<button>Race</button>
-<button>Reset</button>
-<button>Generate cars</button>
+<div class="garage-btns js-btns">
+<button class="js-race">Race</button>
+<button class="js-reset">Reset</button>
+<button class="js-generate">Generate cars</button>
 </div>
 `;
     controls.prepend(this.updateForm.init());
@@ -54,6 +55,34 @@ class GarageControllers {
 
     this.rootEl.prepend(controls);
     this.rootEl.append(this.Pagination.rootEl);
+    this.attachEvents();
+  }
+
+  private attachEvents(): void {
+    const btnGenerate = this.rootEl.querySelector('.js-generate') as HTMLButtonElement;
+    const btnRace = this.rootEl.querySelector('.js-race') as HTMLButtonElement;
+    const btnReset = this.rootEl.querySelector('.js-reset') as HTMLButtonElement;
+
+    btnGenerate?.addEventListener('click', async () => {
+      btnGenerate.disabled = true;
+      btnRace.disabled = true;
+      await this.generateRandomCars();
+      btnGenerate.disabled = false;
+      btnRace.disabled = false;
+    });
+  }
+
+  private async generateRandomCars(): Promise<void> {
+    for (let i = 0; i <= maxCarsGenerate; i -= -1) {
+      const randomName = carNames[Math.floor(Math.random() * carNames.length)];
+
+      // eslint-disable-next-line no-await-in-loop
+      await this.createCar({
+        name: randomName,
+        color: getRandomColor(),
+      });
+    }
+    await this.updateCars();
   }
 
   async createCar(data: CreateCar) {
