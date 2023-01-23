@@ -4,9 +4,9 @@ import Pagination from '../Pagination';
 import { CreateCar, Cars } from '../../types/types';
 import GarageContainer from './GarageContainer';
 import store from '../../store/store';
+import { limitGarage } from '../../common/constans';
 
 const pageName = 'garage';
-const limit = 7;
 
 class GarageControllers {
   rootEl: HTMLElement;
@@ -26,7 +26,7 @@ class GarageControllers {
 
     this.Pagination = new Pagination(
       pageName,
-      limit,
+      limitGarage,
       Number(data.count),
       this.GarageContainer.garageEl,
       this.updateCars.bind(this),
@@ -68,6 +68,8 @@ class GarageControllers {
 
   async updateCars(): Promise<void> {
     const cars = await getCars(store.garage.currentPage);
+    console.log(cars);
+
     if (cars) {
       this.Pagination.updatePagination(Number(cars.count));
       this.GarageContainer.update(cars.cars);

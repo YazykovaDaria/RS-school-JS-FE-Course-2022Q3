@@ -43,7 +43,7 @@ class Pagination {
     this.rootEl.innerHTML = `
   <h2>${this.name.toUpperCase()}</h2>`;
     const { currentPage } = store[this.name];
-    this.titleEl.textContent = `Page № ${currentPage} (${this.count})`;
+    this.titleEl.textContent = `Page: ${currentPage}, ${this.name}: ${this.count}`;
     const btns = document.createElement('div');
     btns.classList.add('btns');
     this.btnPrev.textContent = 'Prev';
@@ -55,6 +55,22 @@ class Pagination {
     this.rootEl.append(this.titleEl);
     this.rootEl.append(this.nestedEl);
     this.rootEl.append(btns);
+
+    this.attachEvents();
+  }
+
+  private attachEvents():void {
+    this.btnPrev.addEventListener('click', () => {
+      store[this.name].currentPage -= 1;
+      this.disabledBtns();
+      this.callback();
+    })
+
+    this.btnNext.addEventListener('click', () => {
+      store[this.name].currentPage += 1;
+      this.disabledBtns();
+      this.callback();
+    })
   }
 
   disabledBtns() {
@@ -66,7 +82,7 @@ class Pagination {
   updatePagination(count: number) {
     this.count = count;
     const { currentPage } = store[this.name];
-    this.titleEl.textContent = `Page № ${currentPage} (${this.count})`;
+    this.titleEl.textContent = `Page: ${currentPage}, ${this.name}: ${this.count}`;
     this.disabledBtns();
   }
 }
