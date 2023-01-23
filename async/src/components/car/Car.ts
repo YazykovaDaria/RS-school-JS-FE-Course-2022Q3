@@ -105,7 +105,7 @@ class CarCard {
       this.speed = 0;
       this.carAnimation?.cancel();
       const imageCar = this.carEl.querySelector('.car-animate') as HTMLElement;
-      imageCar.style.left = `${carImageWidth}px`;
+      imageCar.style.left = '0px';
     }
   }
 
