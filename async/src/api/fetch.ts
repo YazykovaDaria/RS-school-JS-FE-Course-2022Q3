@@ -7,7 +7,9 @@ import { limitGarage } from '../common/constans';
 const baseUrl = 'http://127.0.0.1:3000';
 
 export const startStopEngineCar = async (
-  carId: number, status: string): Promise<{ status: number; result: StartStopCar }> => {
+  carId: number,
+  status: string,
+): Promise<{ status: number; result: StartStopCar }> => {
   try {
     const res = await fetch(`${baseUrl}/engine?id=${carId}&status=${status}`, { method: 'PATCH' });
     const result:StartStopCar = await res.json();

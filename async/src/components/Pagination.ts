@@ -64,13 +64,13 @@ class Pagination {
       store[this.name].currentPage -= 1;
       this.disabledBtns();
       this.callback();
-    })
+    });
 
     this.btnNext.addEventListener('click', () => {
       store[this.name].currentPage += 1;
       this.disabledBtns();
       this.callback();
-    })
+    });
   }
 
   disabledBtns() {

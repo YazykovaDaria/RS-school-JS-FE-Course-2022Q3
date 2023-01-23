@@ -19,7 +19,7 @@ class GarageControllers {
 
   createForm: GarageForm;
 
-  constructor(data: { cars: Cars; count: string } ) {
+  constructor(data: { cars: Cars; count: string }) {
     this.rootEl = document.createElement('div');
 
     this.GarageContainer = new GarageContainer(data.cars);
@@ -62,21 +62,17 @@ class GarageControllers {
   }
 
   async updateCar(data: CreateCar) {
-  await updateCar(store.garage.updateId, data);
-  await this.updateCars();
+    await updateCar(store.garage.updateId, data);
+    await this.updateCars();
   }
 
   async updateCars(): Promise<void> {
     const cars = await getCars(store.garage.currentPage);
-    console.log(cars);
-
     if (cars) {
       this.Pagination.updatePagination(Number(cars.count));
       this.GarageContainer.update(cars.cars);
     }
   }
-
-
 }
 
 export default GarageControllers;

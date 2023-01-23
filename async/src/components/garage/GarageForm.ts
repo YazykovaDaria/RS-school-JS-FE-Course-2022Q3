@@ -1,5 +1,4 @@
-import { CreateCar } from './../../types/types';
-import { createCar } from '../../api/fetch';
+import { CreateCar } from '../../types/types';
 import store from '../../store/store';
 
 class GarageForm {
@@ -54,7 +53,6 @@ class GarageForm {
       }
     });
   }
-
 }
 
 export default GarageForm;

@@ -1,7 +1,6 @@
-
 const winnersPage = (appEl: HTMLElement) => {
-
-  appEl.innerHTML = 'winners page'
+  // eslint-disable-next-line no-param-reassign
+  appEl.innerHTML = 'winners page';
 };
 
 export default winnersPage;

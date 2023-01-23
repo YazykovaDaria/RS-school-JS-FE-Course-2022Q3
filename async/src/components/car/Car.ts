@@ -74,7 +74,7 @@ class CarCard {
     const { id, name } = this.car;
 
     this.controlBtns.addEventListener('click', (e) => {
-      const target = e.target as HTMLElement
+      const target = e.target as HTMLElement;
       if (target.matches('.js-remove')) {
         deleteCar(id);
         deleteWinner(id);
@@ -85,8 +85,7 @@ class CarCard {
         const input = document.querySelector('.js-update') as HTMLInputElement;
         input.value = name;
       }
-    })
-
+    });
 
     this.startStopBtns.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;

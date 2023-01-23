@@ -1,7 +1,6 @@
 import { Cars } from '../../types/types';
 import CarCard from '../car/Car';
 
-
 class GarageContainer {
   garageEl: HTMLElement;
 
