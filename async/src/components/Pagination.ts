@@ -1,4 +1,5 @@
 import store from '../store/store';
+import { Store } from '../types/types';
 
 class Pagination {
   name: string;
@@ -42,7 +43,7 @@ class Pagination {
   render(): void {
     this.rootEl.innerHTML = `
   <h2>${this.name.toUpperCase()}</h2>`;
-    const { currentPage } = store[this.name];
+    const { currentPage } = store[this.name as keyof Store];
     this.titleEl.textContent = `Page: ${currentPage}, ${this.name}: ${this.count}`;
     const btns = document.createElement('div');
     btns.classList.add('btns', 'pagination');
@@ -61,27 +62,27 @@ class Pagination {
 
   private attachEvents():void {
     this.btnPrev.addEventListener('click', () => {
-      store[this.name].currentPage -= 1;
+      store[this.name as keyof Store].currentPage -= 1;
       this.disabledBtns();
       this.callback();
     });
 
     this.btnNext.addEventListener('click', () => {
-      store[this.name].currentPage += 1;
+      store[this.name as keyof Store].currentPage += 1;
       this.disabledBtns();
       this.callback();
     });
   }
 
   disabledBtns() {
-    const { currentPage } = store[this.name];
+    const { currentPage } = store[this.name as keyof Store];
     this.btnPrev.disabled = currentPage === 1;
     this.btnNext.disabled = currentPage > this.count / this.limit;
   }
 
   updatePagination(count: number) {
     this.count = count;
-    const { currentPage } = store[this.name];
+    const { currentPage } = store[this.name as keyof Store];
     this.titleEl.textContent = `Page: ${currentPage}, ${this.name}: ${this.count}`;
     this.disabledBtns();
   }

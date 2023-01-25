@@ -36,3 +36,17 @@ export type WinCarData = {
   speed: number,
   wins: number,
 };
+
+export type Store = {
+  garage: {
+    currentPage: number,
+    update: string,
+    updateId: number,
+    create: string,
+  },
+  winners: {
+    currentPage: number,
+    sort: string,
+    order: string,
+  },
+};

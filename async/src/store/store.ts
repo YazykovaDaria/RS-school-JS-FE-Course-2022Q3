@@ -1,20 +1,4 @@
-export type GarageStor = {
-  currentPage: number;
-  update: string;
-  updateId: number;
-  create: string;
-
-};
-
-type WinnersStor = {
-  currentPage: number,
-  sort: string,
-  order: string,
-};
-
-type Store = {
-  [key: string]: GarageStor | WinnersStor,
-};
+import { Store } from '../types/types';
 
 const store: Store = {
   garage: {
