@@ -1,5 +1,5 @@
-import { getCars, getWinners } from '../../api/fetch';
-import { Winners, Winners } from '../../types/types';
+import { getWinners } from '../../api/fetch';
+import { Winners } from '../../types/types';
 import WinnerCard from './WinnerCard';
 import store from '../../store/store';
 
@@ -56,32 +56,26 @@ class WinnerContainer {
     this.rootEl.addEventListener('click', (e) => {
       const target = e.target as HTMLElement;
       if (target.matches('.win-asc')) {
-        store.winners.sort = 'wins';
-        store.winners.order = 'ASC';
-        this.sortWinners();
+        this.sortWinners('wins', 'ASC');
         target.classList.add('active');
       } else if (target.matches('.win-desc')) {
-        store.winners.sort = 'wins';
-        store.winners.order = 'DESC';
-        this.sortWinners();
+        this.sortWinners('wins', 'DESC');
         target.classList.add('active');
       } else if (target.matches('.time-asc')) {
-        store.winners.sort = 'time';
-        store.winners.order = 'ASC';
-        this.sortWinners();
+        this.sortWinners('time', 'ASC');
         target.classList.add('active');
       } else if (target.matches('.time-desc')) {
-        store.winners.sort = 'time';
-        store.winners.order = 'DESC';
-        this.sortWinners();
+        this.sortWinners('time', 'DESC');
         target.classList.add('active');
       }
     });
   }
 
-  private async sortWinners() {
+  private async sortWinners(sort: string, order: string) {
+    store.winners.sort = sort;
+    store.winners.order = order;
     this.removeActiveSpan();
-    const { currentPage, sort, order } = store.winners;
+    const { currentPage } = store.winners;
     const data = await getWinners(currentPage, sort, order);
     if (data) {
       this.update(data?.winners);
