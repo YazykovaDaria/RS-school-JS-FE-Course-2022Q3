@@ -28,7 +28,7 @@ Deploy:
 
 Task: https://github.com/rolling-scopes-school/tasks/blob/master/tasks/async-race.md#cross-check
 
-Code: 
+Code: https://github.com/YazykovaDaria/RS-school-JS-FE-Course-2022Q3/tree/async-race/async
 
 Backend: https://github.com/mikhama/async-race-api
 
